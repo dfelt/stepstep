@@ -1,4 +1,6 @@
 
+UPGRADE_COST_MULTIPLIER = 1.1;
+
 Upgrade = Backbone.Model.extend({
 	defaults: {
 		locked: true,
