@@ -1,0 +1,18 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="edu.cornell.stepometer" version="0.2.10">
+    <js-module src="www/stepometer.js" name="Stepometer">
+    </js-module>
+	
+	<platform name="android">
+	    <config-file target="config.xml" parent="/*">
+	        <feature name="Stepometer">
+	            <param name="android-package" value="edu.cornell.stepometer.Stepometer"/>
+	        </feature>
+	    </config-file>
+        <source-file src="src/android/edu/cornell/stepometer/Stepometer.java"
+            target-dir="src/edu/cornell/stepometer" />
+        <source-file src="src/android/edu/cornell/stepometer/StepDetector.java"
+            target-dir="src/edu/cornell/stepometer" />
+        <source-file src="src/android/edu/cornell/stepometer/StepListener.java"
+            target-dir="src/edu/cornell/stepometer" />
+	</platform>
+</plugin>

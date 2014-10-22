@@ -29,13 +29,16 @@ c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\res\d
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\_where-is-www.txt \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\cordova \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\cordova.js \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\cordova_plugins.js \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\css \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\img \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\index.html \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\js \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\plugins \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\test.html \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\cordova\plugins \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\css\images \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\css\index.css \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\css\jquery.mobile-1.4.4.min.css \
@@ -252,4 +255,7 @@ c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\js\j
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\js\underscore.js \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\js\upgrade.js \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\js\util.js \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\plugins\edu.cornell.stepometer \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\plugins\edu.cornell.stepometer\www \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\assets\www\plugins\edu.cornell.stepometer\www\stepometer.js \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\AndroidManifest.xml \

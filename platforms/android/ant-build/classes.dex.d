@@ -1,4 +1,10 @@
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes.dex : \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\pedometer\Pedometer.class \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\pedometer\StepDetector.class \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\pedometer\StepListener.class \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepometer\StepDetector.class \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepometer\StepListener.class \
+c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepometer\Stepometer.class \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepstep\BuildConfig.class \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepstep\R$attr.class \
 c:\Users\davfe_000\Programming\mobile\stepstep\platforms\android\ant-build\classes\edu\cornell\stepstep\R$drawable.class \
