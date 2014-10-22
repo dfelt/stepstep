@@ -25,12 +25,11 @@ Upgrade = Backbone.Model.extend({
 });
 
 UpgradeView = Backbone.View.extend({
-	tagName: 'div',
+	tagName: 'li',
 	className: 'upgrade',
 	
-	template: _.template($('#upgrade-tpl').html()),
-	
 	initialize: function(options) {
+		this.$el.html($('#upgrade-tpl').html()).attr('data-icon', 'false');
 		this.model.on('change', this.render, this);
 		this.render();
 	},
@@ -38,7 +37,8 @@ UpgradeView = Backbone.View.extend({
 	render: function() {
 		this.$el.toggleClass('locked', this.model.get('locked'));
 		this.$el.toggleClass('affordable', this.model.get('affordable'));
-		this.$el.html(this.template(this.model.attributes));
+		Util.render(this.$el, this.model.attributes);
+		this.$('img').attr('src', this.model.get('image'));
 		return this;
 	},
 });

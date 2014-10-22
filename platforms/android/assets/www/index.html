@@ -1,52 +1,13 @@
 <html>
 <head>
 	<title>StepStep</title>
-	<style>
-		#step-button { width: 100%; height: 100px; }
-		#save-game, #reset-game { width: 49%; height: 20px; }
-		
-		.tpl { display: none }
-		
-		.upgrade { border: 1px solid black; background-color: #aaa }
-		.upgrade.locked { display: none }
-		.upgrade:hover { background-color: #777 }
-		.upgrade.affordable { background-color: orange }
-		.upgrade.affordable:hover { background-color: yellow }
-		
-		.achievement { border: 1px solid black }
-		.achievement.locked { display: none }
-	</style>
-</head>
-<body>
-	<div id="counter">
-		<p><span id="stepstep-count">0</span> StepSteps</p>
-		<p><span id="ssps">0</span> StepSteps per Step</p>
-		<p><span id="sspt">0</span> StepSteps per Second</p>
-		<button id="step-button">Step</button>
-		<br/>
-		<button id="save-game">Save</button>
-		<button id="reset-game">Reset</button>
-	</div>
-	<h2>Upgrades</h2>
-	<div id="upgrades-list"></div>
-	<h2>Achievements</h2>
-	<div id="achievements-list"></div>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
 	
-	<div id="upgrade-tpl" class="tpl">
-		<p>{{ name }}</p>
-		<p>{{ description }}</p>
-		<p>Cost: {{ cost }}</p>
-		<p>Effect: +{{ effect }} SSPS</p>
-		<p>Count: {{ count }}</p>
-	</div>
-	
-	<div id="achievement-tpl" class="tpl">
-		<p>{{ name }}</p>
-		<p>{{ description }}</p>
-		<p>Effect: +{{ Math.round((multiplier-1) * 100) }}% SSPS</p>
-	</div>
+    <script src="cordova.js"></script>
 	
 	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/jquery.mobile-1.4.4.min.js"></script>
 	<script src="js/underscore.js"></script>
 	<script>
 		// Use {{ field }} rather than <%= field %> in templates.
@@ -54,26 +15,50 @@
 			interpolate: /\{\{(.+?)\}\}/g
 		};
 	</script>
-    <script src="cordova.js"></script>
 	<script src="js/backbone.js"></script>
+</head>
+<body>
+	<div data-role="page" id="home">
+		<div id="counter">
+			<p><span id="stepstep-count">0</span> StepSteps</p>
+			<p><span id="ssps">0</span> StepSteps per Step</p>
+			<p><span id="sspt">0</span> StepSteps per Second</p>
+			<button id="step-button">Step</button>
+			<br/>
+			<!--
+			<button id="save-game">Save</button>
+			<button id="reset-game">Reset</button>
+			-->
+		</div>
+		<ul id="upgrades-list" data-role="listview" data-inset="true">
+			<li data-role="list-divider">Upgrades</li>
+		</ul>
+		<ul id="achievements-list" data-role="listview" data-inset="true">
+			<li data-role="list-divider">Achievements</li>
+		</ul>
+		
+		<div id="upgrade-tpl" class="tpl">
+			<a href="#">
+				<img>
+				<span class="name"></span>
+				<p class="description"></p>
+				Cost: <span class="cost"></span>
+				<span class="count ui-li-count"></span>
+			</a>
+		</div>
+		
+		<div id="achievement-tpl" class="tpl">
+			<span class="name"></span>
+			<p class="description"></p>
+			Effect: +<span class="mult"></span>% SSPS
+		</div>
+	</div>
+	
+	<script src="js/util.js"></script>
 	<script src="js/counter.js"></script>
 	<script src="js/upgrade.js"></script>
 	<script src="js/achievement.js"></script>
 	<script src="js/game.js"></script>
-	<script>
-
-		$(function() {
-			new GameView({ model: loadGame(), el: $('body') });
-		});
-		
-		function loadGame() {
-			try {
-				var data = JSON.parse(localStorage.game);
-				if (data) { return Game.fromSaveJSON(data) }
-			} catch (e) { }
-			return new Game();
-		}
-
-	</script>
+	<script src="js/index.js"></script>
 </body>
 </html>
