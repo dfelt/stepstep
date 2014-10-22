@@ -1,64 +1,68 @@
 <html>
-<head>
-	<title>StepStep</title>
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
-	
-    <script src="cordova.js"></script>
-	
-	<script src="js/jquery-2.1.1.js"></script>
-	<script src="js/jquery.mobile-1.4.4.min.js"></script>
-	<script src="js/underscore.js"></script>
-	<script>
-		// Use {{ field }} rather than <%= field %> in templates.
-		_.templateSettings = {
-			interpolate: /\{\{(.+?)\}\}/g
-		};
-	</script>
-	<script src="js/backbone.js"></script>
-</head>
-<body>
-	<div data-role="page" id="home">
-		<div id="counter">
-			<p><span id="stepstep-count">0</span> StepSteps</p>
-			<p><span id="ssps">0</span> StepSteps per Step</p>
-			<p><span id="sspt">0</span> StepSteps per Second</p>
-			<button id="step-button">Step</button>
-			<br/>
-			<!--
-			<button id="save-game">Save</button>
-			<button id="reset-game">Reset</button>
-			-->
-		</div>
-		<ul id="upgrades-list" data-role="listview" data-inset="true">
-			<li data-role="list-divider">Upgrades</li>
-		</ul>
-		<ul id="achievements-list" data-role="listview" data-inset="true">
-			<li data-role="list-divider">Achievements</li>
-		</ul>
-		
-		<div id="upgrade-tpl" class="tpl">
-			<a href="#">
-				<img>
-				<span class="name"></span>
-				<p class="description"></p>
-				Cost: <span class="cost"></span>
-				<span class="count ui-li-count"></span>
-			</a>
-		</div>
-		
-		<div id="achievement-tpl" class="tpl">
-			<span class="name"></span>
-			<p class="description"></p>
-			Effect: +<span class="mult"></span>% SSPS
-		</div>
-	</div>
-	
-	<script src="js/util.js"></script>
-	<script src="js/counter.js"></script>
-	<script src="js/upgrade.js"></script>
-	<script src="js/achievement.js"></script>
-	<script src="js/game.js"></script>
-	<script src="js/index.js"></script>
-</body>
+    <head>
+        <title>StepStep</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+
+        <script src="cordova.js"></script>
+
+        <script src="js/jquery-2.1.1.js"></script>
+        <script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script src="js/underscore.js"></script>
+        <script>
+            // Use {{ field }} rather than <%= field %> in templates.
+            _.templateSettings = {
+                interpolate: /\{\{(.+?)\}\}/g
+            };
+        </script>
+        <script src="js/backbone.js"></script>
+    </head>
+    <body>
+        <div id="background"></div>
+        <div data-role="page" id="home">
+            <div id="content">
+                <div id="counter">
+                    <h2 id="stepstep-count">0</h2>
+                    <p id="stepstep-label">STEPSTEPS</p>
+                    <p id="stepstepstep"><span id="ssps">0</span> StepSteps / Step</p>
+                    <p id="stepstepsecond"><span id="sspt">0</span> StepSteps / Second</p>
+                    <img id="step-button" src="css/images/footprint.png" alt="footprint">
+                    <br/>
+                    <!--
+<button id="save-game">Save</button>
+<button id="reset-game">Reset</button>
+-->
+                </div>
+                <ul id="upgrades-list" data-role="listview" data-inset="true">
+                    <li data-role="list-divider">Upgrades</li>
+                </ul>
+                <ul id="achievements-list" data-role="listview" data-inset="true">
+                    <li data-role="list-divider">Achievements</li>
+                </ul>
+
+                <div id="upgrade-tpl" class="tpl">
+                    <a href="#">
+                        <img>
+                        <span class="name"></span>
+                        <p class="description"></p>
+                        Cost: <span class="cost"></span>
+                        <span class="count ui-li-count"></span>
+                    </a>
+                </div>
+
+                <div id="achievement-tpl" class="tpl">
+                    <span class="name"></span>
+                    <p class="description"></p>
+                    Effect: +<span class="mult"></span>% StepSteps per Step
+                </div>
+            </div>
+        </div>
+
+        <script src="js/util.js"></script>
+        <script src="js/counter.js"></script>
+        <script src="js/upgrade.js"></script>
+        <script src="js/achievement.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/index.js"></script>
+    </body>
 </html>

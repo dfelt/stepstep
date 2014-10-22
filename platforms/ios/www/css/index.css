@@ -1,10 +1,10 @@
 @font-face {
-    font-family: Avenir;
-    src: url(avenir.ttc);
+    font-family: AvenirNext;
+    src: url("Avenir Next.ttc");
 }
 
 body {
-    font-family: "Avenir Next" !important;
+    font-family: "Avenir Next", Roboto !important;
     font-weight: 100;
 }
 

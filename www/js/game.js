@@ -6,46 +6,46 @@ UPGRADES = [
 		image: "css/images/trail.png",
 		baseCost: 5,
 		effect: 1,
-		idle: 0.1,
+		idle: 0,
 		unlockAt: 0,
 		locked: false,
 	}, {
 		name: 'Steamroller',
-		description: 'Add 5 StepSteps per step',
+		description: 'Add 3 StepSteps per step',
 		image: "css/images/steamroller.png",
 		baseCost: 20,
-		effect: 5,
-		idle: 1,
-		unlockAt: 10
+		effect: 3,
+		idle: 0,
+		unlockAt: 5
 	}, {
 		name: 'Walka Walka',
-		description: 'Add 5 StepSteps per step',
+		description: 'Add 1 StepSteps per second',
 		image: "css/images/walkawalka.png",
 		baseCost: 40,
-		effect: 5,
+		effect: 0,
 		idle: 1,
-		unlockAt: 30
+		unlockAt: 20
 	}
 ];
 
 ACHIEVEMENTS = [
 	{
 		name: 'The Locomotor',
-		description: 'Well done!',
-		multiplier: 1,
+		description: 'Get 10 StepSteps.',
+		multiplier: 1.01,
 		unlockType: 'ss',
 		unlockValue: 10,
 	},
 	{
 		name: 'The Jaywalker',
-		description: 'Well done!',
-		multiplier: 1.05,
+		description: 'Get 30 total StepSteps.',
+		multiplier: 1.02,
 		unlockType: 'totalSs',
 		unlockValue: 30,
 	},
 	{
 		name: 'The Psycho Path',
-		description: 'You actually got off the couch!',
+		description: 'Walk 60 steps.',
 		multiplier: 1.05,
 		unlockType: 'steps',
 		unlockValue: 60,
@@ -105,9 +105,7 @@ Game = Backbone.Model.extend({
 GameView = Backbone.View.extend({
 	events: {
 		'tap #step-button': 'step',
-		'click .upgrade': 'buyUpgrade',
-		'click #save-game': 'save',
-		'click #reset-game': 'reset',
+		'tap .upgrade': 'buyUpgrade',
 	},
 	
 	initialize: function(options) {

@@ -6,7 +6,6 @@ var app = {
     },
 	
 	initializeGame: function() {
-		console.log('pagebeforecreate');
 		app.game = new GameView({ model: app.loadGame(), el: $('#home') });
 		app.stepSubscribe();
 	},
@@ -20,14 +19,11 @@ var app = {
 	},
 	
 	onDeviceReady: function() {
-		console.log('deviceready');
 		app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
 		app.stepSubscribe();
 	},
 	
 	stepSubscribe: function() {
-		console.log('GAME: ' + app.game);
-		console.log('STEP: ' + app.stepometer);
 		if (app.game && app.stepometer) {
 			app.stepometer.subscribe(function() {
 				console.log('***** step ******');

@@ -20,12 +20,6 @@ CounterView = Backbone.View.extend({
 	},
 	
 	formatNumber: function(n) {
-		var iPart = Math.floor(n);
-		var fPart = (n % 1);
-		if (iPart.toString().length >= 4)
-			return n.toPrecision(4);
-		if (fPart < 0.1)
-			return n.toFixed(0);
-		return n.toFixed(1);
+		return Math.floor(n).toString();
 	},
 });
