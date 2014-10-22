@@ -1,46 +1,54 @@
 
 UPGRADES = [
 	{
-		name: 'Baby\'s first step',
+		name: 'Trailblazer',
 		description: 'Add 1 StepStep per step',
-		image: "http://demos.jquerymobile.com/1.4.4/_assets/img/album-bb.jpg",
+		image: "css/images/trail.png",
 		baseCost: 5,
 		effect: 1,
 		idle: 0.1,
 		unlockAt: 0,
 		locked: false,
 	}, {
-		name: 'Upgrade 2',
+		name: 'Steamroller',
 		description: 'Add 5 StepSteps per step',
-		image: "http://demos.jquerymobile.com/1.4.4/_assets/img/album-bb.jpg",
-		baseCost: 50,
+		image: "css/images/steamroller.png",
+		baseCost: 20,
 		effect: 5,
 		idle: 1,
 		unlockAt: 10
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 5 StepSteps per step',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 5,
+		idle: 1,
+		unlockAt: 30
 	}
 ];
 
 ACHIEVEMENTS = [
 	{
-		name: 'Baby\'s first achievement',
+		name: 'The Locomotor',
 		description: 'Well done!',
 		multiplier: 1,
 		unlockType: 'ss',
 		unlockValue: 10,
 	},
 	{
-		name: 'Baby\'s second achievement',
+		name: 'The Jaywalker',
 		description: 'Well done!',
 		multiplier: 1.05,
 		unlockType: 'totalSs',
-		unlockValue: 100,
+		unlockValue: 30,
 	},
 	{
-		name: 'Actually moving',
+		name: 'The Psycho Path',
 		description: 'You actually got off the couch!',
 		multiplier: 1.05,
 		unlockType: 'steps',
-		unlockValue: 15,
+		unlockValue: 60,
 	},
 ];
 		
