@@ -9,6 +9,7 @@
         <script src="js/jquery-2.1.1.js"></script>
         <script src="js/jquery.mobile-1.4.4.min.js"></script>
         <script src="js/underscore.js"></script>
+        <script src="js/ui.js"></script>
         <script>
             // Use {{ field }} rather than <%= field %> in templates.
             _.templateSettings = {
@@ -18,7 +19,6 @@
         <script src="js/backbone.js"></script>
     </head>
     <body>
-        <div id="background"></div>
         <div data-role="page" id="home">
             <div id="content">
                 <div id="counter">
@@ -34,7 +34,7 @@
 -->
                 </div>
                 <ul id="upgrades-list" data-role="listview" data-inset="true">
-                    <li data-role="list-divider">Upgrades</li>
+                    <li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
                 </ul>
                 <ul id="achievements-list" data-role="listview" data-inset="true">
                     <li data-role="list-divider">Achievements</li>

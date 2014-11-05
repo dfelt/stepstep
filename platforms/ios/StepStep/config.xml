@@ -28,4 +28,40 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <gap:config-file overwrite="true" parent="UILaunchImages" platform="ios">
+        <array>
+            <dict>
+                <string>Default-480h</string>
+                <string>Portrait</string>
+                <string>{320, 480}</string>
+                <string>8.0</string>
+                <string>Default-568h</string>
+                <string>Portrait</string>
+                <string>{320, 568}</string>
+                <string>8.0</string>
+                <string>Default-667h</string>
+                <string>Portrait</string>
+                <string>{375, 667}</string>
+                <string>8.0</string>
+                <string>Default-736h</string>
+                <string>Portrait</string>
+                <string>{414, 736}</string>
+                <string>8.0</string>
+                <string>Default-1024h</string>
+                <string>Portrait</string>
+                <string>{768, 1024}</string>
+                <key>UILaunchImageMinimumOSVersion</key>
+                <string>8.0</string>
+                <key>UILaunchImageName</key>
+                <string>Default-2048h</string>
+                <key>UILaunchImageOrientation</key>
+                <string>Portrait</string>
+                <key>UILaunchImageSize</key>
+                <string>{1536, 2048}</string>
+            </dict>
+        </array>
+    </gap:config-file>
+    <gap:splash gap:platform="ios" height="1334" src="res/screen/ios/screen-iphone-portrait-667h@2x.png" width="750" />
+    <gap:splash gap:platform="ios" height="2208" src="res/screen/ios/screen-iphone-portrait-736h@3x.png" width="1242" />
+    <preference name="DisallowOverscroll" value="true" />
 </widget>

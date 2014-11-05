@@ -5,12 +5,26 @@
 
 body {
     font-family: "Avenir Next", Roboto !important;
+    -webkit-user-select: none;
     font-weight: 100;
 }
 
 #step-button { 
     width: 50%;
-    margin: 0 25% 2rem 25%;
+    margin: 1rem 25% 2rem 25%;
+    display: inline-block;
+}
+
+.tapped {
+    -webkit-animation: bounce .55s;
+}
+
+@-webkit-keyframes bounce {
+  0% { -webkit-transform: scale(1.0); opacity: 1 }
+  40% { -webkit-transform: scale(1.2); opacity: 1; }
+  60% { -webkit-transform: scale(0.90); opacity: 1 }
+  80% { -webkit-transform: scale(0.95); }
+  100% { -webkit-transform: scale(1); }
 }
 #save-game, #reset-game { width: 49%; height: 20px; }
 
@@ -38,16 +52,14 @@ li.achievement.locked { display: none }
 }
 
 #home {
-    background: url(images/iOS8-blurred.jpg);
+    background: url(images/sky-blurred.jpg);
     background-repeat: no-repeat !important;
     background-size: cover;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 #background {
-    background: url(images/iOS8-blurred.jpg);
-    background-repeat: no-repeat !important;
-    background-size: cover;
-    height: 100vh;
     /*-webkit-filter: blur(10px);*/
     
 }
@@ -75,6 +87,16 @@ p {
     text-align: center;
 }
 
+
+
+#upgrades-text {
+    font-size: 14px;
+    margin: 0;
+    color: gray;
+    mix-blend-mode: normal;
+}
+
+
 #upgrades-list {
     width: 95%;
     margin: 0 2.5% 1rem 2.5%;
@@ -84,17 +106,28 @@ p {
 #upgrades-list li {
     background-color: rgba(255, 255, 255, 0.5);
     text-shadow: none;
-    color: rgba(92, 57, 100, 0.7);
     font-weight: 400;
     border: none;
+    mix-blend-mode: normal;
+}
+
+
+.ui-button-active {
+    background-image: none !important;
+    background-color: black !important;
+}
+
+.ui-btn {
+    color: #535353 !important;
 }
 
 #achievements-list li {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
     text-shadow: none;
-    color: rgba(92, 57, 100, 0.7);
     font-weight: 400;
     border: none;
+    color: gray;
+    mix-blend-mode: normal;
 }
 
 #achievements-list {
@@ -144,3 +177,5 @@ p {
 }
 
 
+#content {
+}
