@@ -19,6 +19,13 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="Pedometer">
+        <param name="ios-package" value="Pedometer" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
     <name>StepStep</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

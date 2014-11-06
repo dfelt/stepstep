@@ -4,9 +4,6 @@
     <feature name="Pedometer">
         <param name="android-package" value="edu.cornell.stepometer.Stepometer" />
     </feature>
-    <feature name="Stepometer">
-        <param name="android-package" value="edu.cornell.stepometer.Stepometer" />
-    </feature>
     <name>StepStep</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

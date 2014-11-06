@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -39,6 +38,9 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F8F44E8D19FB4123003F6DF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F44E8C19FB4123003F6DF4 /* Images.xcassets */; };
+		8F064BDEAF2C431B99AD6568 /* Pedometer.m in Sources */ = {isa = PBXBuildFile; fileRef = E14A270EB5924B399F8F540B /* Pedometer.m */; };
+		403F7BDD6FDB49379BFF2F3B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92047040C4A946C2A930E134 /* CoreMotion.framework */; };
+		B8C90218D3CF4B4A929E93B2 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 193BE18E5ABD49E38768564C /* CDVLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,11 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = StepStep/config.xml; sourceTree = "<group>"; };
 		F8F44E8C19FB4123003F6DF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = StepStep/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		E14A270EB5924B399F8F540B /* Pedometer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Pedometer.m"; path = "uk.co.ilee.pedometer/Pedometer.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BEB177F66D6B4D15B4EDFA7B /* Pedometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Pedometer.h"; path = "uk.co.ilee.pedometer/Pedometer.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		92047040C4A946C2A930E134 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreMotion.framework"; path = "System/Library/Frameworks/CoreMotion.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		193BE18E5ABD49E38768564C /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C2E022D5FB1A44A4B5E2D9DC /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +121,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				403F7BDD6FDB49379BFF2F3B /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +215,7 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				92047040C4A946C2A930E134 /* CoreMotion.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,6 +231,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				E14A270EB5924B399F8F540B /* Pedometer.m */,
+				BEB177F66D6B4D15B4EDFA7B /* Pedometer.h */,
+				193BE18E5ABD49E38768564C /* CDVLogger.m */,
+				C2E022D5FB1A44A4B5E2D9DC /* CDVLogger.h */,
 			);
 			name = Plugins;
 			path = StepStep/Plugins;
@@ -417,6 +430,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				8F064BDEAF2C431B99AD6568 /* Pedometer.m in Sources */,
+				B8C90218D3CF4B4A929E93B2 /* CDVLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

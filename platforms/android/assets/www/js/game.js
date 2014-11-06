@@ -125,12 +125,13 @@ GameView = Backbone.View.extend({
 		setInterval(_.bind(this.idleUpdate, this), 1000);
 	},
 	
-	step: function() {
-		var ssps = this.model.get('ssps');
+	step: function(nSteps) {
+		nSteps = nSteps | 1;
+		var ss = nSteps * this.model.get('ssps');
 		this.model.set({
 			ss:      this.model.get('ss') + ssps,
-			totalSs: this.model.get('totalSs') + ssps,
-			steps:   this.model.get('steps') + 1,
+			totalSs: this.model.get('totalSs') + ss,
+			steps:   this.model.get('steps') + nSteps,
 		});
 	},
 	
