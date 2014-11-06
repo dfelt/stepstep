@@ -16,7 +16,7 @@ body {
 }
 
 .tapped {
-    -webkit-animation: bounce .25s;
+    -webkit-animation: bounce .55s;
 }
 
 @-webkit-keyframes bounce {

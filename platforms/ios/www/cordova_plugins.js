@@ -8,7 +8,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.device-motion": "0.2.10",
     "edu.cornell.stepometer": "0.2.10"
 }
 // BOTTOM OF METADATA
