@@ -60,7 +60,7 @@ Game = Backbone.Model.extend({
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),
-		lastOpened: +new Date(),
+		lastStepUpdate: +new Date(),
 	},
 	
 	initialize: function() {
@@ -120,6 +120,8 @@ GameView = Backbone.View.extend({
 		this.model.achievements.each(function(a) {
 			new AchievementView({ model: a }).$el.appendTo('#achievements-list');
 		});
+
+        this.tryGetStepHistory();
 		
 		this.model.on('change', this.tryUnlocks, this);
 		
@@ -133,6 +135,7 @@ GameView = Backbone.View.extend({
 			ss:      this.model.get('ss') + ss,
 			totalSs: this.model.get('totalSs') + ss,
 			steps:   this.model.get('steps') + n,
+            lastStepUpdate: +new Date(),
 		});
 	},
 	
@@ -145,6 +148,7 @@ GameView = Backbone.View.extend({
 			totalSs: this.model.get('totalSs') + sspt,
 			lastIdleUpdate: now,
 		});
+        this.tryGetStepHistory();
 	},
 	
 	buyUpgrade: function(event) {
@@ -190,4 +194,22 @@ GameView = Backbone.View.extend({
 		this.model.achievements.each(function(a) { a.set(a.defaults) });
 		this.model.set(this.model.defaults);
 	},
+
+    tryGetStepHistory: function() {
+        var minutesSinceLastStep = (new Date() - this.model.get('lastStepUpdate')) / (1000*60*60);
+        if (minutesSinceLastStep >= 60 && window.pedometer) {
+            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'),
+                _.bind(this.onQueryPedometerDataFromDate, this),
+                function(err) { alert('Error:' + err); });
+        }
+    },
+
+    onQueryPedometerDataFromDate: function(pedometerData) {
+        var n = pedometerData.numberOfSteps;
+        if (n > 0) {
+            var ss = n * this.model.get('ssps');
+            alert("Welcome back! You\'ve stepped " + n + ' times since you were gone, earning you ' + ss + ' StepSteps.');
+            this.step(n);
+        }
+    },
 });

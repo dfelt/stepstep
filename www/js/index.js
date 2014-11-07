@@ -34,9 +34,8 @@ var app = {
 
 	onStepCountingAvailable: function(available) {
 		if (available) {
-			var oneWeekAgo = new Date();
-			oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-			app.pedometer.queryPedometerDataFromDate(+oneWeekAgo, app.onStep, app.onError);
+            var lastOpened = app.game.model.get('lastOpened');
+            app.pedometer.startPedometerUpdates(app.onStep, app.onError);
 			app.prevPedometerData = {
 				numberOfSteps: 0,
 				distance: 0,
@@ -44,7 +43,7 @@ var app = {
 				floorsAscended: 0,
 			};
 		} else {
-			app.onError(arguments);
+            alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
 	},
 

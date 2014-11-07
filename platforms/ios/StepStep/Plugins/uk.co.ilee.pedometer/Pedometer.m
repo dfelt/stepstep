@@ -76,6 +76,7 @@
     double time = timeStr.doubleValue / 1000;
     NSDate* from = [NSDate dateWithTimeIntervalSince1970:time];
     NSDate* to = [NSDate date];
+    NSLog(@"From %@ to %@", [from description], [to description]);
 
     [self.pedometer queryPedometerDataFromDate: from toDate: to withHandler: ^(CMPedometerData *pedometerData, NSError *error)
     {
