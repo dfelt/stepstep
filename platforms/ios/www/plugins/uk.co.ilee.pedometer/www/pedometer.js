@@ -25,6 +25,10 @@ Pedometer.prototype.stopPedometerUpdates = function (onSuccess, onError) {
     exec(onSuccess, onError, "Pedometer", "stopPedometerUpdates", []);
 };
 
+Pedometer.prototype.queryPedometerDataFromDate = function (date, onSuccess, onError) {
+    exec(onSuccess, onError, "Pedometer", "queryPedometerDataFromDate", [date]);
+};
+
 module.exports = new Pedometer();
 
 });

@@ -60,6 +60,7 @@ Game = Backbone.Model.extend({
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),
+		lastOpened: +new Date(),
 	},
 	
 	initialize: function() {
