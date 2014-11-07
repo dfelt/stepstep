@@ -10,12 +10,6 @@
         <script src="js/jquery.mobile-1.4.4.min.js"></script>
         <script src="js/underscore.js"></script>
         <script src="js/ui.js"></script>
-        <script>
-            // Use {{ field }} rather than <%= field %> in templates.
-            _.templateSettings = {
-                interpolate: /\{\{(.+?)\}\}/g
-            };
-        </script>
         <script src="js/backbone.js"></script>
     </head>
     <body>
@@ -28,12 +22,8 @@
                     <p id="stepstepsecond"><span id="sspt">0</span> StepSteps / Second</p>
                     <img id="step-button" src="css/images/footprint.png" alt="footprint">
                     <br/>
-                    <!--
-<button id="save-game">Save</button>
-<button id="reset-game">Reset</button>
--->
                 </div>
-                <ul id="upgrades-list" data-role="listview" data-inset="true">
+                <!--<ul id="upgrades-list" data-role="listview" data-inset="true">
                     <li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
                 </ul>
                 <ul id="achievements-list" data-role="listview" data-inset="true">
@@ -54,6 +44,14 @@
                     <span class="name"></span>
                     <p class="description"></p>
                     Effect: +<span class="mult"></span>% StepSteps per Step
+                </div>-->
+                <div>
+                    <ul id="tab-bar">
+                        <li><img class="tab-icon" id="power-walk" src="css/images/PowerWalk.png" alt="footprint"></li>
+                        <li><img class="tab-icon" id="auto-walk" src="css/images/AutoWalk.png" alt="footprint"></li>
+                        <li><img class="tab-icon" id="achievements" src="css/images/Achievements.png" alt="footprint"></li>
+                        <li><img class="tab-icon" id="stats" src="css/images/Stats.png" alt="footprint"></li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ body {
 }
 
 .tapped {
-    -webkit-animation: bounce .55s;
+    -webkit-animation: bounce .25s;
 }
 
 @-webkit-keyframes bounce {
@@ -73,8 +73,6 @@ p {
     text-shadow: none;
     color: white;
 }
-
-
 
 
 #stepstepstep {
@@ -178,4 +176,46 @@ p {
 
 
 #content {
+}
+
+#tab-bar {
+    background-color: rgba(255,255,255, 0.3);
+    height: 49px;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+
+#tab-bar li {
+    display: inline-block;
+    text-align: center;
+    margin: 5px 0;
+    width: 24%;
+}
+
+.tab-icon {
+
+}
+
+#power-walk {
+    width: 50px;
+    height: 31px;
+}
+
+#auto-walk {
+    width: 46px;
+    height: 38px;
+}
+
+#achievements {
+    width: 65px;
+    height: 38px;
+}
+
+#stats {
+    width: 36px;
+    height: 38px;
 }
