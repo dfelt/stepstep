@@ -4,12 +4,12 @@ var app = {
 		$('#home').on('pagebeforecreate', app.initializeGame);
 		document.addEventListener('deviceready', app.onDeviceReady, false);
 	},
-	
+
 	initializeGame: function() {
 		app.game = new GameView({ model: app.loadGame(), el: $('#home') });
 		app.stepSubscribe();
 	},
-		
+
 	loadGame: function() {
 		try {
 			var data = JSON.parse(localStorage.game);
@@ -17,13 +17,13 @@ var app = {
 		} catch (e) { }
 		return new Game();
 	},
-	
+
 	onDeviceReady: function() {
 		//app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
 		app.pedometer = pedometer;
 		app.stepSubscribe();
 	},
-	
+
 	stepSubscribe: function() {
 		if (app.game && app.stepometer) {
 			app.stepometer.subscribe(function() { app.game.step(1); });
@@ -34,7 +34,8 @@ var app = {
 
 	onStepCountingAvailable: function(available) {
 		if (available) {
-			app.pedometer.startPedometerUpdates(app.onStep, app.onError);
+            var lastOpened = app.game.model.get('lastOpened');
+            app.pedometer.startPedometerUpdates(app.onStep, app.onError);
 			app.prevPedometerData = {
 				numberOfSteps: 0,
 				distance: 0,
@@ -42,7 +43,7 @@ var app = {
 				floorsAscended: 0,
 			};
 		} else {
-			app.onError(arguments);
+            alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
 	},
 
