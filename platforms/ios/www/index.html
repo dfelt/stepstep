@@ -18,33 +18,64 @@
                 <div id="counter">
                     <h2 id="stepstep-count">0</h2>
                     <p id="stepstep-label">STEPSTEPS</p>
-                    <p id="stepstepstep"><span id="ssps">0</span> StepSteps / Step</p>
-                    <p id="stepstepsecond"><span id="sspt">0</span> StepSteps / Second</p>
+
                     <img id="step-button" src="css/images/footprint.png" alt="footprint">
+                    <p id="stepstepstep"><img id="powerwalk-main" src="css/images/PowerWalk-main.png"><span id="ssps">0</span> StepSteps / Step</p>
+                    <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span id="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
                 <!--<ul id="upgrades-list" data-role="listview" data-inset="true">
-                    <li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
-                </ul>
-                <ul id="achievements-list" data-role="listview" data-inset="true">
-                    <li data-role="list-divider">Achievements</li>
-                </ul>
+<li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
+</ul>
+<ul id="achievements-list" data-role="listview" data-inset="true">
+<li data-role="list-divider">Achievements</li>
+</ul>
 
-                <div id="upgrade-tpl" class="tpl">
-                    <a href="#">
-                        <img>
-                        <span class="name"></span>
-                        <p class="description"></p>
-                        Cost: <span class="cost"></span>
-                        <span class="count ui-li-count"></span>
-                    </a>
+<div id="upgrade-tpl" class="tpl">
+<a href="#">
+<img>
+<span class="name"></span>
+<p class="description"></p>
+Cost: <span class="cost"></span>
+<span class="count ui-li-count"></span>
+</a>
+</div>
+
+<div id="achievement-tpl" class="tpl">
+<span class="name"></span>
+<p class="description"></p>
+Effect: +<span class="mult"></span>% StepSteps per Step
+</div>-->
+
+                <div id="autowalk-panel">
+                    <ul id="upgrades-list" data-role="listview" data-inset="true">
+                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                    </ul>
+
+                    <div id="upgrade-tpl" class="tpl">
+                        <a href="#">
+                            <img>
+                            <span class="name"></span>
+                            <p class="description"></p>
+                            Cost: <span class="cost"></span>
+                            <span class="count ui-li-count"></span>
+                        </a>
+                    </div>
                 </div>
 
-                <div id="achievement-tpl" class="tpl">
-                    <span class="name"></span>
-                    <p class="description"></p>
-                    Effect: +<span class="mult"></span>% StepSteps per Step
-                </div>-->
+                <div id="achievements-panel">
+                    <ul id="achievements-list" data-role="listview" data-inset="true">
+                        <li id="achievements-header" data-position="fixed" data-role="list-divider"><p id="achievements-text">Achievements</p></li>
+                    </ul>
+
+                    <div id="achievement-tpl" class="tpl">
+                        <span class="name"></span>
+                        <p class="description"></p>
+                        Effect: +<span class="mult"></span>% StepSteps per Step
+                    </div>
+                </div>
+
+
                 <div>
                     <ul id="tab-bar">
                         <li><img class="tab-icon" id="power-walk" src="css/images/PowerWalk.png" alt="footprint"></li>

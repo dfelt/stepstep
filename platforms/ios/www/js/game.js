@@ -25,6 +25,46 @@ UPGRADES = [
 		effect: 0,
 		idle: 1,
 		unlockAt: 20
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 1 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 0,
+		idle: 1,
+		unlockAt: 20
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 1 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 0,
+		idle: 1,
+		unlockAt: 20
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 1 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 0,
+		idle: 1,
+		unlockAt: 20
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 1 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 0,
+		idle: 1,
+		unlockAt: 20
+	}, {
+		name: 'Walka Walka',
+		description: 'Add 1 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 40,
+		effect: 0,
+		idle: 1,
+		unlockAt: 20
 	}
 ];
 

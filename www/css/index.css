@@ -11,21 +11,11 @@ body {
 
 #step-button { 
     width: 50%;
-    margin: 1rem 25% 2rem 25%;
+    margin: 3rem 25% 2rem 25%;
     display: inline-block;
 }
 
-.tapped {
-    -webkit-animation: bounce .25s;
-}
 
-@-webkit-keyframes bounce {
-  0% { -webkit-transform: scale(1.0); opacity: 1 }
-  40% { -webkit-transform: scale(1.2); opacity: 1; }
-  60% { -webkit-transform: scale(0.90); opacity: 1 }
-  80% { -webkit-transform: scale(0.95); }
-  100% { -webkit-transform: scale(1); }
-}
 #save-game, #reset-game { width: 49%; height: 20px; }
 
 .tpl { display: none }
@@ -36,10 +26,22 @@ li.achievement.locked { display: none }
     font-size: 60pt;
     font-weight: 100;
     text-align: center;
-    margin: 2rem 0 0 0;
+    margin: 4rem 0 0 0;
     letter-spacing: -4pt;
     text-shadow: none !important;
     color: white;
+}
+
+@media (max-width: 320px) {
+    #stepstep-count {
+        font-size: 60pt;
+        font-weight: 100;
+        text-align: center;
+        margin: 1rem 0 0 0;
+        letter-spacing: -4pt;
+        text-shadow: none !important;
+        color: white;
+    }
 }
 
 #stepstep-label {
@@ -52,16 +54,17 @@ li.achievement.locked { display: none }
 }
 
 #home {
-    background: url(images/sky-blurred.jpg);
+    background: url(images/Background.png);
     background-repeat: no-repeat !important;
     background-size: cover;
     height: 100%;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
 #background {
     /*-webkit-filter: blur(10px);*/
-    
+
 }
 
 #ssps {
@@ -78,27 +81,42 @@ p {
 #stepstepstep {
     margin: 1rem 0 0 0;
     text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    opacity: .85;
 }
 
 #stepstepsecond {
-    margin: 0 0 1rem 0;
+    margin: .5rem 0 1rem 0;
     text-align: center;
+    font-size: 15.6px;
+    opacity: 0.85;
+    font-weight: 400;
 }
 
 
 
 #upgrades-text {
-    font-size: 14px;
+    text-align: center;
+    font-size: 16px;
     margin: 0;
-    color: gray;
+    color: #e6e6e6;
     mix-blend-mode: normal;
 }
 
 
 #upgrades-list {
+    float: left;
     width: 95%;
-    margin: 0 2.5% 1rem 2.5%;
-    border: none;
+    margin: 0 2.5% 0 2.5%;
+    height: 60%;
+    position: fixed;
+    left: 0;
+    bottom: -60%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0, 0, 0, 0.46);
+    border-radius: 5px;
 }
 
 #upgrades-list li {
@@ -129,8 +147,17 @@ p {
 }
 
 #achievements-list {
+    float: left;
     width: 95%;
-    margin: 0 2.5% 3rem 2.5%;
+    margin: 0 2.5% 0 2.5%;
+    height: 60%;
+    position: fixed;
+    left: 0;
+    bottom: -60%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0, 0, 0, 0.46);
+    border-radius: 5px;
 }
 
 
@@ -141,7 +168,7 @@ p {
 }
 
 .upgrade a {
-    background-color: rgba(255,255,255,0.7) !important;
+    background-color: rgba(255,255,255,0.8) !important;
     font-family: "Avenir Next" !important;
     font-weight: 400 !important;
     border: none !important;
@@ -218,4 +245,127 @@ p {
 #stats {
     width: 36px;
     height: 38px;
+}
+
+#powerwalk-main {
+    display: block;
+    margin: 0 auto .2rem auto;
+    width: 63px;
+    height: 20px;
+}
+
+#autowalk-main {
+    display: block;
+    margin: 0 auto .2rem auto;
+    width: 34px;
+    height: 25px;
+}
+
+.tapped {
+    -webkit-animation: bounce .25s;
+}
+
+.fadeout {
+    -webkit-animation: fadeOut .4s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.fadein {
+    -webkit-animation: fadeIn .4s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.moveup {
+    -webkit-transform: translate(0px,-115%);
+    -webkit-transition: .3s ease-in-out;
+    /*-webkit-animation: moveUp .5s;*/
+    -webkit-animation-fill-mode: forwards;
+}
+
+.movedown {
+    -webkit-transform: translate(0px,114.7%);
+    -webkit-transition: .3s ease-in-out;
+    /*-webkit-animation: moveDown .5s;*/
+    -webkit-animation-fill-mode: forwards;
+}
+
+@media (max-width: 320px) {
+    .moveup {
+        -webkit-transform: translate(0px,-118%);
+        -webkit-transition: .3s ease-in-out;
+        /*-webkit-animation: moveUp .5s;*/
+        -webkit-animation-fill-mode: forwards;
+    }
+
+    .movedown {
+        -webkit-transform: translate(0px,116.7%);
+        -webkit-transition: .3s ease-in-out;
+        /*-webkit-animation: moveDown .5s;*/
+        -webkit-animation-fill-mode: forwards;
+    }
+
+}
+
+@-webkit-keyframes bounce {
+    0% { -webkit-transform: scale(1.0); opacity: 1 }
+    40% { -webkit-transform: scale(1.2); opacity: 1; }
+    60% { -webkit-transform: scale(0.90); opacity: 1 }
+    80% { -webkit-transform: scale(0.95); }
+    100% { -webkit-transform: scale(1); }
+}
+
+@-webkit-keyframes fadeOut {
+    0% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1) }
+    35% { -webkit-filter: opacity(0) blur(0px); }
+    100% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(0) }
+}
+
+@-webkit-keyframes fadeIn {
+    0% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(0) }
+    35% { -webkit-filter: opacity(0) blur(0px); }
+    100% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1)}
+}
+
+@-webkit-keyframes moveUp {
+    0% { bottom: -60%; opacity: 0 }
+    40% { opacity: 0; }
+    100% { bottom: 9%; opacity: 1 }
+}
+
+@-webkit-keyframes moveDown {
+    0% { bottom: 9%; opacity: 1; }
+    40% { opacity: 0 }
+    100% { bottom: -60%; opacity: 0;}
+}
+
+/*#autowalk-panel {
+float: left;
+width: 95%;
+margin: 0 2.5% 0 2.5%;
+height: 60%;
+position: fixed;
+left: 0;
+bottom: -60%;
+overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
+border-radius: 5px;
+background-color: rgba(0, 0, 0, 0.49);
+
+}*/
+
+
+#upgrade-header {
+    position: sticky !important;
+}
+
+#achievements-text {
+    text-align: center;
+    font-size: 16px;
+    margin: 0;
+    color: #e6e6e6;
+    mix-blend-mode: normal;
+}
+
+#achievements-header {
+    background-color: rgba(199, 161, 0, 0.88) !important;
 }
