@@ -19,7 +19,5 @@ CounterView = Backbone.View.extend({
 		return this;
 	},
 	
-	formatNumber: function(n) {
-		return Math.floor(n).toString();
-	},
+	formatNumber: Util.numberToStringWithCommas,
 });
