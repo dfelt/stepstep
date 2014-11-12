@@ -335,9 +335,9 @@ $(document).ready(function() {
 
         jQuery(".congratulations").removeClass("fadeout2");
         jQuery(".congratulations").show().addClass("fadein2");
-
-
+        
     });
+    
 
     jQuery("#upgrade-tpl", function(e) {
         e.stopPropagation();

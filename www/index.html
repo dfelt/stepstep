@@ -11,6 +11,8 @@
         <script src="js/underscore.min.js"></script>
         <script src="js/backbone.min.js"></script>
         <script src="js/Chart.min.js"></script>
+        
+        
     </head>
     <body>
 
@@ -95,15 +97,16 @@ Effect: +<span class="mult"></span>% StepSteps per Step
 
                 <div id="stats-panel">
                     <h2 id="stats-header">Stats</h2>
+                    <canvas id="canvas"></canvas>
                 </div>
 
 
-                
+
                 <div class="congratulations">
                     <!--<div id="congratulations-blur"></div>-->
-                    
+
                     <h2 id="congratulations-header">Congratulations! You got</h2>
-                    
+
                     <span class="name" id="congrats-name">The Locomotor</span>
                     <p class="description" id="congrats-description"></p>
                     Effect: +<span class="mult" id="congrats-mult"></span>% StepSteps per Step
@@ -122,8 +125,8 @@ Effect: +<span class="mult"></span>% StepSteps per Step
                 </div>
             </div>
         </div>
+
         
-        <canvas id="canvas" height="900" width="900" style="display:none">
 
         <script src="js/ui.js"></script>
         <script src="js/util.js"></script>
