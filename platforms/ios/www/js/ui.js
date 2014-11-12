@@ -214,6 +214,8 @@ $(document).ready(function() {
     jQuery("#stats").on("tap", function(e){
         e.stopPropagation();
 
+        app.trigger('update-stats');
+
         if (tabActive === true && statsActive === true) {
 
             heroAnimateIn();
@@ -337,11 +339,5 @@ $(document).ready(function() {
         jQuery(".congratulations").show().addClass("fadein2");
         
     });
-    
-
-    jQuery("#upgrade-tpl", function(e) {
-        e.stopPropagation();
-    });
-
 
 });

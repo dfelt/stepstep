@@ -272,6 +272,7 @@ GameView = Backbone.View.extend({
 	initialize: function(options) {
 		// Global event pump, used for interfacing with UI
 		this.gameEvents = options.gameEvents;
+		this.gameEvents.on('update-stats', this.updateStepChart, this);
 
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
@@ -375,6 +376,15 @@ GameView = Backbone.View.extend({
 		this.model.passives.each(function(u) { u.set(u.defaults); });
 		this.model.achievements.each(function(a) { a.set(a.defaults); });
 		this.model.set(this.model.defaults);
+	},
+
+	updateStepChart: function() {
+		if (window.pedometer) {
+			if (!this.chart) {
+				this.chart = new StepChart($('#canvas')[0]);
+			}
+			Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), console.log);
+		}
 	},
 
     tryGetStepHistory: function() {
