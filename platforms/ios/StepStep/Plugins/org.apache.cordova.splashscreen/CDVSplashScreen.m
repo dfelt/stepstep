@@ -94,6 +94,8 @@
     id showSplashScreenSpinnerValue = [self.commandDelegate.settings objectForKey:[@"ShowSplashScreenSpinner" lowercaseString]];
     // backwards compatibility - if key is missing, default to true
     if (showSplashScreenSpinnerValue == nil) {
+        
+        
         [parentView addSubview:_activityView];
     }
 

@@ -442,7 +442,7 @@ background-color: rgba(0, 0, 0, 0.49);
 #stats-header {
     color: white;
     text-decoration: none;
-    font-weight: 100;
+    font-weight: 400;
     text-shadow: none;
     text-align: center;
     margin: 1rem 0;
@@ -540,7 +540,9 @@ z-index: -1;
 }
 
 #canvas {
-
+    width: 100% !important;
+    max-width: 800px;
+    height: auto !important;
 }
 
 html {

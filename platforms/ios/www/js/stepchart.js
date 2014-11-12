@@ -11,17 +11,23 @@ StepChart.prototype.update = function(data) {
 			{
 				label: "My First dataset",
 				fillColor : "rgba(220,220,220,0.2)",
-				strokeColor : "rgba(220,220,220,1)",
-				pointColor : "rgba(220,220,220,1)",
+				strokeColor : "rgb(255, 255, 255)",
+				pointColor : "rgb(255, 255, 255)",
 				pointStrokeColor : "#fff",
 				pointHighlightFill : "#fff",
-				pointHighlightStroke : "rgba(220,220,220,1)",
+				pointHighlightStroke : "rgb(255, 255, 255)",
 				data : data.reverse()
 			}
 		]
 	};
+    
 	this.chart.Line(lineChartData, {
+        padding: 50,
 		responsive: true,
-		scaleFontSize: 20
+		scaleFontSize: 14,
+        scaleFontColor: "white",
+        scaleFontFamily:"'Avenir Next'",
+        scaleGridLineColor : "rgba(250, 250, 250, 0.05)",
+        scaleLineColor: "rgba(255,255,255,1)"
 	});
 };
