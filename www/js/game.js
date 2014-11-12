@@ -115,6 +115,9 @@ GameView = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		// Global event pump, used for interfacing with UI
+		this.gameEvents = options.gameEvents;
+
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
 		this.model.upgrades.each(function(u) {
@@ -193,10 +196,12 @@ GameView = Backbone.View.extend({
 	},
 	
 	unlockAchievements: function() {
+		var gameEvents = this.gameEvents;
 		var values = this.model.attributes;
 		this.model.achievements.each(function(a) {
-			if (values[a.get('unlockType')] >= a.get('unlockValue')) {
+			if (a.get('locked') && values[a.get('unlockType')] >= a.get('unlockValue')) {
 				a.set('locked', false);
+				gameEvents.trigger('achievement-unlocked', a.attributes);
 			}
 		});
 	},

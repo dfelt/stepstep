@@ -1,12 +1,13 @@
 
 var app = {
 	initialize: function() {
+		_.extend(app, Backbone.Events);
 		$('#home').on('pagebeforecreate', app.initializeGame);
 		document.addEventListener('deviceready', app.onDeviceReady, false);
 	},
 
 	initializeGame: function() {
-		app.game = new GameView({ model: app.loadGame(), el: $('#home') });
+		app.game = new GameView({ model: app.loadGame(), el: $('#home'), gameEvents: app });
 		app.stepSubscribe();
 	},
 
