@@ -2,9 +2,11 @@ var tabActive = false;
 var achievementsActive = false;
 var autowalkActive = false;
 var powerwalkActive = false;
+var statsActive = false;
 
 $(document).ready(function() {
 
+    //Tap outside of modals to slide them back down.
     jQuery("#content").on("tap", function(e) {
         var achievementsList = jQuery("#achievements-list");
         var autowalkList = jQuery("#upgrades-list");
@@ -15,6 +17,8 @@ $(document).ready(function() {
                 heroAnimateIn();
                 jQuery("#upgrades-list").addClass("movedown");
                 jQuery("#achievements-list").addClass("movedown");
+                jQuery("#power-upgrades-list").addClass("movedown");
+                jQuery("#stats-panel").addClass("movedown");
 
 
                 tabActive = false;
@@ -80,7 +84,8 @@ $(document).ready(function() {
 
         } else if (tabActive === true && powerwalkActive === false) {
             jQuery("#achievements-list").addClass("movedown");
-            jQuery("#upgrades-list").removeClass("movedown");
+            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#stats-panel").addClass("movedown");
             jQuery("#power-upgrades-list").removeClass("movedown");
             jQuery("#power-upgrades-list").addClass("moveup");
 
@@ -88,6 +93,7 @@ $(document).ready(function() {
             powerwalkActive = true;
             achievementsActive = false;
             autowalkActive = false;
+            statsActive = false;
         }
 
         else {
@@ -100,6 +106,7 @@ $(document).ready(function() {
             powerwalkActive = true;
             achievementsActive = false;
             autowalkActive = false;
+            statsActive = false;
         }
     });
     
@@ -120,12 +127,15 @@ $(document).ready(function() {
         } else if (tabActive === true && autowalkActive === false) {
             jQuery("#achievements-list").addClass("movedown");
             jQuery("#power-upgrades-list").addClass("movedown");
+            jQuery("#stats-panel").addClass("movedown");
             jQuery("#upgrades-list").removeClass("movedown");
             jQuery("#upgrades-list").addClass("moveup");
 
             tabActive = true;
             autowalkActive = true;
             achievementsActive = false;
+            powerwalkActive = false;
+            statsActive = false;
         }
 
         else {
@@ -137,6 +147,8 @@ $(document).ready(function() {
             tabActive = true;
             autowalkActive = true;
             achievementsActive = false;
+            powerwalkActive = false;
+            statsActive = false;
         }
     });
 
@@ -154,12 +166,16 @@ $(document).ready(function() {
 
         } else if (tabActive === true && achievementsActive === false) {
             jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#power-upgrades-list").addClass("movedown");
+            jQuery("#stats-panel").addClass("movedown");
             jQuery("#achievements-list").removeClass("movedown");
             jQuery("#achievements-list").addClass("moveup");
 
             tabActive = true;
             achievementsActive = true;
             autowalkActive = false;
+            powerwalkActive = false;
+            statsActive = false;
         } else {
 
             heroAnimateOut();
@@ -169,8 +185,48 @@ $(document).ready(function() {
             tabActive = true;
             achievementsActive = true;
             autowalkActive = false;
+            powerwalkActive = false;
+            statsActive = false;
         }
     });
+    
+    jQuery("#stats").on("tap", function(e){
+        e.stopPropagation();
+
+        if (tabActive === true && statsActive === true) {
+
+            heroAnimateIn();
+            jQuery("#stats-panel").addClass("movedown");
+
+            tabActive = false;
+            statsActive = false;
+
+        } else if (tabActive === true && statsActive === false) {
+            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#power-upgrades-list").addClass("movedown");
+            jQuery("#achievements-list").addClass("movedown");
+            jQuery("#stats-panel").removeClass("movedown");
+            jQuery("#stats-panel").addClass("moveup");
+
+            tabActive = true;
+            statsActive = true;
+            autowalkActive = false;
+            powerwalkActive = false;
+            achievementsActive = false;
+        } else {
+
+            heroAnimateOut();
+            jQuery("#stats-panel").removeClass("movedown");
+            jQuery("#stats-panel").addClass("moveup");
+
+            tabActive = true;
+            statsActive = true;
+            autowalkActive = false;
+            powerwalkActive = false;
+            achievementsActive = false;
+        }
+    });
+
 
 
 

@@ -8,9 +8,9 @@
 
         <script src="js/jquery-2.1.1.js"></script>
         <script src="js/jquery.mobile-1.4.4.min.js"></script>
-        <script src="js/underscore.js"></script>
+        <script src="js/underscore.min.js"></script>
         <script src="js/ui.js"></script>
-        <script src="js/backbone.js"></script>
+        <script src="js/backbone.min.js"></script>
     </head>
     <body>
         <div data-role="page" id="home">
@@ -47,9 +47,25 @@ Cost: <span class="cost"></span>
 Effect: +<span class="mult"></span>% StepSteps per Step
 </div>-->
 
+                <div id="powerwalk-panel">
+                    <ul id="power-upgrades-list" data-role="listview" data-inset="true">
+                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                    </ul>
+
+                    <div id="upgrade-tpl" class="tpl">
+                        <a href="#">
+                            <img>
+                            <span class="name"></span>
+                            <p class="description"></p>
+                            Cost: <span class="cost"></span>
+                            <span class="count ui-li-count"></span>
+                        </a>
+                    </div>
+                </div>
+                
                 <div id="autowalk-panel">
                     <ul id="upgrades-list" data-role="listview" data-inset="true">
-                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span id="ssps">0</span> SS/Second.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
@@ -73,6 +89,11 @@ Effect: +<span class="mult"></span>% StepSteps per Step
                         <p class="description"></p>
                         Effect: +<span class="mult"></span>% StepSteps per Step
                     </div>
+                </div>
+                
+                
+                <div id="stats-panel">
+                    <h2 id="stats-header">Stats</h2>
                 </div>
 
 
