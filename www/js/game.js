@@ -112,6 +112,7 @@ GameView = Backbone.View.extend({
 	events: {
 		'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
+		'tap #stepstep-count': 'reset',
 	},
 	
 	initialize: function(options) {
@@ -150,6 +151,7 @@ GameView = Backbone.View.extend({
 			steps:   this.model.get('steps') + n,
             lastStepUpdate: +new Date(),
 		});
+		this.gameEvents.trigger('step', nSteps);
 	},
 	
 	idleUpdate: function() {
@@ -162,6 +164,7 @@ GameView = Backbone.View.extend({
 			lastIdleUpdate: now,
 		});
         this.tryGetStepHistory();
+        this.save();
 	},
 	
 	buyUpgrade: function(event) {
@@ -180,16 +183,19 @@ GameView = Backbone.View.extend({
 	},
 	
 	unlockUpgrades: function() {
+		var gameEvents = this.gameEvents;
 		var ss = this.model.get('ss');
 		this.model.upgrades.each(function(u) {
-			if (ss >= u.get('unlockAt')) {
+			if (u.get('locked') && ss >= u.get('unlockAt')) {
 				u.set('locked', false);
+				gameEvents.trigger('upgrade-unlocked', u.attributes);
 			}
 			u.set('affordable', ss >= u.get('cost'));
 		});
 		this.model.passives.each(function(u) {
-			if (ss >= u.get('unlockAt')) {
+			if (u.get('locked') && ss >= u.get('unlockAt')) {
 				u.set('locked', false);
+				gameEvents.trigger('passive-unlocked', u.attributes);
 			}
 			u.set('affordable', ss >= u.get('cost'));
 		});
