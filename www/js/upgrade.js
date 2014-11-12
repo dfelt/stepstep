@@ -1,5 +1,5 @@
 
-UPGRADE_COST_MULTIPLIER = 1.1;
+UPGRADE_COST_MULTIPLIER = 1.2;
 
 Upgrade = Backbone.Model.extend({
 	defaults: {

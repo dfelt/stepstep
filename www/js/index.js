@@ -22,6 +22,7 @@ var app = {
 		//app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
 		app.pedometer = pedometer;
 		app.stepSubscribe();
+		StepChart.updateFromPedometer(app.pedometer);
 	},
 
 	stepSubscribe: function() {
@@ -52,7 +53,6 @@ var app = {
 		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
 	},
-	
 
 	onError: function() {
 		console.log('Error occurred');

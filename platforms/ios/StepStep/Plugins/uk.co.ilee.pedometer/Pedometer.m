@@ -80,7 +80,7 @@
     NSDate* to        = [NSDate dateWithTimeIntervalSince1970:toTime];
     NSLog(@"From %@ to %@", [from description], [to description]);
 
-    [self.pedometer queryPedometerDataFromDate: from toDate: to withHandler: ^(CMPedometerData *pedometerData, NSError *error)
+    [self.pedometer queryPedometerDataFromDate:from toDate:to withHandler:^(CMPedometerData *pedometerData, NSError *error)
     {
          dispatch_async(dispatch_get_main_queue(), ^{
              CDVPluginResult* pluginResult = nil;
