@@ -295,5 +295,26 @@ $(document).ready(function() {
             jQuery(this).attr("src", "css/images/Stats.png")
         }
     });
+    
+    
+    jQuery("#close").on("tap", function() {
+        jQuery(".congratulations").addClass("fadeout2");
+    });
+    
+    
+    app.on("achievement-unlocked", function(a) {
+        var name = a.name;
+        var description = a.description;
+        var multiplier = a.multiplier;
+        
+        jQuery(".congratulations").addClass("fadein2");
+        
+        console.log(name);
+        
+        
+        
+        
+    });
+    
 
 });

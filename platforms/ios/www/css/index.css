@@ -60,6 +60,7 @@ li.achievement.locked { }
     height: 100%;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 #background {
@@ -270,9 +271,23 @@ p {
     -webkit-animation-fill-mode: forwards;
 }
 
+.fadeout2 {
+    -webkit-animation: fadeOutAchievement 1s;
+    -webkit-animation-fill-mode: forwards;
+    display: none;
+}
+
 .fadein {
     -webkit-animation: fadeIn .4s;
     -webkit-animation-fill-mode: forwards;
+    
+}
+
+.fadein2 {
+    -webkit-transform: translateY(-50%);
+    -webkit-animation: fadeInAchievement 1s;
+    -webkit-animation-fill-mode: forwards;
+    
 }
 
 .moveup {
@@ -325,6 +340,25 @@ p {
     35% { -webkit-filter: opacity(0) blur(0px); }
     100% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1)}
 }
+
+@-webkit-keyframes fadeInAchievement {
+    0% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(0) translate3d(0,-50%,0) }
+    65% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(0) translate3d(0,-50%,0) }
+    80% { -webkit-transform: scale(1.05) translate3d(0,-50%,0) }
+    90% { -webkit-transform: scale (.95) translate3d(0,-50%,0) }
+    100% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1) translate3d(0,-50%,0)}
+}
+
+@-webkit-keyframes fadeOutAchievement {
+    0% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1) translate3d(0,-50%,0)}
+    35% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(1.02) translate3d(0,-50%,0) }
+    100% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(1.05) translate3d(0,-50%,0) }
+    
+    
+    
+    
+}
+
 
 @-webkit-keyframes moveUp {
     0% { bottom: -60%; opacity: 0 }
@@ -427,19 +461,25 @@ background-color: rgba(0, 0, 0, 0.49);
     border-radius: 5px;
 }
 
-#congratulations {
+#congratulation-blur {
+    -webkit-filter: blur(3px);
+}
+
+.congratulations {
+    float: left;
     position: absolute;
     top: 50%;
     width: 90%;
-    -webkit-transform: translateY(-50%);
     margin: 0 5% 0 5%;
     color: white;
     text-decoration: none;
     text-shadow: none;
     text-align: center;
-    background-color: rgba(54, 54, 54, 0.94);
+    background-color: rgba(54, 54, 54, 0.98);
     font-weight: 100 !important;
     border-radius: 5pt;
+    z-index: 1000000;
+    -webkit-transform: translate3d(0,-50%,0);
 }
 
 #congratulations-header {
@@ -463,12 +503,11 @@ background-color: rgba(0, 0, 0, 0.49);
 }
 
 
-
 #close {
     font-size: 18pt;
     margin: 0;
     padding: 0.8rem;
-    border-top: .5px solid white;
+    border-top: 1px solid #717070;
 }
 
 #close:active {
@@ -476,3 +515,19 @@ background-color: rgba(0, 0, 0, 0.49);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+/*#congratulations-blur {
+    float: left;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    text-align: center;
+    font-weight: 100 !important;
+    border-radius: 5pt;
+    z-index: -1;
+}*/

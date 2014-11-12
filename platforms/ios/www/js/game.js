@@ -112,6 +112,7 @@ GameView = Backbone.View.extend({
 	events: {
 		'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
+		'tap #stepstep-count': 'reset',
 	},
 	
 	initialize: function(options) {
@@ -162,6 +163,7 @@ GameView = Backbone.View.extend({
 			lastIdleUpdate: now,
 		});
         this.tryGetStepHistory();
+        this.save();
 	},
 	
 	buyUpgrade: function(event) {
