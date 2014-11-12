@@ -72,10 +72,12 @@
 {
     if (!self.pedometer) self.pedometer = [[CMPedometer alloc] init];
     
-    NSString* timeStr = [command.arguments objectAtIndex:0 withDefault:@"0"];
-    double time = timeStr.doubleValue / 1000;
-    NSDate* from = [NSDate dateWithTimeIntervalSince1970:time];
-    NSDate* to = [NSDate date];
+    NSString* fromStr = [command.arguments objectAtIndex:0 withDefault:@"0"];
+    NSString* toStr   = [command.arguments objectAtIndex:1 withDefault:@"0"];
+    double fromTime   = fromStr.doubleValue / 1000;
+    double toTime     = toStr.doubleValue / 1000;
+    NSDate* from      = [NSDate dateWithTimeIntervalSince1970:fromTime];
+    NSDate* to        = [NSDate dateWithTimeIntervalSince1970:toTime];
     NSLog(@"From %@ to %@", [from description], [to description]);
 
     [self.pedometer queryPedometerDataFromDate: from toDate: to withHandler: ^(CMPedometerData *pedometerData, NSError *error)

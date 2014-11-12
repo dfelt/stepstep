@@ -9,7 +9,7 @@
 #import "Pedometer.h"
 
 @interface Pedometer ()
-    @property (nonatomic, strong) CMPedometer *pedometer;
+@property (nonatomic, strong) CMPedometer *pedometer;
 @end
 
 @implementation Pedometer
@@ -34,12 +34,12 @@
 
 - (void) startPedometerUpdates:(CDVInvokedUrlCommand*)command;
 {
-    self.pedometer = [[CMPedometer alloc] init];
-
-    __block CDVPluginResult* pluginResult = nil;
-
+    if (!self.pedometer) self.pedometer = [[CMPedometer alloc] init];
+    
     [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *pedometerData, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            CDVPluginResult* pluginResult = nil;
+            
             if (error)
             {
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
@@ -47,15 +47,15 @@
             else
             {
                 NSDictionary* pedestrianData = @{
-                    @"numberOfSteps": pedometerData.numberOfSteps,
-                    @"distance": pedometerData.distance,
-                    @"floorsAscended": pedometerData.floorsAscended,
-                    @"floorsDescended": pedometerData.floorsDescended
-                };
+                                                 @"numberOfSteps": pedometerData.numberOfSteps,
+                                                 @"distance": pedometerData.distance,
+                                                 @"floorsAscended": pedometerData.floorsAscended,
+                                                 @"floorsDescended": pedometerData.floorsDescended
+                                                 };
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:pedestrianData];
                 [pluginResult setKeepCallbackAsBool:true];
             }
-
+            
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         });
     }];
@@ -66,6 +66,45 @@
     [self.pedometer stopPedometerUpdates];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void) queryPedometerDataFromDate:(CDVInvokedUrlCommand*)command;
+{
+    if (!self.pedometer) self.pedometer = [[CMPedometer alloc] init];
+    
+    NSString* fromStr = [command.arguments objectAtIndex:0 withDefault:@"0"];
+    NSString* toStr   = [command.arguments objectAtIndex:1 withDefault:@"0"];
+    double fromTime   = fromStr.doubleValue / 1000;
+    double toTime     = toStr.doubleValue / 1000;
+    NSDate* from      = [NSDate dateWithTimeIntervalSince1970:fromTime];
+    NSDate* to        = [NSDate dateWithTimeIntervalSince1970:toTime];
+    NSLog(@"From %@ to %@", [from description], [to description]);
+    
+    [self.pedometer queryPedometerDataFromDate: from toDate: to withHandler: ^(CMPedometerData *pedometerData, NSError *error)
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             CDVPluginResult* pluginResult = nil;
+             
+             if (error)
+             {
+                 NSLog(@"%@\n", [error localizedDescription]);
+                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:[error localizedDescription]];
+             }
+             else
+             {
+                 NSDictionary* pedestrianData = @{
+                                                  @"numberOfSteps": pedometerData.numberOfSteps,
+                                                  @"distance": pedometerData.distance,
+                                                  @"floorsAscended": pedometerData.floorsAscended,
+                                                  @"floorsDescended": pedometerData.floorsDescended
+                                                  };
+                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:pedestrianData];
+                 [pluginResult setKeepCallbackAsBool:true];
+             }
+             
+             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+         });
+     }];
 }
 
 @end
