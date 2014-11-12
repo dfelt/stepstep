@@ -83,7 +83,7 @@ ACTIVE_UPGRADES = [
 		image:"css/images/steamroller.png",
 		baseCost:200000000,
 		effect:80000,
-		unlockAt:100000000}
+		unlockAt:100000000
 	},
 ];
 
