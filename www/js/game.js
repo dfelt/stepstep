@@ -1,12 +1,11 @@
 
-UPGRADES = [
+ACTIVE_UPGRADES = [
 	{
 		name: 'Trailblazer',
 		description: 'Add 1 StepStep per step',
 		image: "css/images/trail.png",
 		baseCost: 5,
 		effect: 1,
-		idle: 0,
 		unlockAt: 0,
 		locked: false,
 	}, {
@@ -15,57 +14,19 @@ UPGRADES = [
 		image: "css/images/steamroller.png",
 		baseCost: 20,
 		effect: 3,
-		idle: 0,
 		unlockAt: 5
-	}, {
+	},
+];
+
+PASSIVE_UPGRADES = [
+	{
 		name: 'Walka Walka',
 		description: 'Add 1 StepSteps per second',
 		image: "css/images/walkawalka.png",
 		baseCost: 40,
-		effect: 0,
 		idle: 1,
 		unlockAt: 20
-	}, {
-		name: 'Walka Walka',
-		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
-		baseCost: 40,
-		effect: 0,
-		idle: 1,
-		unlockAt: 20
-	}, {
-		name: 'Walka Walka',
-		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
-		baseCost: 40,
-		effect: 0,
-		idle: 1,
-		unlockAt: 20
-	}, {
-		name: 'Walka Walka',
-		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
-		baseCost: 40,
-		effect: 0,
-		idle: 1,
-		unlockAt: 20
-	}, {
-		name: 'Walka Walka',
-		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
-		baseCost: 40,
-		effect: 0,
-		idle: 1,
-		unlockAt: 20
-	}, {
-		name: 'Walka Walka',
-		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
-		baseCost: 40,
-		effect: 0,
-		idle: 1,
-		unlockAt: 20
-	}
+	},
 ];
 
 ACHIEVEMENTS = [
@@ -104,10 +65,12 @@ Game = Backbone.Model.extend({
 	},
 	
 	initialize: function() {
-		this.upgrades = new Backbone.Collection(UPGRADES, { model: Upgrade });
+		this.upgrades = new Backbone.Collection(ACTIVE_UPGRADES, { model: Upgrade });
+		this.passives = new Backbone.Collection(PASSIVE_UPGRADES, { model: Upgrade });
 		this.achievements = new Backbone.Collection(ACHIEVEMENTS, { model: Achievement });
 		
 		this.upgrades.on('change:count', this.recalculate, this);
+		this.passives.on('change:count', this.recalculate, this);
 		this.achievements.on('change:count', this.recalculate, this);
 	},
 	
@@ -115,7 +78,7 @@ Game = Backbone.Model.extend({
 		var ssps = this.upgrades.reduce(function(acc, up) {
 			return acc + up.get('count') * up.get('effect');
 		}, 0);
-		var sspt = this.upgrades.reduce(function(acc, up) {
+		var sspt = this.passives.reduce(function(acc, up) {
 			return acc + up.get('count') * up.get('idle');
 		}, 0);
 		var multiplier = this.achievements.reduce(function(acc, a) {
@@ -131,14 +94,15 @@ Game = Backbone.Model.extend({
 	toSaveJSON: function() {
 		return _.extend({}, this.attributes, {
 			upgrades: this.upgrades.invoke('toSaveJSON'),
+			passives: this.passives.invoke('toSaveJSON'),
 			achievements: this.achievements.invoke('toSaveJSON')
 		});
 	},
 }, /* class properties */ {
 	fromSaveJSON: function(data) {
 		var game = new Game(_.omit(data, 'upgrades', 'achievements'));
-		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]) });
-		game.achievements.each(function(a, i) { a.set(data.achievements[i]) });
+		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]); });
+		game.achievements.each(function(a, i) { a.set(data.achievements[i]); });
 		return game;
 	}
 });
@@ -230,8 +194,8 @@ GameView = Backbone.View.extend({
 	},
 	
 	reset: function() {
-		this.model.upgrades.each(function(u) { u.set(u.defaults) });
-		this.model.achievements.each(function(a) { a.set(a.defaults) });
+		this.model.upgrades.each(function(u) { u.set(u.defaults); });
+		this.model.achievements.each(function(a) { a.set(a.defaults); });
 		this.model.set(this.model.defaults);
 	},
 
