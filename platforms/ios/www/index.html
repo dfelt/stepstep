@@ -21,8 +21,8 @@
                     <p id="stepstep-label">STEPSTEPS</p>
 
                     <img id="step-button" src="css/images/footprint.png" alt="footprint">
-                    <p id="stepstepstep"><img id="powerwalk-main" src="css/images/PowerWalk-main.png"><span id="ssps">0</span> StepSteps / Step</p>
-                    <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span id="sspt">0</span> StepSteps / Second</p>
+                    <p id="stepstepstep"><img id="powerwalk-main" src="css/images/PowerWalk-main.png"><span class="ssps">0</span> StepSteps / Step</p>
+                    <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span class="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
                 <!--<ul id="upgrades-list" data-role="listview" data-inset="true">
@@ -49,8 +49,8 @@ Effect: +<span class="mult"></span>% StepSteps per Step
 </div>-->
 
                 <div id="powerwalk-panel">
-                    <ul id="power-upgrades-list" data-role="listview" data-inset="true">
-                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                    <ul id="upgrades-list" data-role="listview" data-inset="true">
+                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
@@ -63,10 +63,10 @@ Effect: +<span class="mult"></span>% StepSteps per Step
                         </a>
                     </div>
                 </div>
-                
+
                 <div id="autowalk-panel">
-                    <ul id="upgrades-list" data-role="listview" data-inset="true">
-                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span id="ssps">0</span> SS/Second.</p></li>
+                    <ul id="passives-list" data-role="listview" data-inset="true">
+                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
@@ -91,10 +91,24 @@ Effect: +<span class="mult"></span>% StepSteps per Step
                         Effect: +<span class="mult"></span>% StepSteps per Step
                     </div>
                 </div>
-                
-                
+
+
                 <div id="stats-panel">
                     <h2 id="stats-header">Stats</h2>
+                </div>
+
+
+                
+                <div class="congratulations">
+                    <!--<div id="congratulations-blur"></div>-->
+                    
+                    <h2 id="congratulations-header">Congratulations! You got</h2>
+                    
+                    <span class="name" id="congrats-name">The Locomotor</span>
+                    <p class="description"></p>
+                    Effect: +<span class="mult"></span>% StepSteps per Step
+                    <img id="trophy-image" src="css/images/Trophy.png" alt="trophy">
+                    <p id="close">Close</p>
                 </div>
 
 
@@ -109,7 +123,7 @@ Effect: +<span class="mult"></span>% StepSteps per Step
             </div>
         </div>
         
-        <canvas id="canvas" height="900" width="900" style="display:none"></canvas>
+        <canvas id="canvas" height="900" width="900" style="display:none">
 
         <script src="js/ui.js"></script>
         <script src="js/util.js"></script>
