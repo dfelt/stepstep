@@ -1,3 +1,4 @@
+
 var tabActive = false;
 var achievementsActive = false;
 var autowalkActive = false;
@@ -339,9 +340,6 @@ $(document).ready(function() {
     });
     
 
-    jQuery("#upgrade-tpl", function(e) {
-        e.stopPropagation();
-    });
 
 
 });

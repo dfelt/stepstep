@@ -172,7 +172,7 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Locomotor',
-		description: 'Get 1000000 total StepSteps.',
+		description: 'Get 1,000,000 total StepSteps.',
 		multiplier: 1.05,
 		unlockType: 'totalSs',
 		unlockValue: 1000000,

@@ -7,6 +7,7 @@ body {
     font-family: "Avenir Next", Roboto !important;
     -webkit-user-select: none;
     font-weight: 100;
+    background-color: black;
 }
 
 #step-button { 
@@ -39,7 +40,7 @@ li.achievement.locked { }
         font-size: 60pt;
         font-weight: 100;
         text-align: center;
-        margin: 2rem 0 0 0;
+        margin: 1.5rem 0 0 0;
         letter-spacing: -4pt;
         text-shadow: none !important;
         color: white;
@@ -540,4 +541,8 @@ z-index: -1;
 
 #canvas {
 
+}
+
+html {
+    background-color: black !important;
 }

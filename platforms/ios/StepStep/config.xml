@@ -26,6 +26,10 @@
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>StepStep</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -38,7 +42,7 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="SplashScreenDelay" value="10000" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:splash gap:platform="ios" height="1334" src="res/screen/ios/screen-iphone-portrait-667h@2x.png" width="750" />
-    <gap:splash gap:platform="ios" height="2208" src="www/css/images/Background.png" width="1242" />
+    <gap:splash gap:platform="ios" height="1136" src="Default@2x~iphone.png" width="640" />
+    <gap:splash gap:platform="ios" height="2208" src="Default@3x~iphone.png" width="1242" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>
