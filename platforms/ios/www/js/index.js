@@ -23,7 +23,6 @@ var app = {
 		//app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
 		app.pedometer = pedometer;
 		app.stepSubscribe();
-		StepChart.updateFromPedometer(app.pedometer);
 	},
 
 	stepSubscribe: function() {
@@ -44,6 +43,7 @@ var app = {
 				floorsAscended: 0,
 				floorsAscended: 0,
 			};
+			Util.lastWeekStepData(app.pedometer, StepChart.update, app.onError);
 		} else {
             alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
