@@ -9,16 +9,22 @@ $(document).ready(function() {
     //Tap outside of modals to slide them back down.
     jQuery("#content").on("tap", function(e) {
         var achievementsList = jQuery("#achievements-list");
-        var autowalkList = jQuery("#upgrades-list");
+        var autowalkList = jQuery("#passives-list");
 
         if (tabActive) {
             if ((!achievementsList.is(e.target) && achievementsList.has(e.target)) ||
                 (!autowalkList.is(e.target) && autowalkList.has(e.target))) {
                 heroAnimateIn();
-                jQuery("#upgrades-list").addClass("movedown");
+                jQuery("#passives-list").addClass("movedown");
                 jQuery("#achievements-list").addClass("movedown");
-                jQuery("#power-upgrades-list").addClass("movedown");
+                jQuery("#upgrades-list").addClass("movedown");
                 jQuery("#stats-panel").addClass("movedown");
+
+
+                jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
+                jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
+                jQuery("#achievements").attr("src", "css/images/Achievements.png")
+                jQuery("#stats").attr("src", "css/images/Stats.png");
 
 
                 tabActive = false;
@@ -68,7 +74,7 @@ $(document).ready(function() {
             jQuery(this).removeClass("tapped");
         });
     });
-    
+
     //Bring Up the PowerWalk Upgrade List
     jQuery("#power-walk").on("tap", function(e){
         e.stopPropagation();
@@ -77,17 +83,20 @@ $(document).ready(function() {
         if (tabActive === true && powerwalkActive === true) {
 
             heroAnimateIn();
-            jQuery("#power-upgrades-list").addClass("movedown");
+            jQuery("#upgrades-list").addClass("movedown");
+
+            //reset image
+
 
             tabActive = false;
             powerwalkActive= false;
 
         } else if (tabActive === true && powerwalkActive === false) {
             jQuery("#achievements-list").addClass("movedown");
-            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#passives-list").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
-            jQuery("#power-upgrades-list").removeClass("movedown");
-            jQuery("#power-upgrades-list").addClass("moveup");
+            jQuery("#upgrades-list").removeClass("movedown");
+            jQuery("#upgrades-list").addClass("moveup");
 
             tabActive = true;
             powerwalkActive = true;
@@ -99,8 +108,8 @@ $(document).ready(function() {
         else {
 
             heroAnimateOut();
-            jQuery("#power-upgrades-list").removeClass("movedown");
-            jQuery("#power-upgrades-list").addClass("moveup");
+            jQuery("#upgrades-list").removeClass("movedown");
+            jQuery("#upgrades-list").addClass("moveup");
 
             tabActive = true;
             powerwalkActive = true;
@@ -109,7 +118,7 @@ $(document).ready(function() {
             statsActive = false;
         }
     });
-    
+
 
     //Bring Up the AutoWalk Upgrade List
     jQuery("#auto-walk").on("tap", function(e){
@@ -119,17 +128,17 @@ $(document).ready(function() {
         if (tabActive === true && autowalkActive === true) {
 
             heroAnimateIn();
-            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#passives-list").addClass("movedown");
 
             tabActive = false;
             autowalkActive = false;
 
         } else if (tabActive === true && autowalkActive === false) {
             jQuery("#achievements-list").addClass("movedown");
-            jQuery("#power-upgrades-list").addClass("movedown");
+            jQuery("#upgrades-list").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
-            jQuery("#upgrades-list").removeClass("movedown");
-            jQuery("#upgrades-list").addClass("moveup");
+            jQuery("#passives-list").removeClass("movedown");
+            jQuery("#passives-list").addClass("moveup");
 
             tabActive = true;
             autowalkActive = true;
@@ -141,8 +150,8 @@ $(document).ready(function() {
         else {
 
             heroAnimateOut();
-            jQuery("#upgrades-list").removeClass("movedown");
-            jQuery("#upgrades-list").addClass("moveup");
+            jQuery("#passives-list").removeClass("movedown");
+            jQuery("#passives-list").addClass("moveup");
 
             tabActive = true;
             autowalkActive = true;
@@ -165,8 +174,8 @@ $(document).ready(function() {
             achievementsActive = false;
 
         } else if (tabActive === true && achievementsActive === false) {
+            jQuery("#passives-list").addClass("movedown");
             jQuery("#upgrades-list").addClass("movedown");
-            jQuery("#power-upgrades-list").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
             jQuery("#achievements-list").removeClass("movedown");
             jQuery("#achievements-list").addClass("moveup");
@@ -189,7 +198,7 @@ $(document).ready(function() {
             statsActive = false;
         }
     });
-    
+
     jQuery("#stats").on("tap", function(e){
         e.stopPropagation();
 
@@ -202,8 +211,8 @@ $(document).ready(function() {
             statsActive = false;
 
         } else if (tabActive === true && statsActive === false) {
+            jQuery("#passives-list").addClass("movedown");
             jQuery("#upgrades-list").addClass("movedown");
-            jQuery("#power-upgrades-list").addClass("movedown");
             jQuery("#achievements-list").addClass("movedown");
             jQuery("#stats-panel").removeClass("movedown");
             jQuery("#stats-panel").addClass("moveup");
@@ -235,12 +244,12 @@ $(document).ready(function() {
     /*Tapping the tabs
     */
     jQuery("#auto-walk").on("tap", function() {
-        jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
-        jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
-        jQuery("#achievements").attr("src", "css/images/Achievements.png")
-        jQuery("#stats").attr("src", "css/images/Stats.png");
 
         if (jQuery(this).attr("src") === "css/images/AutoWalk.png") {
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
+            jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
+            jQuery("#achievements").attr("src", "css/images/Achievements.png")
+            jQuery("#stats").attr("src", "css/images/Stats.png");
             jQuery(this).attr("src", "css/images/AutoWalk-filled.png")
         } else {
             jQuery(this).attr("src", "css/images/AutoWalk.png")
@@ -248,12 +257,12 @@ $(document).ready(function() {
     });
 
     jQuery("#power-walk").on("tap", function() {
-        jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
-        jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
-        jQuery("#achievements").attr("src", "css/images/Achievements.png")
-        jQuery("#stats").attr("src", "css/images/Stats.png");
 
         if (jQuery(this).attr("src") === "css/images/PowerWalk.png") {
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
+            jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
+            jQuery("#achievements").attr("src", "css/images/Achievements.png")
+            jQuery("#stats").attr("src", "css/images/Stats.png");
             jQuery(this).attr("src", "css/images/PowerWalk-filled.png")
         } else {
             jQuery(this).attr("src", "css/images/PowerWalk.png")
@@ -261,12 +270,12 @@ $(document).ready(function() {
     });
 
     jQuery("#achievements").on("tap", function() {
-        jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
-        jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
-        jQuery("#achievements").attr("src", "css/images/Achievements.png")
-        jQuery("#stats").attr("src", "css/images/Stats.png");
 
         if (jQuery(this).attr("src") === "css/images/Achievements.png") {
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
+            jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
+            jQuery("#achievements").attr("src", "css/images/Achievements.png")
+            jQuery("#stats").attr("src", "css/images/Stats.png");
             jQuery(this).attr("src", "css/images/Achievements-filled.png")
         } else {
             jQuery(this).attr("src", "css/images/Achievements.png")
@@ -274,12 +283,13 @@ $(document).ready(function() {
     });
 
     jQuery("#stats").on("tap", function() {
-        jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
-        jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
-        jQuery("#achievements").attr("src", "css/images/Achievements.png")
-        jQuery("#stats").attr("src", "css/images/Stats.png");
+
 
         if (jQuery(this).attr("src") === "css/images/Stats.png") {
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
+            jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
+            jQuery("#achievements").attr("src", "css/images/Achievements.png")
+            jQuery("#stats").attr("src", "css/images/Stats.png");
             jQuery(this).attr("src", "css/images/Stats-filled.png")
         } else {
             jQuery(this).attr("src", "css/images/Stats.png")

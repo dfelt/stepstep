@@ -102,6 +102,7 @@ Game = Backbone.Model.extend({
 	fromSaveJSON: function(data) {
 		var game = new Game(_.omit(data, 'upgrades', 'achievements'));
 		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]); });
+		game.passives.each(function(u, i) { u.set(data.passives[i]); });
 		game.achievements.each(function(a, i) { a.set(data.achievements[i]); });
 		return game;
 	}
@@ -120,6 +121,11 @@ GameView = Backbone.View.extend({
 			new UpgradeView({ model: u }).$el
 				.data('model', u)
 				.appendTo('#upgrades-list');
+		});
+		this.model.passives.each(function(u) {
+			new UpgradeView({ model: u }).$el
+				.data('model', u)
+				.appendTo('#passives-list');
 		});
 		this.model.achievements.each(function(a) {
 			new AchievementView({ model: a }).$el.appendTo('#achievements-list');
@@ -178,6 +184,12 @@ GameView = Backbone.View.extend({
 			}
 			u.set('affordable', ss >= u.get('cost'));
 		});
+		this.model.passives.each(function(u) {
+			if (ss >= u.get('unlockAt')) {
+				u.set('locked', false);
+			}
+			u.set('affordable', ss >= u.get('cost'));
+		});
 	},
 	
 	unlockAchievements: function() {
@@ -195,6 +207,7 @@ GameView = Backbone.View.extend({
 	
 	reset: function() {
 		this.model.upgrades.each(function(u) { u.set(u.defaults); });
+		this.model.passives.each(function(u) { u.set(u.defaults); });
 		this.model.achievements.each(function(a) { a.set(a.defaults); });
 		this.model.set(this.model.defaults);
 	},
@@ -202,7 +215,7 @@ GameView = Backbone.View.extend({
     tryGetStepHistory: function() {
         var minutesSinceLastStep = (new Date() - this.model.get('lastStepUpdate')) / (1000*60*60);
         if (minutesSinceLastStep >= 60 && window.pedometer) {
-            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'),
+            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(),
                 _.bind(this.onQueryPedometerDataFromDate, this),
                 function(err) { alert('Error:' + err); });
         }
