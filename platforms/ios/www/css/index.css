@@ -34,7 +34,16 @@ li.achievement.locked { }
 }
 
 @media (max-width: 320px) {
-
+    #stepstep-count {
+        display: block;
+        font-size: 60pt;
+        font-weight: 100;
+        text-align: center;
+        margin: 2rem 0 0 0;
+        letter-spacing: -4pt;
+        text-shadow: none !important;
+        color: white;
+    }
 }
 
 #stepstep-label {
@@ -272,13 +281,13 @@ p {
 .fadein {
     -webkit-animation: fadeIn .4s;
     -webkit-animation-fill-mode: forwards;
-    
+
 }
 
 .fadein2 {
     -webkit-animation: fadeInAchievement 1s;
     -webkit-animation-fill-mode: forwards;
-    
+
 }
 
 .moveup {
@@ -344,10 +353,10 @@ p {
     0% { -webkit-filter: opacity(1) blur(0px); -webkit-transform: scale(1) translate3d(0,-50%,0)}
     35% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(1.02) translate3d(0,-50%,0) }
     100% { -webkit-filter: opacity(0) blur(0px); -webkit-transform: scale(1.05) translate3d(0,-50%,0) }
-    
-    
-    
-    
+
+
+
+
 }
 
 
@@ -484,7 +493,7 @@ background-color: rgba(0, 0, 0, 0.49);
 }
 
 .unlocked {
-    
+
 }
 
 #trophy-image {
@@ -508,19 +517,19 @@ background-color: rgba(0, 0, 0, 0.49);
 }
 
 /*#congratulations-blur {
-    float: left;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: translateY(-50%);
-    color: white;
-    text-decoration: none;
-    text-shadow: none;
-    text-align: center;
-    font-weight: 100 !important;
-    border-radius: 5pt;
-    z-index: -1;
+float: left;
+position: absolute;
+top: 50%;
+width: 100%;
+height: 100%;
+-webkit-transform: translateY(-50%);
+color: white;
+text-decoration: none;
+text-shadow: none;
+text-align: center;
+font-weight: 100 !important;
+border-radius: 5pt;
+z-index: -1;
 }*/
 
 #congrats-description {
@@ -530,5 +539,5 @@ background-color: rgba(0, 0, 0, 0.49);
 }
 
 #canvas {
-    
+
 }

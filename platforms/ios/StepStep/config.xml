@@ -36,6 +36,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:splash gap:platform="ios" height="1334" src="res/screen/ios/screen-iphone-portrait-667h@2x.png" width="750" />
     <gap:splash gap:platform="ios" height="2208" src="www/css/images/Background.png" width="1242" />
