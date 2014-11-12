@@ -10,10 +10,20 @@ $(document).ready(function() {
     jQuery("#content").on("tap", function(e) {
         var achievementsList = jQuery("#achievements-list");
         var autowalkList = jQuery("#passives-list");
+        var powerwalkList = jQuery("#upgrades-list");
+        var stats = jQuery("#stats-panel");
 
+        console.log(e.target);
         if (tabActive) {
-            if ((!achievementsList.is(e.target) && achievementsList.has(e.target)) ||
-                (!autowalkList.is(e.target) && autowalkList.has(e.target))) {
+            if ((!powerwalkList.is(e.target) 
+                && powerwalkList.has(e.target).length === 0) && 
+                (!autowalkList.is(e.target) 
+                && autowalkList.has(e.target).length === 0) && 
+                (!achievementsList.is(e.target) 
+                && achievementsList.has(e.target).length === 0) && 
+                (!stats.is(e.target) 
+                && stats.has(e.target).length === 0))
+            {
                 heroAnimateIn();
                 jQuery("#passives-list").addClass("movedown");
                 jQuery("#achievements-list").addClass("movedown");
@@ -32,6 +42,8 @@ $(document).ready(function() {
                 autowalkActive = false;
                 powerwalkActive = false;
             }
+            
+            
         }
     });
 
@@ -295,26 +307,41 @@ $(document).ready(function() {
             jQuery(this).attr("src", "css/images/Stats.png")
         }
     });
-    
-    
-    jQuery("#close").on("tap", function() {
+
+
+    jQuery(".congratulations").hide();
+
+    jQuery(".close").on("tap", function() {
+        jQuery(".congratulations").removeClass("fadein2");
         jQuery(".congratulations").addClass("fadeout2");
+        /*jQuery(".congratulations").bind('webkitAnimationEnd', function() {
+            jQuery(".congratulations").hide();
+        });*/
+        jQuery(".congratulations").fadeOut();
+
+        console.log("tapped");
+
     });
-    
-    
+
+
     app.on("achievement-unlocked", function(a) {
         var name = a.name;
         var description = a.description;
         var multiplier = a.multiplier;
-        
-        jQuery(".congratulations").addClass("fadein2");
-        
-        console.log(name);
-        
-        
-        
+
+        jQuery("#congrats-name").html(name);
+        jQuery("#congrats-description").html(description);
+        jQuery("#congrats-mult").html(Math.round(((multiplier-1)*100)));
+
+        jQuery(".congratulations").removeClass("fadeout2");
+        jQuery(".congratulations").show().addClass("fadein2");
         
     });
     
+
+    jQuery("#upgrade-tpl", function(e) {
+        e.stopPropagation();
+    });
+
 
 });

@@ -10,84 +10,13 @@
     <content src="index.html" />
     <access origin="*" />
     
-    <gap:config-file platform="ios" parent="UILaunchImages" overwrite="true">
-        <array>
-            <!-- iPhone 4s -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-480h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{320, 480}</string>
-            </dict>
-            
-            <!-- iPhone 5/s/c -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-568h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{320, 568}</string>
-            </dict>
-            
-            <!-- iPhone 6 -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-667h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{375, 667}</string>
-            </dict>
-            
-            <!-- iPhone 6+ -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-736h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{414, 736}</string>
-            </dict>
-            
-            <!-- iPad / Mini -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-1024h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{768, 1024}</string>
-            </dict>
-            
-            <!-- iPad Retina -->
-            <dict>
-                <key>UILaunchImageMinimumOSVersion</key>
-                <string>8.0</string>
-                <key>UILaunchImageName</key>
-                <string>Default-2048h</string>
-                <key>UILaunchImageOrientation</key>
-                <string>Portrait</string>
-                <key>UILaunchImageSize</key>
-                <string>{1536, 2048}</string>
-            </dict>
-        </array>
-    </gap:config-file>
+    <!-- Do not auto hide splash on iOS -->
+    <preference name="AutoHideSplashScreen" value="false" />
+    
+    <gap:plugin name="org.apache.cordova.splashscreen" />
     
     <gap:splash src="res/screen/ios/screen-iphone-portrait-667h@2x.png" gap:platform="ios" width="750"  height="1334" />
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
+    <gap:splash src="www/css/images/Background.png" gap:platform="ios" width="1242" height="2208" />
     <preference name="DisallowOverscroll" value="true" />
     
 </widget>
