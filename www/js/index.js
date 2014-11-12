@@ -1,9 +1,9 @@
 
 var app = {
 	initialize: function() {
-		_.extend(app, Backbone.Events);
 		$('#home').on('pagebeforecreate', app.initializeGame);
-		document.addEventListener('deviceready', app.onDeviceReady, false);
+		$(document).on('deviceready', app.onDeviceReady);
+		_.extend(app, Backbone.Events);
 	},
 
 	initializeGame: function() {
@@ -41,9 +41,11 @@ var app = {
 				numberOfSteps: 0,
 				distance: 0,
 				floorsAscended: 0,
-				floorsAscended: 0,
+				floorsDescended: 0
 			};
-			Util.lastWeekStepData(app.pedometer, StepChart.update, app.onError);
+
+			// var chart = new StepChart($('#canvas')[0]);
+			// Util.lastWeekStepData(app.pedometer, _.bind(chart.update, chart), app.onError);
 		} else {
             alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
