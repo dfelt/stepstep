@@ -1,55 +1,209 @@
 
 ACTIVE_UPGRADES = [
 	{
-		name: 'Trailblazer',
+		name:"Trailblazer",
 		description: 'Add 1 StepStep per step',
-		image: "css/images/trail.png",
-		baseCost: 5,
-		effect: 1,
-		unlockAt: 0,
-		locked: false,
+		image:"css/images/trail.png",
+		baseCost: 10,
+		effect:1,
+		unlockAt:0
 	}, {
-		name: 'Steamroller',
-		description: 'Add 3 StepSteps per step',
-		image: "css/images/steamroller.png",
-		baseCost: 20,
-		effect: 3,
-		unlockAt: 5
+		name:"Steamroller",
+		description:"Add 3 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:100,
+		effect:3,
+		unlockAt:50
+	}, {
+		name:"Happy Feet",
+		description:"Add 10 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:1000,
+		effect:10,
+		unlockAt:500
+	}, {
+		name:"Power Walker",
+		description:"Add 30 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:10000,
+		effect:30,
+		unlockAt:5000
+	}, {
+		name:"Robowalker",
+		description:"Add 60 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:50000,
+		effect:60,
+		unlockAt:25000
+	}, {
+		name:"Battle of Marathon",
+		description:"Add 200 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:200000,
+		effect:200,
+		unlockAt:100000
+	}, {
+		name:"Walkaholic",
+		description:"Add 400 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:500000,
+		effect:400,
+		unlockAt:250000
+	}, {
+		name:"Walka Walka",
+		description:"Add 700 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:1000000,
+		effect:700,
+		unlockAt:500000
+	}, {
+		name:"Unstoppable",
+		description:"Add 3000 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:5000000,
+		effect:3000,
+		unlockAt:2500000
+	}, {
+		name:"The Road Less Taken",
+		description:"Add 15000 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:30000000,
+		effect:15000,
+		unlockAt:15000000
+	}, {
+		name:"Oregon Trail",
+		description:"Add 30000 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:70000000,
+		effect:30000,
+		unlockAt:35000000
+	}, {
+		name:"Where Nobody Has Gone...",
+		description:"Add 80000 StepSteps per step",
+		image:"css/images/steamroller.png",
+		baseCost:200000000,
+		effect:80000,
+		unlockAt:100000000
 	},
 ];
 
 PASSIVE_UPGRADES = [
 	{
-		name: 'Walka Walka',
+		name: 'Extra Steps',
 		description: 'Add 1 StepSteps per second',
 		image: "css/images/walkawalka.png",
-		baseCost: 40,
+		baseCost: 150000,
 		idle: 1,
-		unlockAt: 20
+		unlockAt: 0
+	}, {
+		name: 'Phantom Steps',
+		description: 'Add 3 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 450000,
+		idle: 3,
+		unlockAt: 200000
+	}, {
+		name: 'Flash Steps',
+		description: 'Add 5 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 1500000,
+		idle: 5,
+		unlockAt: 750000
+	}, {
+		name: 'Doppelganger',
+		description: 'Add 10 StepSteps per second',
+		image: "css/images/walkawalka.png",
+		baseCost: 8000000,
+		idle: 10,
+		unlockAt: 4000000
 	},
+
 ];
 
 ACHIEVEMENTS = [
 	{
-		name: 'The Locomotor',
-		description: 'Get 10 StepSteps.',
+		name: 'The Jaywalker',
+		description: 'Get 10 total StepSteps.',
 		multiplier: 1.01,
-		unlockType: 'ss',
+		unlockType: 'totalSs',
 		unlockValue: 10,
 	},
 	{
-		name: 'The Jaywalker',
-		description: 'Get 30 total StepSteps.',
-		multiplier: 1.02,
+		name: 'The Speedwalker',
+		description: 'Get 100 total StepSteps.',
+		multiplier: 1.01,
 		unlockType: 'totalSs',
-		unlockValue: 30,
+		unlockValue: 100,
+	},
+	{
+		name: 'The Quick-Footed',
+		description: 'Walk 200 steps.',
+		multiplier: 1.01,
+		unlockType: 'steps',
+		unlockValue: 200,
+	},
+	{
+		name: 'The Purveyor of Speed',
+		description: 'Walk 1000 steps.',
+		multiplier: 1.01,
+		unlockType: 'steps',
+		unlockValue: 1000,
+	},
+	{
+		name: 'The Dedicated',
+		description: 'Walk 5000 steps.',
+		multiplier: 1.01,
+		unlockType: 'steps',
+		unlockValue: 5000,
+	},
+	{
+		name: 'The Untiring',
+		description: 'Get 10000 total StepSteps.',
+		multiplier: 1.01,
+		unlockType: 'totalSs',
+		unlockValue: 10000,
+	},
+	{
+		name: 'The Ambulator',
+		description: 'Walk 100000 steps.',
+		multiplier: 1.05,
+		unlockType: 'steps',
+		unlockValue: 100000,
+	},
+	{
+		name: 'The Locomotor',
+		description: 'Get 1000000 total StepSteps.',
+		multiplier: 1.05,
+		unlockType: 'totalSs',
+		unlockValue: 1000000,
+	},
+	{
+		name: 'The Step Mason',
+		description: 'Get 50000000 total StepSteps.',
+		multiplier: 1.05,
+		unlockType: 'steps',
+		unlockValue: 5000000,
 	},
 	{
 		name: 'The Psycho Path',
-		description: 'Walk 60 steps.',
-		multiplier: 1.05,
-		unlockType: 'steps',
+		description: 'Reach 1000 StepSteps per second.',
+		multiplier: 1.1,
+		unlockType: 'ssps',
 		unlockValue: 60,
+	},
+	{
+		name: 'The Ascended',
+		description: 'Walk 1000000 steps.',
+		multiplier: 1.1,
+		unlockType: 'steps',
+		unlockValue: 1000000,
+	},
+	{
+		name: 'The God of Steps',
+		description: 'Get 1000000000 total StepSteps.',
+		multiplier: 1.2,
+		unlockType: 'steps',
+		unlockValue: 1000000000,
 	},
 ];
 		
