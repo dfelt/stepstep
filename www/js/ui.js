@@ -64,6 +64,45 @@ $(document).ready(function() {
             jQuery(this).removeClass("tapped");
         });
     });
+    
+    //Bring Up the PowerWalk Upgrade List
+    jQuery("#power-walk").on("tap", function(e){
+        e.stopPropagation();
+        //jQuery("#step-button").hasClass("fadeOut")
+
+        if (tabActive === true && powerwalkActive === true) {
+
+            heroAnimateIn();
+            jQuery("#power-upgrades-list").addClass("movedown");
+
+            tabActive = false;
+            powerwalkActive= false;
+
+        } else if (tabActive === true && powerwalkActive === false) {
+            jQuery("#achievements-list").addClass("movedown");
+            jQuery("#upgrades-list").removeClass("movedown");
+            jQuery("#power-upgrades-list").removeClass("movedown");
+            jQuery("#power-upgrades-list").addClass("moveup");
+
+            tabActive = true;
+            powerwalkActive = true;
+            achievementsActive = false;
+            autowalkActive = false;
+        }
+
+        else {
+
+            heroAnimateOut();
+            jQuery("#power-upgrades-list").removeClass("movedown");
+            jQuery("#power-upgrades-list").addClass("moveup");
+
+            tabActive = true;
+            powerwalkActive = true;
+            achievementsActive = false;
+            autowalkActive = false;
+        }
+    });
+    
 
     //Bring Up the AutoWalk Upgrade List
     jQuery("#auto-walk").on("tap", function(e){
@@ -80,6 +119,7 @@ $(document).ready(function() {
 
         } else if (tabActive === true && autowalkActive === false) {
             jQuery("#achievements-list").addClass("movedown");
+            jQuery("#power-upgrades-list").addClass("movedown");
             jQuery("#upgrades-list").removeClass("movedown");
             jQuery("#upgrades-list").addClass("moveup");
 

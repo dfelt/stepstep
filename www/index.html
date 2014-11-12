@@ -51,9 +51,25 @@ Cost: <span class="cost"></span>
 Effect: +<span class="mult"></span>% StepSteps per Step
 </div>-->
 
+                <div id="powerwalk-panel">
+                    <ul id="power-upgrades-list" data-role="listview" data-inset="true">
+                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                    </ul>
+
+                    <div id="upgrade-tpl" class="tpl">
+                        <a href="#">
+                            <img>
+                            <span class="name"></span>
+                            <p class="description"></p>
+                            Cost: <span class="cost"></span>
+                            <span class="count ui-li-count"></span>
+                        </a>
+                    </div>
+                </div>
+                
                 <div id="autowalk-panel">
                     <ul id="upgrades-list" data-role="listview" data-inset="true">
-                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span id="ssps">0</span> SS/Step.</p></li>
+                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span id="ssps">0</span> SS/Second.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
