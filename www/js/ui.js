@@ -309,6 +309,8 @@ $(document).ready(function() {
         
         jQuery(".congratulations").addClass("fadein2");
         
+        console.log(name);
+        
         
         
         
