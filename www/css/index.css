@@ -23,6 +23,7 @@ li.upgrade.locked { display: none }
 li.achievement.locked { }
 
 #stepstep-count {
+    display: block;
     font-size: 60pt;
     font-weight: 100;
     text-align: center;
@@ -33,15 +34,7 @@ li.achievement.locked { }
 }
 
 @media (max-width: 320px) {
-    #stepstep-count {
-        font-size: 60pt;
-        font-weight: 100;
-        text-align: center;
-        margin: 1rem 0 0 0;
-        letter-spacing: -4pt;
-        text-shadow: none !important;
-        color: white;
-    }
+
 }
 
 #stepstep-label {
@@ -263,7 +256,7 @@ p {
 }
 
 .tapped {
-    -webkit-animation: bounce .25s;
+    -webkit-animation: bounce .7s;
 }
 
 .fadeout {
@@ -274,7 +267,6 @@ p {
 .fadeout2 {
     -webkit-animation: fadeOutAchievement 1s;
     -webkit-animation-fill-mode: forwards;
-    display: none;
 }
 
 .fadein {
@@ -284,7 +276,6 @@ p {
 }
 
 .fadein2 {
-    -webkit-transform: translateY(-50%);
     -webkit-animation: fadeInAchievement 1s;
     -webkit-animation-fill-mode: forwards;
     
@@ -323,9 +314,9 @@ p {
 
 @-webkit-keyframes bounce {
     0% { -webkit-transform: scale(1.0); opacity: 1 }
-    40% { -webkit-transform: scale(1.2); opacity: 1; }
-    60% { -webkit-transform: scale(0.90); opacity: 1 }
-    80% { -webkit-transform: scale(0.95); }
+    33% { -webkit-transform: scale(1.1); opacity: 1; }
+    66% { -webkit-transform: scale(0.95); opacity: 1 }
+    /*80% { -webkit-transform: scale(1); }*/
     100% { -webkit-transform: scale(1); }
 }
 
@@ -477,7 +468,7 @@ background-color: rgba(0, 0, 0, 0.49);
     text-align: center;
     background-color: rgba(54, 54, 54, 0.98);
     font-weight: 100 !important;
-    border-radius: 5pt;
+    border-radius: 10pt;
     z-index: 1000000;
     -webkit-transform: translate3d(0,-50%,0);
 }
@@ -503,17 +494,17 @@ background-color: rgba(0, 0, 0, 0.49);
 }
 
 
-#close {
+.close {
     font-size: 18pt;
     margin: 0;
     padding: 0.8rem;
     border-top: 1px solid #717070;
 }
 
-#close:active {
+.close:active {
     background-color: rgba(92, 92, 92, 0.59);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 /*#congratulations-blur {
@@ -531,3 +522,9 @@ background-color: rgba(0, 0, 0, 0.49);
     border-radius: 5pt;
     z-index: -1;
 }*/
+
+#congrats-description {
+    font-size: 12pt;
+    font-weight: 400 !important;
+    color: white;
+}
