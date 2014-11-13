@@ -284,12 +284,6 @@ GameView = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-		// Global event pump, used for interfacing with UI
-		this.gameEvents = options.gameEvents;
-		this.gameEvents.on('update-stats', this.updateStepChart, this);
-
-		// Prepare cloud storage
-		this.cloudStorage = this.makeCloudStorage();
 
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
@@ -306,12 +300,21 @@ GameView = Backbone.View.extend({
 		this.model.achievements.each(function(a) {
 			new AchievementView({ model: a }).$el.appendTo('#achievements-list');
 		});
+	},
+
+	begin: function() {
+		// Global event pump, used for interfacing with UI
+		this.gameEvents = options.gameEvents;
+		this.gameEvents.on('update-stats', this.updateStepChart, this);
+
+		// Prepare cloud storage
+		this.cloudStorage = this.makeCloudStorage();
 
 		// Welcome the user back if they've been gone
         _.delay(_.bind(this.testStepUpdate, this), 500);
 		
+		// Add events
 		this.model.on('change', this.tryUnlocks, this);
-		
 		setInterval(_.bind(this.idleUpdate, this), 1000);
 		setInterval(_.bind(this.testStepUpdate, this), 1000*60);
 	},

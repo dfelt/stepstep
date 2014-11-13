@@ -2,7 +2,6 @@
 var app = {
 	initialize: function() {
 		$('#home').on('pagebeforecreate', app.initializeGame);
-		$('#home').on('pageshow', app.promptSonaId);
 		$(document).on('deviceready', app.onDeviceReady);
 		_.extend(app, Backbone.Events);
 		Parse.initialize("CTA88xkiQrusIuEpIgmzcktxeI7d02OmZjK3iUay", "TEnNf0PDARVZC3e5tk1wiEMF7CC3dcb6YFdVPbo4");
@@ -10,7 +9,10 @@ var app = {
 
 	initializeGame: function() {
 		app.game = new GameView({ model: app.loadGame(), el: $('#home'), gameEvents: app });
-		app.stepSubscribe();
+		if (!app.game.model.get('sonaId')) {
+			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
+		}
+		app.begin();
 	},
 
 	loadGame: function() {
@@ -24,13 +26,12 @@ var app = {
 	onDeviceReady: function() {
 		//app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
 		app.pedometer = pedometer;
-		app.stepSubscribe();
+		app.begin();
 	},
 
 	stepSubscribe: function() {
-		if (app.game && app.stepometer) {
-			app.stepometer.subscribe(function() { app.game.step(1); });
-		} else if (app.game && app.pedometer) {
+		if (app.game && app.pedometer) {
+			game.begin();
 			app.pedometer.isStepCountingAvailable(app.onStepCountingAvailable, app.onError);
 		}
 	},
@@ -54,13 +55,6 @@ var app = {
 		console.log(pedometerData);
 		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
-	},
-
-	promptSonaId: function() {
-		if (!app.game.model.get('sonaId')) {
-			console.log('sonaId is ' + app.game.model.get('sonaId'));
-			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
-		}
 	},
 
 	onError: function() {
