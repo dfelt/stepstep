@@ -9,7 +9,7 @@ ACTIVE_UPGRADES = [
 		description: 'Add 1 StepStep per step',
 		image:"css/images/trail.png",
 		baseCost: 10,
-		effect:150000000,
+		effect:1,
 		unlockAt:0
 	}, {
 		name:"Steamroller",
@@ -62,49 +62,29 @@ ACTIVE_UPGRADES = [
 		unlockAt:500000
 	}, {
 		name:"Unstoppable",
-<<<<<<< HEAD
-		description:"Add 3000 StepSteps per step",
-		image:"css/images/active7_unstoppable.png",
-=======
 		description:"Add 3,000 StepSteps per step",
-		image:"css/images/steamroller.png",
->>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
+		image:"css/images/active7_unstoppable.png",
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"The Road Less Taken",
-<<<<<<< HEAD
-		description:"Add 15000 StepSteps per step",
-		image:"css/images/active8_roadlesstaken.png",
-=======
 		description:"Add 15,000 StepSteps per step",
-		image:"css/images/steamroller.png",
->>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
+		image:"css/images/active8_roadlesstaken.png",
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
-<<<<<<< HEAD
-		description:"Add 30000 StepSteps per step",
-		image:"css/images/active9_oregontrail.png",
-=======
 		description:"Add 30,000 StepSteps per step",
-		image:"css/images/steamroller.png",
->>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
+		image:"css/images/active9_oregontrail.png",
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where Nobody Has Gone...",
-<<<<<<< HEAD
-		description:"Add 80000 StepSteps per step",
-		image:"css/images/active10_wherenobodyhasgone.png",
-=======
 		description:"Add 80,000 StepSteps per step",
-		image:"css/images/steamroller.png",
->>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
+		image:"css/images/active10_wherenobodyhasgone.png",
 		baseCost:200000000,
 		effect:80000,
 		unlockAt:100000000

@@ -31,8 +31,6 @@
         <div data-role="page" id="home">
             <div id="content">
 
-            <a href="#welcome-back" data-rel="popup" data-position-to="window">Open Popup</a>
-
                 <div id="counter">
                     <h2 id="stepstep-count">0</h2>
                     <p id="stepstep-label">STEPSTEPS</p>
@@ -42,29 +40,7 @@
                     <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span class="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
-                <!--<ul id="upgrades-list" data-role="listview" data-inset="true">
-<li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
-</ul>
-<ul id="achievements-list" data-role="listview" data-inset="true">
-<li data-role="list-divider">Achievements</li>
-</ul>
-
-<div id="upgrade-tpl" class="tpl">
-<a href="#">
-<img>
-<span class="name"></span>
-<p class="description"></p>
-Cost: <span class="cost"></span>
-<span class="count ui-li-count"></span>
-</a>
-</div>
-
-<div id="achievement-tpl" class="tpl">
-<span class="name"></span>
-<p class="description"></p>
-Effect: +<span class="mult"></span>% StepSteps per Step
-</div>-->
-
+               
                 <div id="powerwalk-panel">
                     <ul id="upgrades-list" data-role="listview" data-inset="true">
                         <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
@@ -141,18 +117,18 @@ Effect: +<span class="mult"></span>% StepSteps per Step
             </div>
 
             <div data-role="popup" id="sona-login" data-theme="a" data-overlay-theme="a" data-dismissible="false" class="ui-corner-all">
-                <div style="padding:10px 20px;">
-                    <h3>Please sign in</h3>
+                <div style="padding:10px 60px;">
+                    <h3 id="sona-header">Please sign in</h3>
                     <p id="sona-login-error">Invalid SONA ID</p>
                     <input type="text" id="sona-login-id" placeholder="SONA ID" data-theme="a">
-                    <button id="sona-login-btn" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
+                    <button id="sona-login-btn" class="ui-btn ui-corner-all ui-btn-b ">Sign in</button>
                 </div>
             </div>
 
-            <div data-role="popup" id="welcome-back" data-theme="b" class="ui-corner-all">
+            <div data-role="popup" id="welcome-back" data-theme="b" class="ui-corner-all" data-transition="fade">
                 <div style="padding:10px 20px;">
-                    <h3>Welcome back!</h3>
-                    <p>You took <span class="nSteps">0</span> steps while you were gone, giving you a total of <span class="ss">0</span> StepSteps</p>
+                    <h3 id="welcome-back-header">Welcome back!</h3>
+                    <p id="welcome-back-text">You took <span class="nSteps">0</span> steps while you were gone, giving you a total of <span class="ss">0</span> StepSteps</p>
                 </div>
             </div>
 
