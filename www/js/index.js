@@ -31,9 +31,11 @@ var app = {
 
 	begin: function() {
 		if (app.game && app.pedometer) {
-			game.begin();
+			app.game.begin();
 			app.pedometer.isStepCountingAvailable(app.onStepCountingAvailable, app.onError);
 		}
+		// For use when testing with browswer
+		if (navigator.userAgent.indexOf('Chrome') != -1) app.game.begin();
 	},
 
 	onStepCountingAvailable: function(available) {

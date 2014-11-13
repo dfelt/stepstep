@@ -284,6 +284,7 @@ GameView = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		this.options = options;
 
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
@@ -304,7 +305,7 @@ GameView = Backbone.View.extend({
 
 	begin: function() {
 		// Global event pump, used for interfacing with UI
-		this.gameEvents = options.gameEvents;
+		this.gameEvents = this.options.gameEvents;
 		this.gameEvents.on('update-stats', this.updateStepChart, this);
 
 		// Prepare cloud storage
