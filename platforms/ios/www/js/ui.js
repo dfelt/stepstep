@@ -14,7 +14,6 @@ $(document).ready(function() {
         var powerwalkList = jQuery("#upgrades-list");
         var stats = jQuery("#stats-panel");
 
-        console.log(e.target);
         if (tabActive) {
             if ((!powerwalkList.is(e.target) 
                 && powerwalkList.has(e.target).length === 0) && 
@@ -79,6 +78,12 @@ $(document).ready(function() {
         jQuery("#stepstepsecond").addClass("fadeOut");
     }
 
+    app.on("step", function() {
+        jQuery("#step-button").addClass("tapped");
+        jQuery("#step-button").bind('webkitAnimationEnd', function() {
+            jQuery("#step-button").removeClass("tapped");
+        })
+    });
 
     //Pulsate step button
     jQuery("#step-button").on("tap", function(e){
@@ -89,7 +94,7 @@ $(document).ready(function() {
     });
 
     //Bring Up the PowerWalk Upgrade List
-    jQuery("#power-walk").on("tap", function(e){
+    jQuery("#power-walk-tab").on("tap", function(e){
         e.stopPropagation();
         //jQuery("#step-button").hasClass("fadeOut")
 
@@ -134,7 +139,7 @@ $(document).ready(function() {
 
 
     //Bring Up the AutoWalk Upgrade List
-    jQuery("#auto-walk").on("tap", function(e){
+    jQuery("#auto-walk-tab").on("tap", function(e){
         e.stopPropagation();
         //jQuery("#step-button").hasClass("fadeOut")
 
@@ -175,7 +180,7 @@ $(document).ready(function() {
     });
 
 
-    jQuery("#achievements").on("tap", function(e){
+    jQuery("#achievements-tab").on("tap", function(e){
         e.stopPropagation();
 
         if (tabActive === true && achievementsActive === true) {
@@ -212,7 +217,7 @@ $(document).ready(function() {
         }
     });
 
-    jQuery("#stats").on("tap", function(e){
+    jQuery("#stats-tab").on("tap", function(e){
         e.stopPropagation();
 
         app.trigger('update-stats');
@@ -258,56 +263,60 @@ $(document).ready(function() {
 
     /*Tapping the tabs
     */
-    jQuery("#auto-walk").on("tap", function() {
-
-        if (jQuery(this).attr("src") === "css/images/AutoWalk.png") {
+    jQuery("#auto-walk-tab").on("tap", function() {
+        //remove blinking if there is any
+        jQuery("#auto-walk-filled").remove();
+        
+        if (jQuery("#auto-walk").attr("src") === "css/images/AutoWalk.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
             jQuery("#achievements").attr("src", "css/images/Achievements.png")
             jQuery("#stats").attr("src", "css/images/Stats.png");
-            jQuery(this).attr("src", "css/images/AutoWalk-filled.png")
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk-filled.png")
         } else {
-            jQuery(this).attr("src", "css/images/AutoWalk.png")
+            jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png")
         }
     });
 
-    jQuery("#power-walk").on("tap", function() {
-
-        if (jQuery(this).attr("src") === "css/images/PowerWalk.png") {
+    jQuery("#power-walk-tab").on("tap", function() {
+        //remove blinking if there is any
+        jQuery("#power-walk-filled").remove();
+        
+        if (jQuery("#power-walk").attr("src") === "css/images/PowerWalk.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
             jQuery("#achievements").attr("src", "css/images/Achievements.png")
             jQuery("#stats").attr("src", "css/images/Stats.png");
-            jQuery(this).attr("src", "css/images/PowerWalk-filled.png")
+            jQuery("#power-walk").attr("src", "css/images/PowerWalk-filled.png")
         } else {
-            jQuery(this).attr("src", "css/images/PowerWalk.png")
+            jQuery("#power-walk").attr("src", "css/images/PowerWalk.png")
         }
     });
 
-    jQuery("#achievements").on("tap", function() {
+    jQuery("#achievements-tab").on("tap", function() {
 
-        if (jQuery(this).attr("src") === "css/images/Achievements.png") {
+        if (jQuery("#achievements").attr("src") === "css/images/Achievements.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
             jQuery("#achievements").attr("src", "css/images/Achievements.png")
             jQuery("#stats").attr("src", "css/images/Stats.png");
-            jQuery(this).attr("src", "css/images/Achievements-filled.png")
+            jQuery("#achievements").attr("src", "css/images/Achievements-filled.png")
         } else {
-            jQuery(this).attr("src", "css/images/Achievements.png")
+            jQuery("#achievements").attr("src", "css/images/Achievements.png")
         }
     });
 
-    jQuery("#stats").on("tap", function() {
+    jQuery("#stats-tab").on("tap", function() {
 
 
-        if (jQuery(this).attr("src") === "css/images/Stats.png") {
+        if (jQuery("#stats").attr("src") === "css/images/Stats.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
             jQuery("#achievements").attr("src", "css/images/Achievements.png")
             jQuery("#stats").attr("src", "css/images/Stats.png");
-            jQuery(this).attr("src", "css/images/Stats-filled.png")
+            jQuery("#stats").attr("src", "css/images/Stats-filled.png")
         } else {
-            jQuery(this).attr("src", "css/images/Stats.png")
+            jQuery("#stats").attr("src", "css/images/Stats.png")
         }
     });
 
@@ -339,6 +348,27 @@ $(document).ready(function() {
         jQuery(".congratulations").removeClass("fadeout2");
         jQuery(".congratulations").show().addClass("fadein2");
         
+    });
+    
+    
+    app.on("upgrade-unlocked", function() {
+        var position = jQuery("#power-walk").position();
+        
+        jQuery("#power-walk").parent().append("<img src='css/images/PowerWalk-filled.png' id='power-walk-filled' alt='power-walk-filled'>");
+        jQuery("#power-walk-filled").css({
+            'top': position.top,
+            'left': position.left
+        });
+    });
+    
+    app.on("passive-unlocked", function() {
+        var position = jQuery("#auto-walk").position();
+        
+        jQuery("#auto-walk").parent().append("<img src='css/images/AutoWalk-filled.png' id='auto-walk-filled' alt='auto-walk-filled'>");
+        jQuery("#auto-walk-filled").css({
+            'top': position.top,
+            'left': position.left
+        });
     });
 
 });

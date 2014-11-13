@@ -9,7 +9,7 @@ ACTIVE_UPGRADES = [
 		description: 'Add 1 StepStep per step',
 		image:"css/images/trail.png",
 		baseCost: 10,
-		effect:1,
+		effect:150000000,
 		unlockAt:0
 	}, {
 		name:"Steamroller",
@@ -21,70 +21,70 @@ ACTIVE_UPGRADES = [
 	}, {
 		name:"Happy Feet",
 		description:"Add 10 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active1_happyfeet.png",
 		baseCost:1000,
 		effect:10,
 		unlockAt:500
 	}, {
 		name:"Power Walker",
 		description:"Add 30 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/walkawalka.png",
 		baseCost:10000,
 		effect:30,
 		unlockAt:5000
 	}, {
 		name:"Robowalker",
 		description:"Add 60 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active3_robowalker.png",
 		baseCost:50000,
 		effect:60,
 		unlockAt:25000
 	}, {
 		name:"Battle of Marathon",
 		description:"Add 200 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active4_battleofmarathon.png",
 		baseCost:200000,
 		effect:200,
 		unlockAt:100000
 	}, {
 		name:"Walkaholic",
 		description:"Add 400 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active5_walkaholic.png",
 		baseCost:500000,
 		effect:400,
 		unlockAt:250000
 	}, {
 		name:"Walka Walka",
 		description:"Add 700 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active6_walkawalka.png",
 		baseCost:1000000,
 		effect:700,
 		unlockAt:500000
 	}, {
 		name:"Unstoppable",
 		description:"Add 3000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active7_unstoppable.png",
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"The Road Less Taken",
 		description:"Add 15000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active8_roadlesstaken.png",
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
 		description:"Add 30000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active9_oregontrail.png",
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where Nobody Has Gone...",
 		description:"Add 80000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active10_wherenobodyhasgone.png",
 		baseCost:200000000,
 		effect:80000,
 		unlockAt:100000000
@@ -95,28 +95,28 @@ PASSIVE_UPGRADES = [
 	{
 		name: 'Extra Steps',
 		description: 'Add 1 StepSteps per second',
-		image: "css/images/walkawalka.png",
+		image: "css/images/passive1_extrasteps.png",
 		baseCost: 150000,
 		idle: 1,
 		unlockAt: 0
 	}, {
 		name: 'Phantom Steps',
 		description: 'Add 3 StepSteps per second',
-		image: "css/images/walkawalka.png",
+		image: "css/images/passive2_phantomsteps.png",
 		baseCost: 450000,
 		idle: 3,
 		unlockAt: 200000
 	}, {
 		name: 'Flash Steps',
 		description: 'Add 5 StepSteps per second',
-		image: "css/images/walkawalka.png",
+		image: "css/images/passive3_flashsteps.png",
 		baseCost: 1500000,
 		idle: 5,
 		unlockAt: 750000
 	}, {
 		name: 'Doppelganger',
 		description: 'Add 10 StepSteps per second',
-		image: "css/images/walkawalka.png",
+		image: "css/images/passive4_doppelganger.png",
 		baseCost: 8000000,
 		idle: 10,
 		unlockAt: 4000000
@@ -207,7 +207,7 @@ ACHIEVEMENTS = [
 		name: 'The God of Steps',
 		description: 'Get 1000000000 total StepSteps.',
 		multiplier: 1.2,
-		unlockType: 'steps',
+		unlockType: 'totalSs',
 		unlockValue: 1000000000,
 	},
 ];

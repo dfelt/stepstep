@@ -21,7 +21,8 @@ body {
 
 .tpl { display: none }
 li.upgrade.locked { display: none }
-li.achievement.locked { }
+li.upgrade.affordable { background: rgba(255,255,255,0.9) !important; }
+li.achievement.locked { background: rgba(255,255,255,0.6) !important; }
 
 #sona-login-btn {
     color: #fff !important;
@@ -169,7 +170,7 @@ p {
     bottom: -60%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background: rgba(0, 0, 0, 0.46);
+    background-color: rgba(0, 0, 0, 0.46) !important;
     border-radius: 5px;
 }
 
@@ -181,11 +182,12 @@ p {
 }
 
 .upgrade a {
-    background-color: rgba(255,255,255,0.8) !important;
+    background-color: rgba(255,255,255,0.5) !important;
     font-family: "Avenir Next" !important;
     font-weight: 400 !important;
     border: none !important;
     border-bottom: 1 solid rgba(0,0,0,0.1) !important;
+    text-shadow: none !important;
 }
 
 .upgrade a:hover {
@@ -197,6 +199,7 @@ p {
     font-weight: 600;
     font-size: 10pt;
     letter-spacing: 2pt;
+    color: #656565;
 }
 
 .cost {
@@ -206,6 +209,8 @@ p {
 .count {
     background-color: rgba(255,255,255,0)!important;
     font-weight: 400 !important;
+    text-shadow: none !important;
+    border: 1px solid #a5a5a5 !important;
 }
 
 .achievement {
@@ -243,6 +248,7 @@ p {
 #power-walk {
     width: 50px;
     height: 31px;
+    /*-webkit-animation: pulsatePower 1s infinite;*/
 }
 
 #auto-walk {
@@ -314,6 +320,11 @@ p {
     -webkit-animation-fill-mode: forwards;
 }
 
+.pulsate-power {
+    -webkit-animation: pulsatePower 1s infinite;
+    
+}
+
 @media (max-width: 320px) {
     .moveup {
         -webkit-transform: translate(0px,-118%);
@@ -380,6 +391,15 @@ p {
     0% { bottom: 9%; opacity: 1; }
     40% { opacity: 0 }
     100% { bottom: -60%; opacity: 0;}
+}
+
+
+
+
+@-webkit-keyframes fadeInOut {
+    0% { opacity: 0 }
+    50% { opacity: 1 }
+    100% { opacity: 0 }
 }
 
 /*#autowalk-panel {
@@ -557,3 +577,29 @@ z-index: -1;
 html {
     background-color: black !important;
 }
+
+#power-walk-filled {
+    float: left;
+    position: absolute;
+    width: 50px;
+    height: 31px;
+    -webkit-animation: fadeInOut 2s infinite;
+    
+}
+
+#auto-walk-filled {
+    float: left;
+    position: absolute;
+    width: 46px;
+    height: 38px;
+    -webkit-animation: fadeInOut 2s infinite;
+    
+}
+
+li.upgrade {
+    background: rgba(255,255,255,0) !important;
+}
+
+
+
+
