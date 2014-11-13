@@ -16,13 +16,13 @@ $(document).ready(function() {
 
         if (tabActive) {
             if ((!powerwalkList.is(e.target) 
-                && powerwalkList.has(e.target).length === 0) && 
+                 && powerwalkList.has(e.target).length === 0) && 
                 (!autowalkList.is(e.target) 
-                && autowalkList.has(e.target).length === 0) && 
+                 && autowalkList.has(e.target).length === 0) && 
                 (!achievementsList.is(e.target) 
-                && achievementsList.has(e.target).length === 0) && 
+                 && achievementsList.has(e.target).length === 0) && 
                 (!stats.is(e.target) 
-                && stats.has(e.target).length === 0))
+                 && stats.has(e.target).length === 0))
             {
                 heroAnimateIn();
                 jQuery("#passives-list").addClass("movedown");
@@ -42,8 +42,8 @@ $(document).ready(function() {
                 autowalkActive = false;
                 powerwalkActive = false;
             }
-            
-            
+
+
         }
     });
 
@@ -265,8 +265,8 @@ $(document).ready(function() {
     */
     jQuery("#auto-walk-tab").on("tap", function() {
         //remove blinking if there is any
-        jQuery("#auto-walk-filled").remove();
-        
+        jQuery("#auto-walk-filled").hide();
+
         if (jQuery("#auto-walk").attr("src") === "css/images/AutoWalk.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
@@ -280,8 +280,8 @@ $(document).ready(function() {
 
     jQuery("#power-walk-tab").on("tap", function() {
         //remove blinking if there is any
-        jQuery("#power-walk-filled").remove();
-        
+        jQuery("#power-walk-filled").hide();
+
         if (jQuery("#power-walk").attr("src") === "css/images/PowerWalk.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
@@ -347,28 +347,41 @@ $(document).ready(function() {
 
         jQuery(".congratulations").removeClass("fadeout2");
         jQuery(".congratulations").show().addClass("fadein2");
-        
+
     });
     
     
+    
+    
+    //Creating the blinking alerts
+    var positionAuto = jQuery("#auto-walk").position();
+    var positionPower = jQuery("#power-walk").position();
+
+    jQuery("#power-walk").parent().append("<img src='css/images/PowerWalk-filled.png' id='power-walk-filled' alt='power-walk-filled'>");
+
+    jQuery("#auto-walk").parent().append("<img src='css/images/AutoWalk-filled.png' id='auto-walk-filled' alt='auto-walk-filled'>");
+    
+    jQuery("#auto-walk-filled").css({
+            'top': positionAuto.top,
+            'left': positionAuto.left
+        });
+    
+    jQuery("#power-walk-filled").css({
+            'top': positionPower.top,
+            'left': positionPower.left
+        });
+    
+    jQuery("#power-walk-filled").hide();
+    jQuery("#auto-walk-filled").hide();
+
     app.on("upgrade-unlocked", function() {
-        var position = jQuery("#power-walk").position();
+        jQuery("#power-walk-filled").show();
         
-        jQuery("#power-walk").parent().append("<img src='css/images/PowerWalk-filled.png' id='power-walk-filled' alt='power-walk-filled'>");
-        jQuery("#power-walk-filled").css({
-            'top': position.top,
-            'left': position.left
-        });
     });
-    
+
     app.on("passive-unlocked", function() {
-        var position = jQuery("#auto-walk").position();
+        jQuery("#auto-walk-filled").show();
         
-        jQuery("#auto-walk").parent().append("<img src='css/images/AutoWalk-filled.png' id='auto-walk-filled' alt='auto-walk-filled'>");
-        jQuery("#auto-walk-filled").css({
-            'top': position.top,
-            'left': position.left
-        });
     });
 
 });

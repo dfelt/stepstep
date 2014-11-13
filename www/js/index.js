@@ -45,8 +45,6 @@ var app = {
 				floorsAscended: 0,
 				floorsDescended: 0
 			};
-
-			Util.lastWeekStepData(app.pedometer, app.saveWeekStepData, app.onError);
 		} else {
             alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
@@ -58,13 +56,10 @@ var app = {
 		app.prevPedometerData = pedometerData;
 	},
 
-	saveWeekStepData: function(stepData) {
-
-	},
-
 	promptSonaId: function() {
 		if (!app.game.model.get('sonaId')) {
-			_.delay(function() { $('#sona-login').popup('open'); }, 100);
+			console.log('sonaId is ' + app.game.model.get('sonaId'));
+			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
 		}
 	},
 

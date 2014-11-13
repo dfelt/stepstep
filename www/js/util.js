@@ -16,6 +16,11 @@ Util = {
 	},
 
 	lastWeekStepData: function(pedometer, ok, fail) {
+		if (!pedometer) {
+			_.defer(fail);
+			return;
+		}
+
 		var stepData = new Array(7);
 		var now = new Date();
 
@@ -42,6 +47,8 @@ Util = {
 
 			var startT = +start;
 			var endT = +end;
+
+			console.log(start, end);
 
 			pedometer.queryPedometerDataFromDate(startT, endT, onStepData(i), fail);
 		}

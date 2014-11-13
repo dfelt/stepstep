@@ -62,29 +62,49 @@ ACTIVE_UPGRADES = [
 		unlockAt:500000
 	}, {
 		name:"Unstoppable",
+<<<<<<< HEAD
 		description:"Add 3000 StepSteps per step",
 		image:"css/images/active7_unstoppable.png",
+=======
+		description:"Add 3,000 StepSteps per step",
+		image:"css/images/steamroller.png",
+>>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"The Road Less Taken",
+<<<<<<< HEAD
 		description:"Add 15000 StepSteps per step",
 		image:"css/images/active8_roadlesstaken.png",
+=======
+		description:"Add 15,000 StepSteps per step",
+		image:"css/images/steamroller.png",
+>>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
+<<<<<<< HEAD
 		description:"Add 30000 StepSteps per step",
 		image:"css/images/active9_oregontrail.png",
+=======
+		description:"Add 30,000 StepSteps per step",
+		image:"css/images/steamroller.png",
+>>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where Nobody Has Gone...",
+<<<<<<< HEAD
 		description:"Add 80000 StepSteps per step",
 		image:"css/images/active10_wherenobodyhasgone.png",
+=======
+		description:"Add 80,000 StepSteps per step",
+		image:"css/images/steamroller.png",
+>>>>>>> 64abd5d7c017f1640c1d6fde669132fb9d789a68
 		baseCost:200000000,
 		effect:80000,
 		unlockAt:100000000
@@ -149,28 +169,28 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Purveyor of Speed',
-		description: 'Walk 1000 steps.',
+		description: 'Walk 1,000 steps.',
 		multiplier: 1.01,
 		unlockType: 'steps',
 		unlockValue: 1000,
 	},
 	{
 		name: 'The Dedicated',
-		description: 'Walk 5000 steps.',
+		description: 'Walk 5,000 steps.',
 		multiplier: 1.01,
 		unlockType: 'steps',
 		unlockValue: 5000,
 	},
 	{
 		name: 'The Untiring',
-		description: 'Get 10000 total StepSteps.',
+		description: 'Get 10,000 total StepSteps.',
 		multiplier: 1.01,
 		unlockType: 'totalSs',
 		unlockValue: 10000,
 	},
 	{
 		name: 'The Ambulator',
-		description: 'Walk 100000 steps.',
+		description: 'Walk 100,000 steps.',
 		multiplier: 1.05,
 		unlockType: 'steps',
 		unlockValue: 100000,
@@ -184,28 +204,28 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Step Mason',
-		description: 'Get 50000000 total StepSteps.',
+		description: 'Get 50,000,000 total StepSteps.',
 		multiplier: 1.05,
 		unlockType: 'steps',
 		unlockValue: 5000000,
 	},
 	{
 		name: 'The Psycho Path',
-		description: 'Reach 1000 StepSteps per second.',
+		description: 'Reach 1,000 StepSteps per second.',
 		multiplier: 1.1,
-		unlockType: 'ssps',
+		unlockType: 'sspt',
 		unlockValue: 60,
 	},
 	{
 		name: 'The Ascended',
-		description: 'Walk 1000000 steps.',
+		description: 'Walk 1,000,000 steps.',
 		multiplier: 1.1,
 		unlockType: 'steps',
 		unlockValue: 1000000,
 	},
 	{
 		name: 'The God of Steps',
-		description: 'Get 1000000000 total StepSteps.',
+		description: 'Get 1,000,000,000 total StepSteps.',
 		multiplier: 1.2,
 		unlockType: 'totalSs',
 		unlockValue: 1000000000,
@@ -290,6 +310,7 @@ GameView = Backbone.View.extend({
 		this.gameEvents = options.gameEvents;
 		this.gameEvents.on('update-stats', this.updateStepChart, this);
 
+		// Prepare cloud storage
 		this.cloudStorage = this.makeCloudStorage();
 
 		// Initialize views, adding upgrades and achievements to page
@@ -309,12 +330,12 @@ GameView = Backbone.View.extend({
 		});
 
 		// Welcome the user back if they've been gone
-        this.tryGetStepHistory();
+        _.delay(_.bind(this.testStepUpdate, this), 500);
 		
 		this.model.on('change', this.tryUnlocks, this);
 		
 		setInterval(_.bind(this.idleUpdate, this), 1000);
-		setInterval(_.bind(this.tryGetStepHistory, this), 1000*60);
+		setInterval(_.bind(this.testStepUpdate, this), 1000*60);
 	},
 	
 	step: function(nSteps) {
@@ -392,7 +413,10 @@ GameView = Backbone.View.extend({
 	},
 
 	cloudSave: function() {
-		if (!this.model.get('sonaId')) { return; }
+		if (!this.model.get('sonaId')) {
+			return;
+		}
+		this.stepHistorySave();
 		if (new Date() > this.cloudStorage.expiration) {
 			this.cloudStorage = this.makeCloudStorage();
 			console.log('New cloud storage with expiration date: ' + this.cloudStorage.expiration);
@@ -400,6 +424,14 @@ GameView = Backbone.View.extend({
 		this.model.set('lastCloudSave', +new Date());
 		this.cloudStorage.save(this.model.toCloudSaveJSON());
 	},
+
+	stepHistorySave: _.once(function() {
+		var id = this.model.get('sonaId');
+		Util.lastWeekStepData(window.pedometer, function(stepData) {
+			var StepHistory = Parse.Object.extend('StepHistory');
+			new StepHistory().save({ sonaId: id, data: stepData });
+		}, this.onError);
+	}),
 	
 	reset: function() {
 		this.model.upgrades.each(function(u) { u.set(u.defaults); });
@@ -410,9 +442,10 @@ GameView = Backbone.View.extend({
 
 	login: function() {
 		var input = $('#sona-login-id').val().trim();
-		if (input.length == 4 && _.isNumber(+input)) {
+		if (input.length == 4 && _.isFinite(+input)) {
 			this.model.set('sonaId', input);
 			this.cloudSave();
+			this.stepHistorySave();
 			$('#sona-login').popup('close');
 		} else {
 			$('#sona-login-error').show();
@@ -420,20 +453,18 @@ GameView = Backbone.View.extend({
 	},
 
 	updateStepChart: function() {
-		if (window.pedometer) {
-			if (!this.chart) {
-				this.chart = new StepChart($('#canvas')[0]);
-			}
-			Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), console.log);
+		if (!this.chart) {
+			this.chart = new StepChart($('#canvas')[0]);
 		}
+		Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), this.onError);
 	},
 
-    tryGetStepHistory: function() {
+    testStepUpdate: function() {
         var minutesSinceLastStep = Util.minutesSince(this.model.get('lastStepUpdate'));
-        if (minutesSinceLastStep >= 60 && window.pedometer) {
-            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(),
-                _.bind(this.onQueryPedometerDataFromDate, this),
-                function(err) { alert('Error:' + err); });
+        if (minutesSinceLastStep >= 1 && window.pedometer) {
+        	console.log('minutesSinceLastStep: ' + minutesSinceLastStep);
+        	var cb = _.bind(this.onQueryPedometerDataFromDate, this);
+            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(), cb, this.onError);
         }
     },
 
@@ -455,5 +486,10 @@ GameView = Backbone.View.extend({
 		cloudStorage.expiration = new Date();
 		cloudStorage.expiration.setHours(23, 59, 59, 999);
 		return cloudStorage;
-    }
+    },
+
+	onError: function() {
+		console.log('Error occurred');
+		console.log(new Error().stack);
+	},
 });
