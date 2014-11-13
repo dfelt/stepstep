@@ -591,8 +591,13 @@ html {
     position: absolute;
     width: 50px;
     height: 31px;
+    z-index: -10000;
     -webkit-animation: fadeInOut 2s infinite;
     
+}
+
+.blinking {
+    -webkit-animation: fadeInOut 2s infinite;
 }
 
 #auto-walk-filled {
@@ -600,8 +605,8 @@ html {
     position: absolute;
     width: 46px;
     height: 38px;
+    z-index: -10000;
     -webkit-animation: fadeInOut 2s infinite;
-    
 }
 
 li.upgrade {

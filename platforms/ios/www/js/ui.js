@@ -263,7 +263,7 @@ $(document).ready(function() {
 
     /*Tapping the tabs
     */
-    jQuery("#auto-walk-tab").on("tap", function() {
+    jQuery("#auto-walk-tab").on("tap", function(e) {
         //remove blinking if there is any
         jQuery("#auto-walk-filled").hide();
 
@@ -276,9 +276,9 @@ $(document).ready(function() {
         } else {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png")
         }
-    });
+    })
 
-    jQuery("#power-walk-tab").on("tap", function() {
+    jQuery("#power-walk-tab").on("tap", function(e) {
         //remove blinking if there is any
         jQuery("#power-walk-filled").hide();
 
@@ -377,6 +377,8 @@ $(document).ready(function() {
     jQuery("#power-walk-filled").hide();
     jQuery("#auto-walk-filled").hide();
 
+    
+    
     app.on("upgrade-unlocked", function() {
         jQuery("#power-walk-filled").show();
         
