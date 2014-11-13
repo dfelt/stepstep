@@ -62,28 +62,28 @@ ACTIVE_UPGRADES = [
 		unlockAt:500000
 	}, {
 		name:"Unstoppable",
-		description:"Add 3000 StepSteps per step",
+		description:"Add 3,000 StepSteps per step",
 		image:"css/images/steamroller.png",
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"The Road Less Taken",
-		description:"Add 15000 StepSteps per step",
+		description:"Add 15,000 StepSteps per step",
 		image:"css/images/steamroller.png",
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
-		description:"Add 30000 StepSteps per step",
+		description:"Add 30,000 StepSteps per step",
 		image:"css/images/steamroller.png",
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where Nobody Has Gone...",
-		description:"Add 80000 StepSteps per step",
+		description:"Add 80,000 StepSteps per step",
 		image:"css/images/steamroller.png",
 		baseCost:200000000,
 		effect:80000,
@@ -149,28 +149,28 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Purveyor of Speed',
-		description: 'Walk 1000 steps.',
+		description: 'Walk 1,000 steps.',
 		multiplier: 1.01,
 		unlockType: 'steps',
 		unlockValue: 1000,
 	},
 	{
 		name: 'The Dedicated',
-		description: 'Walk 5000 steps.',
+		description: 'Walk 5,000 steps.',
 		multiplier: 1.01,
 		unlockType: 'steps',
 		unlockValue: 5000,
 	},
 	{
 		name: 'The Untiring',
-		description: 'Get 10000 total StepSteps.',
+		description: 'Get 10,000 total StepSteps.',
 		multiplier: 1.01,
 		unlockType: 'totalSs',
 		unlockValue: 10000,
 	},
 	{
 		name: 'The Ambulator',
-		description: 'Walk 100000 steps.',
+		description: 'Walk 100,000 steps.',
 		multiplier: 1.05,
 		unlockType: 'steps',
 		unlockValue: 100000,
@@ -184,28 +184,28 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Step Mason',
-		description: 'Get 50000000 total StepSteps.',
+		description: 'Get 50,000,000 total StepSteps.',
 		multiplier: 1.05,
 		unlockType: 'steps',
 		unlockValue: 5000000,
 	},
 	{
 		name: 'The Psycho Path',
-		description: 'Reach 1000 StepSteps per second.',
+		description: 'Reach 1,000 StepSteps per second.',
 		multiplier: 1.1,
 		unlockType: 'sspt',
 		unlockValue: 60,
 	},
 	{
 		name: 'The Ascended',
-		description: 'Walk 1000000 steps.',
+		description: 'Walk 1,000,000 steps.',
 		multiplier: 1.1,
 		unlockType: 'steps',
 		unlockValue: 1000000,
 	},
 	{
 		name: 'The God of Steps',
-		description: 'Get 1000000000 total StepSteps.',
+		description: 'Get 1,000,000,000 total StepSteps.',
 		multiplier: 1.2,
 		unlockType: 'steps',
 		unlockValue: 1000000000,
