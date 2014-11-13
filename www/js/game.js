@@ -279,9 +279,7 @@ Game = Backbone.Model.extend({
 
 GameView = Backbone.View.extend({
 	events: {
-		'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
-		'tap #stepstep-count': 'reset',
 		'click #sona-login-btn': 'login',
 	},
 	
