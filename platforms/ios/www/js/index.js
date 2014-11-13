@@ -64,7 +64,7 @@ var app = {
 
 	promptSonaId: function() {
 		if (!app.game.model.get('sonaId')) {
-			_.delay(function() { $('#sona-login').popup('open'); }, 100);
+			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
 		}
 	},
 
