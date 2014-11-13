@@ -63,28 +63,28 @@ ACTIVE_UPGRADES = [
 	}, {
 		name:"Unstoppable",
 		description:"Add 3,000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active7_unstoppable.png",
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"The Road Less Taken",
 		description:"Add 15,000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active8_roadlesstaken.png",
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
 		description:"Add 30,000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active9_oregontrail.png",
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where Nobody Has Gone...",
 		description:"Add 80,000 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active10_wherenobodyhasgone.png",
 		baseCost:200000000,
 		effect:80000,
 		unlockAt:100000000
