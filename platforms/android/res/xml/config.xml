@@ -49,4 +49,7 @@
     <gap:splash gap:platform="ios" height="1334" src="res/screen/ios/screen-iphone-portrait-667h@2x.png" width="750" />
     <gap:splash gap:platform="ios" height="2208" src="res/screen/ios/screen-iphone-portrait-736h@3x.png" width="1242" />
     <preference name="DisallowOverscroll" value="true" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
 </widget>

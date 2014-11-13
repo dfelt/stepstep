@@ -1,3 +1,4 @@
+
 var tabActive = false;
 var achievementsActive = false;
 var autowalkActive = false;

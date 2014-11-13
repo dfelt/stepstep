@@ -15,9 +15,8 @@
     <preference name="SplashScreenDelay" value="10000" />
     
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    
-    <gap:splash src="res/screen/ios/screen-iphone-portrait-667h@2x.png" gap:platform="ios" width="750"  height="1334" />
-    <gap:splash src="www/css/images/Background.png" gap:platform="ios" width="1242" height="2208" />
+    <gap:splash src="Default@2x~iphone.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="Default@3x~iphone.png" gap:platform="ios" width="1242" height="2208" />
     <preference name="DisallowOverscroll" value="true" />
     
 </widget>

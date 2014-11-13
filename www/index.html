@@ -3,6 +3,19 @@
         <title>StepStep</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+        <script type="text/javascript" charset="utf-8">
+
+            // Wait for device API libraries to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                navigator.splashscreen.hide();
+            }
+
+        </script>
 
         <script src="cordova.js"></script>
 
@@ -12,7 +25,6 @@
         <script src="js/backbone.min.js"></script>
         <script src="js/Chart.min.js"></script>
         <script src="js/parse.min.js"></script>
-        
     </head>
     <body>
 
@@ -136,7 +148,6 @@ Effect: +<span class="mult"></span>% StepSteps per Step
             </div>
 
         </div>
-        
 
         <script src="js/ui.js"></script>
         <script src="js/util.js"></script>

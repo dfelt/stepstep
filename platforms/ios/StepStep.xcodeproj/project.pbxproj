@@ -19,6 +19,7 @@
 		308D05391370CCF300D202BF /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308D05301370CCF300D202BF /* icon@2x.png */; };
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		3E9D4C2B13D6468F9AB6C368 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482CBA186644A02B26A4922 /* CDVSplashScreen.m */; };
 		403F7BDD6FDB49379BFF2F3B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92047040C4A946C2A930E134 /* CoreMotion.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966D51810823500FA85AD /* icon-40@2x.png */; };
@@ -31,6 +32,9 @@
 		8F064BDEAF2C431B99AD6568 /* Pedometer.m in Sources */ = {isa = PBXBuildFile; fileRef = E14A270EB5924B399F8F540B /* Pedometer.m */; };
 		B8C90218D3CF4B4A929E93B2 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 193BE18E5ABD49E38768564C /* CDVLogger.m */; };
 		F8A501281A13D31100118294 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A501271A13D31100118294 /* Launch.storyboard */; };
+		F8A501491A14104B00118294 /* Default-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A501481A14104B00118294 /* Default-736h.png */; };
+		F8A501531A1413B000118294 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */; };
+		F8A501541A1413B000118294 /* Default-667h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A501521A1413B000118294 /* Default-667h@2x~iphone.png */; };
 		F8F44E8D19FB4123003F6DF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F44E8C19FB4123003F6DF4 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -66,12 +70,6 @@
 		302D95EF14D2391D003F00A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		302D95F014D2391D003F00A1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		3088BBB7154F3926009F9C59 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		3088BBB8154F3926009F9C59 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		3088BBB9154F3926009F9C59 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		3088BBBA154F3926009F9C59 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		3088BBBB154F3926009F9C59 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
-		3088BBBC154F3926009F9C59 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		308D052E1370CCF300D202BF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		308D052F1370CCF300D202BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		308D05301370CCF300D202BF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -80,6 +78,7 @@
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* StepStep-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StepStep-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		761DE71DA94A49858B4DDA0C /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = org.apache.cordova.splashscreen/CDVSplashScreen.h; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -90,17 +89,20 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
+		8482CBA186644A02B26A4922 /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = org.apache.cordova.splashscreen/CDVSplashScreen.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* StepStep-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "StepStep-Info.plist"; path = "../StepStep-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		92047040C4A946C2A930E134 /* CoreMotion.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		BEB177F66D6B4D15B4EDFA7B /* Pedometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pedometer.h; path = uk.co.ilee.pedometer/Pedometer.h; sourceTree = "<group>"; };
 		C2E022D5FB1A44A4B5E2D9DC /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = org.apache.cordova.console/CDVLogger.h; sourceTree = "<group>"; };
-		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		E14A270EB5924B399F8F540B /* Pedometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pedometer.m; path = uk.co.ilee.pedometer/Pedometer.m; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = StepStep/config.xml; sourceTree = "<group>"; };
 		F8A501271A13D31100118294 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Launch.storyboard; path = StepStep/Classes/Launch.storyboard; sourceTree = "<group>"; };
+		F8A501481A14104B00118294 /* Default-736h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h.png"; sourceTree = "<group>"; };
+		F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		F8A501521A1413B000118294 /* Default-667h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x~iphone.png"; sourceTree = "<group>"; };
 		F8F44E8C19FB4123003F6DF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = StepStep/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,8 @@
 				BEB177F66D6B4D15B4EDFA7B /* Pedometer.h */,
 				193BE18E5ABD49E38768564C /* CDVLogger.m */,
 				C2E022D5FB1A44A4B5E2D9DC /* CDVLogger.h */,
+				8482CBA186644A02B26A4922 /* CDVSplashScreen.m */,
+				761DE71DA94A49858B4DDA0C /* CDVSplashScreen.h */,
 			);
 			name = Plugins;
 			path = StepStep/Plugins;
@@ -257,13 +261,9 @@
 		308D05311370CCF300D202BF /* splash */ = {
 			isa = PBXGroup;
 			children = (
-				D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */,
-				3088BBB7154F3926009F9C59 /* Default-Landscape@2x~ipad.png */,
-				3088BBB8154F3926009F9C59 /* Default-Landscape~ipad.png */,
-				3088BBB9154F3926009F9C59 /* Default-Portrait@2x~ipad.png */,
-				3088BBBA154F3926009F9C59 /* Default-Portrait~ipad.png */,
-				3088BBBB154F3926009F9C59 /* Default@2x~iphone.png */,
-				3088BBBC154F3926009F9C59 /* Default~iphone.png */,
+				F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */,
+				F8A501521A1413B000118294 /* Default-667h@2x~iphone.png */,
+				F8A501481A14104B00118294 /* Default-736h.png */,
 			);
 			path = splash;
 			sourceTree = "<group>";
@@ -373,12 +373,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7966E41810823500FA85AD /* icon-76.png in Resources */,
+				F8A501491A14104B00118294 /* Default-736h.png in Resources */,
 				F8F44E8D19FB4123003F6DF4 /* Images.xcassets in Resources */,
 				7E7966DF1810823500FA85AD /* icon-40@2x.png in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
+				F8A501531A1413B000118294 /* Default-568h@2x~iphone.png in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
+				F8A501541A1413B000118294 /* Default-667h@2x~iphone.png in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
 				7E7966E31810823500FA85AD /* icon-60@2x.png in Resources */,
@@ -421,6 +424,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				8F064BDEAF2C431B99AD6568 /* Pedometer.m in Sources */,
 				B8C90218D3CF4B4A929E93B2 /* CDVLogger.m in Sources */,
+				3E9D4C2B13D6468F9AB6C368 /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
