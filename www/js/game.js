@@ -456,6 +456,7 @@ GameView = Backbone.View.extend({
             this.step(n);
             var ss = n * this.model.get('ssps');
             Util.render($('#welcome-back'), { nSteps: n, ss: ss });
+            $('#welcome-back').popup('open');
         }
     },
 
