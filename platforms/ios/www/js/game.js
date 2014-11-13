@@ -1,4 +1,8 @@
 
+// Time between cloud updates in minutes
+CLOUD_UPDATE_TIME = 1;
+
+// Upgrades which improve StepSteps/Step (PowerWalk)
 ACTIVE_UPGRADES = [
 	{
 		name:"Trailblazer",
@@ -120,6 +124,7 @@ PASSIVE_UPGRADES = [
 
 ];
 
+// Upgrades that improve StepSteps/Second (AutoWalk)
 ACHIEVEMENTS = [
 	{
 		name: 'The Jaywalker',
@@ -216,7 +221,7 @@ Game = Backbone.Model.extend({
 		steps: 0,
 		lastIdleUpdate: +new Date(),
 		lastStepUpdate: +new Date(),
-		lastCloudSave: +new Date(),
+		lastCloudSave: 0,
 		sonaId: '',
 	},
 	
@@ -254,9 +259,17 @@ Game = Backbone.Model.extend({
 			achievements: this.achievements.invoke('toSaveJSON')
 		});
 	},
+
+	toCloudSaveJSON: function() {
+		return _.extend({}, this.attributes, {
+			upgrades: this.upgrades.pluck('count'),
+			passives: this.passives.pluck('count'),
+			achievements: this.achievements.pluck('locked')
+		});
+	},
 }, /* class properties */ {
 	fromSaveJSON: function(data) {
-		var game = new Game(_.omit(data, 'upgrades', 'achievements'));
+		var game = new Game(_.omit(data, 'upgrades', 'passives', 'achievements'));
 		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]); });
 		game.passives.each(function(u, i) { u.set(data.passives[i]); });
 		game.achievements.each(function(a, i) { a.set(data.achievements[i]); });
@@ -277,19 +290,7 @@ GameView = Backbone.View.extend({
 		this.gameEvents = options.gameEvents;
 		this.gameEvents.on('update-stats', this.updateStepChart, this);
 
-		// var SonaUser = Parse.Object.extend('SonaUser');
-		// if (this.model.has('cloudId')) {
-		// 	var query = new Parse.Query(SonaUser);
-		// 	query.get(this.model.get('cloudId'), {
-		// 		success: function(user) {
-		// 			this.cloudStorage = user;
-		// 			console.log(user);
-		// 		},
-		// 		error: function(obj, err) {
-		// 			console.log(obj, err);
-		// 		}
-		// 	});
-		// }
+		this.cloudStorage = this.makeCloudStorage();
 
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
@@ -307,6 +308,7 @@ GameView = Backbone.View.extend({
 			new AchievementView({ model: a }).$el.appendTo('#achievements-list');
 		});
 
+		// Welcome the user back if they've been gone
         this.tryGetStepHistory();
 		
 		this.model.on('change', this.tryUnlocks, this);
@@ -349,10 +351,10 @@ GameView = Backbone.View.extend({
 		}
 	},
 	
-	tryUnlocks: function() {
+	tryUnlocks: _.debounce(function() {
 		this.unlockUpgrades();
 		this.unlockAchievements();
-	},
+	}, 100, true),
 	
 	unlockUpgrades: function() {
 		var gameEvents = this.gameEvents;
@@ -386,10 +388,17 @@ GameView = Backbone.View.extend({
 	
 	save: function() {
 		localStorage.game = JSON.stringify(this.model.toSaveJSON());
-		// var minutesSinceLastCloudSave = Util.minutesSince(this.model.get('lastCloudSave'));
-		// if (minutesSinceLastCloudSave >= 10) {
-		// 	this.cloudStorage.save(this.model.toSaveJSON());
-		// }
+		if (Util.minutesSince(this.model.get('lastCloudSave')) >= CLOUD_UPDATE_TIME) { this.cloudSave(); }
+	},
+
+	cloudSave: function() {
+		if (!this.model.get('sonaId')) { return; }
+		if (new Date() > this.cloudStorage.expiration) {
+			this.cloudStorage = this.makeCloudStorage();
+			console.log('New cloud storage with expiration date: ' + this.cloudStorage.expiration);
+		}
+		this.model.set('lastCloudSave', +new Date());
+		this.cloudStorage.save(this.model.toCloudSaveJSON());
 	},
 	
 	reset: function() {
@@ -402,7 +411,8 @@ GameView = Backbone.View.extend({
 	login: function() {
 		var input = $('#sona-login-id').val().trim();
 		if (input.length == 4 && _.isNumber(+input)) {
-			this.model.set('sonaId', +input);
+			this.model.set('sonaId', input);
+			this.cloudSave();
 			$('#sona-login').popup('close');
 		} else {
 			$('#sona-login-error').show();
@@ -435,4 +445,15 @@ GameView = Backbone.View.extend({
             this.step(n);
         }
     },
+
+	// Makes cloud storage, which expires at the end of today. This means we get
+	// overwrite the record until the end of the day (or the app is restarted),
+	// and then start a new record the next day.
+    makeCloudStorage: function() {
+		var SonaUser = Parse.Object.extend('SonaUser');
+		var cloudStorage = new SonaUser();
+		cloudStorage.expiration = new Date();
+		cloudStorage.expiration.setHours(23, 59, 59, 999);
+		return cloudStorage;
+    }
 });
