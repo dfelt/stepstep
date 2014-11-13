@@ -310,7 +310,7 @@ GameView = Backbone.View.extend({
 		});
 
 		// Welcome the user back if they've been gone
-        this.testStepUpdate();
+        _.delay(_.bind(this.testStepUpdate, this), 500);
 		
 		this.model.on('change', this.tryUnlocks, this);
 		
@@ -441,8 +441,10 @@ GameView = Backbone.View.extend({
 
     testStepUpdate: function() {
         var minutesSinceLastStep = Util.minutesSince(this.model.get('lastStepUpdate'));
-        if (minutesSinceLastStep >= 60 && window.pedometer) {
-            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(), this.onError);
+        if (minutesSinceLastStep >= 1 && window.pedometer) {
+        	console.log('minutesSinceLastStep: ' + minutesSinceLastStep);
+        	var cb = _.bind(this.onQueryPedometerDataFromDate, this);
+            window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(), cb, this.onError);
         }
     },
 
