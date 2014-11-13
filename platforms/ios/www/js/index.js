@@ -45,8 +45,6 @@ var app = {
 				floorsAscended: 0,
 				floorsDescended: 0
 			};
-
-			Util.lastWeekStepData(app.pedometer, app.saveWeekStepData, app.onError);
 		} else {
             alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
@@ -56,10 +54,6 @@ var app = {
 		console.log(pedometerData);
 		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
-	},
-
-	saveWeekStepData: function(stepData) {
-
 	},
 
 	promptSonaId: function() {
