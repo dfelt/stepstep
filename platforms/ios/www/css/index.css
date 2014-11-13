@@ -5,7 +5,7 @@
 
 body {
     font-family: "Avenir Next", Roboto !important;
-    -webkit-user-select: none;
+    -webkit-user-select: none !important;
     font-weight: 100;
     background-color: black;
 }
