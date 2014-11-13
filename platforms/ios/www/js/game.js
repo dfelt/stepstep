@@ -451,9 +451,9 @@ GameView = Backbone.View.extend({
     onQueryPedometerDataFromDate: function(pedometerData) {
         var n = pedometerData.numberOfSteps;
         if (n > 0) {
-            var ss = n * this.model.get('ssps');
-            alert("Welcome back! You\'ve stepped " + n + ' times since you were gone, earning you ' + ss + ' StepSteps.');
             this.step(n);
+            var ss = n * this.model.get('ssps');
+            Util.render($('#welcome-back'), { nSteps: n, ss: ss });
         }
     },
 
