@@ -29,7 +29,7 @@ var app = {
 		app.begin();
 	},
 
-	stepSubscribe: function() {
+	begin: function() {
 		if (app.game && app.pedometer) {
 			game.begin();
 			app.pedometer.isStepCountingAvailable(app.onStepCountingAvailable, app.onError);
