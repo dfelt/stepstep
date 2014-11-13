@@ -22,6 +22,15 @@ body {
 li.upgrade.locked { display: none }
 li.achievement.locked { }
 
+#sona-login-btn {
+    color: #fff !important;
+}
+
+#sona-login-error {
+    display: none;
+    color: red;
+}
+
 #stepstep-count {
     display: block;
     font-size: 60pt;

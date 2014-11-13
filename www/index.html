@@ -11,13 +11,14 @@
         <script src="js/underscore.min.js"></script>
         <script src="js/backbone.min.js"></script>
         <script src="js/Chart.min.js"></script>
-        
+        <script src="js/parse.min.js"></script>
         
     </head>
     <body>
 
         <div data-role="page" id="home">
             <div id="content">
+
                 <div id="counter">
                     <h2 id="stepstep-count">0</h2>
                     <p id="stepstep-label">STEPSTEPS</p>
@@ -124,8 +125,17 @@ Effect: +<span class="mult"></span>% StepSteps per Step
                     </ul>
                 </div>
             </div>
-        </div>
 
+            <div data-role="popup" id="sona-login" data-theme="a" data-overlay-theme="a" data-dismissible="false" class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                <h3>Please sign in</h3>
+                <p id="sona-login-error">Invalid SONA number</p>
+                <input type="text" id="sona-login-id" placeholder="SONA number" data-theme="a">
+                <button id="sona-login-btn" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Sign in</button>
+                </div>
+            </div>
+
+        </div>
         
 
         <script src="js/ui.js"></script>

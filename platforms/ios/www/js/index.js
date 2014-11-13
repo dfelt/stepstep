@@ -2,8 +2,10 @@
 var app = {
 	initialize: function() {
 		$('#home').on('pagebeforecreate', app.initializeGame);
+		$('#home').on('pageshow', app.promptSonaId);
 		$(document).on('deviceready', app.onDeviceReady);
 		_.extend(app, Backbone.Events);
+		Parse.initialize("CTA88xkiQrusIuEpIgmzcktxeI7d02OmZjK3iUay", "TEnNf0PDARVZC3e5tk1wiEMF7CC3dcb6YFdVPbo4");
 	},
 
 	initializeGame: function() {
@@ -44,8 +46,7 @@ var app = {
 				floorsDescended: 0
 			};
 
-			// var chart = new StepChart($('#canvas')[0]);
-			// Util.lastWeekStepData(app.pedometer, _.bind(chart.update, chart), app.onError);
+			Util.lastWeekStepData(app.pedometer, app.saveWeekStepData, app.onError);
 		} else {
             alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
@@ -55,6 +56,16 @@ var app = {
 		console.log(pedometerData);
 		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
+	},
+
+	saveWeekStepData: function(stepData) {
+
+	},
+
+	promptSonaId: function() {
+		if (!app.game.model.get('sonaId')) {
+			_.delay(function() { $('#sona-login').popup('open'); }, 100);
+		}
 	},
 
 	onError: function() {

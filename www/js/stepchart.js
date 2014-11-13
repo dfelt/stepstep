@@ -5,8 +5,9 @@ function StepChart(canvas) {
 StepChart.prototype.update = function(data) {
 	var dayOfWeek = new Date().getDay();
     var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    days[dayOfWeek] = 'Today';
 	var lineChartData = {
-		labels: Util.rotateArray(days, dayOfWeek).reverse(),
+		labels: Util.rotateArray(days, dayOfWeek+1),
 		datasets: [
 			{
 				label: "My First dataset",

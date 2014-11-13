@@ -46,4 +46,12 @@ Util = {
 			pedometer.queryPedometerDataFromDate(startT, endT, onStepData(i), fail);
 		}
 	},
+
+	secondsSince: function(time) {
+		return (new Date() - time) / 1000;
+	},
+
+	minutesSince: function(time) {
+		return (new Date() - time) / (1000 * 60);
+	},
 };

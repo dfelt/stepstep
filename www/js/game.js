@@ -216,6 +216,8 @@ Game = Backbone.Model.extend({
 		steps: 0,
 		lastIdleUpdate: +new Date(),
 		lastStepUpdate: +new Date(),
+		lastCloudSave: +new Date(),
+		sonaId: '',
 	},
 	
 	initialize: function() {
@@ -267,12 +269,27 @@ GameView = Backbone.View.extend({
 		'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
 		'tap #stepstep-count': 'reset',
+		'click #sona-login-btn': 'login',
 	},
 	
 	initialize: function(options) {
 		// Global event pump, used for interfacing with UI
 		this.gameEvents = options.gameEvents;
 		this.gameEvents.on('update-stats', this.updateStepChart, this);
+
+		// var SonaUser = Parse.Object.extend('SonaUser');
+		// if (this.model.has('cloudId')) {
+		// 	var query = new Parse.Query(SonaUser);
+		// 	query.get(this.model.get('cloudId'), {
+		// 		success: function(user) {
+		// 			this.cloudStorage = user;
+		// 			console.log(user);
+		// 		},
+		// 		error: function(obj, err) {
+		// 			console.log(obj, err);
+		// 		}
+		// 	});
+		// }
 
 		// Initialize views, adding upgrades and achievements to page
 		new CounterView({ model: this.model });
@@ -295,6 +312,7 @@ GameView = Backbone.View.extend({
 		this.model.on('change', this.tryUnlocks, this);
 		
 		setInterval(_.bind(this.idleUpdate, this), 1000);
+		setInterval(_.bind(this.tryGetStepHistory, this), 1000*60);
 	},
 	
 	step: function(nSteps) {
@@ -318,8 +336,7 @@ GameView = Backbone.View.extend({
 			totalSs: this.model.get('totalSs') + sspt,
 			lastIdleUpdate: now,
 		});
-        this.tryGetStepHistory();
-        this.save();
+		this.save();
 	},
 	
 	buyUpgrade: function(event) {
@@ -369,6 +386,10 @@ GameView = Backbone.View.extend({
 	
 	save: function() {
 		localStorage.game = JSON.stringify(this.model.toSaveJSON());
+		// var minutesSinceLastCloudSave = Util.minutesSince(this.model.get('lastCloudSave'));
+		// if (minutesSinceLastCloudSave >= 10) {
+		// 	this.cloudStorage.save(this.model.toSaveJSON());
+		// }
 	},
 	
 	reset: function() {
@@ -376,6 +397,16 @@ GameView = Backbone.View.extend({
 		this.model.passives.each(function(u) { u.set(u.defaults); });
 		this.model.achievements.each(function(a) { a.set(a.defaults); });
 		this.model.set(this.model.defaults);
+	},
+
+	login: function() {
+		var input = $('#sona-login-id').val().trim();
+		if (input.length == 4 && _.isNumber(+input)) {
+			this.model.set('sonaId', +input);
+			$('#sona-login').popup('close');
+		} else {
+			$('#sona-login-error').show();
+		}
 	},
 
 	updateStepChart: function() {
@@ -388,7 +419,7 @@ GameView = Backbone.View.extend({
 	},
 
     tryGetStepHistory: function() {
-        var minutesSinceLastStep = (new Date() - this.model.get('lastStepUpdate')) / (1000*60*60);
+        var minutesSinceLastStep = Util.minutesSince(this.model.get('lastStepUpdate'));
         if (minutesSinceLastStep >= 60 && window.pedometer) {
             window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(),
                 _.bind(this.onQueryPedometerDataFromDate, this),
