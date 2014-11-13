@@ -351,6 +351,9 @@ $(document).ready(function() {
     });
     
     
+    jQuery("#welcome-back").on("tap", function() {
+        jQuery(this).popup("close");
+    });
     
     
     //Creating the blinking alerts

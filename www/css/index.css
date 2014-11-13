@@ -26,11 +26,17 @@ li.achievement.locked { background: rgba(255,255,255,0.6) !important; }
 
 #sona-login-btn {
     color: #fff !important;
+    text-shadow: none !important;
+    border: none;
+    font-family: "Avenir Next";
+    font-weight: 400;
+    background-color: rgba(28, 144, 32, 0.76)
 }
 
 #sona-login-error {
     display: none;
     color: red;
+    font-weight: 400;
 }
 
 #stepstep-count {
@@ -605,3 +611,31 @@ li.upgrade {
 
 
 
+
+#sona-login {
+    text-align: center;
+    box-shadow: none;
+}
+
+#sona-header {
+    font-weight: 400;
+}
+
+#sona-login-id {
+    font-weight: 400;
+    font-family: "Avenir Next";
+}
+
+#welcome-back {
+    
+    box-shadow: none;
+}
+
+#welcome-back-header {
+    font-weight: 400;
+    text-align: center;
+}
+
+#welcome-back-text {
+    text-align: center;
+}
