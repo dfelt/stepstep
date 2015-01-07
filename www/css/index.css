@@ -41,9 +41,9 @@ li.achievement.locked { background: rgba(255,255,255,0.6) !important; }
 
 #stepstep-count {
     display: block;
-    font-size: 60pt;
     font-weight: 100;
     text-align: center;
+    font-size: 20vw;
     margin: 4rem 0 0 0;
     letter-spacing: -4pt;
     text-shadow: none !important;
@@ -145,6 +145,10 @@ p {
     font-weight: 400;
     border: none;
     mix-blend-mode: normal;
+}
+
+#upgrades-list li:last-child {
+    padding-bottom: 10px;
 }
 
 
@@ -577,9 +581,10 @@ z-index: -1;
 }
 
 #canvas {
-    width: 100% !important;
+    width: 95% !important;
     max-width: 800px;
     height: auto !important;
+    padding: 5px;
 }
 
 html {
@@ -643,4 +648,13 @@ li.upgrade {
 
 #welcome-back-text {
     text-align: center;
+}
+
+#powerwalk-panel {
+}
+
+.stats-panel-p {
+    padding: 5px;
+    margin: 0;
+    font-weight: 400;
 }

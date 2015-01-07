@@ -93,6 +93,8 @@ $(document).ready(function() {
         });
     });
 
+
+
     //Bring Up the PowerWalk Upgrade List
     jQuery("#power-walk-tab").on("tap", function(e){
         e.stopPropagation();
@@ -349,13 +351,13 @@ $(document).ready(function() {
         jQuery(".congratulations").show().addClass("fadein2");
 
     });
-    
-    
+
+
     jQuery("#welcome-back").on("tap", function() {
         jQuery(this).popup("close");
     });
-    
-    
+
+
     //Creating the blinking alerts
     var positionAuto = jQuery("#auto-walk").position();
     var positionPower = jQuery("#power-walk").position();
@@ -363,30 +365,46 @@ $(document).ready(function() {
     jQuery("#power-walk").parent().append("<img src='css/images/PowerWalk-filled.png' id='power-walk-filled' alt='power-walk-filled'>");
 
     jQuery("#auto-walk").parent().append("<img src='css/images/AutoWalk-filled.png' id='auto-walk-filled' alt='auto-walk-filled'>");
-    
+
     jQuery("#auto-walk-filled").css({
-            'top': positionAuto.top,
-            'left': positionAuto.left
-        });
-    
+        'top': positionAuto.top,
+        'left': positionAuto.left
+    });
+
     jQuery("#power-walk-filled").css({
-            'top': positionPower.top,
-            'left': positionPower.left
-        });
-    
+        'top': positionPower.top,
+        'left': positionPower.left
+    });
+
     jQuery("#power-walk-filled").hide();
     jQuery("#auto-walk-filled").hide();
 
-    
-    
+
+    /*jQuery("#upgrades-list").scroll(function() {
+        var header = jQuery("#power-upgrade-header");
+        var width = jQuery(this).width();
+        if (header.position().top < 0) {
+            console.log("true");
+            header.css({'top': jQuery(this).scrollTop(), 'width':width});
+        } else {
+            header.css({'top': jQuery(this).scrollTop()});
+        }
+    });*/
+
+    $("#stepstep-count").bigtext();
+
     app.on("upgrade-unlocked", function() {
         jQuery("#power-walk-filled").show();
-        
+
     });
 
     app.on("passive-unlocked", function() {
         jQuery("#auto-walk-filled").show();
-        
+
     });
+
+
+
+
 
 });

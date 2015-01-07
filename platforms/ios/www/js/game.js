@@ -186,8 +186,8 @@ ACHIEVEMENTS = [
 		name: 'The Step Mason',
 		description: 'Get 50,000,000 total StepSteps.',
 		multiplier: 1.05,
-		unlockType: 'steps',
-		unlockValue: 5000000,
+		unlockType: 'totalSs',
+		unlockValue: 50000000,
 	},
 	{
 		name: 'The Psycho Path',
@@ -214,9 +214,9 @@ ACHIEVEMENTS = [
 		
 Game = Backbone.Model.extend({
 	defaults: {
-		ss: 0,
-		ssps: 1,
-		sspt: 0,
+		ss: 1000,
+		ssps: 100000000,
+		sspt: 1,
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),
@@ -279,6 +279,8 @@ Game = Backbone.Model.extend({
 
 GameView = Backbone.View.extend({
 	events: {
+        'tap #autowalk-main': 'reset',
+        'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
 		'click #sona-login-btn': 'login',
 	},
@@ -312,12 +314,12 @@ GameView = Backbone.View.extend({
 		this.cloudStorage = this.makeCloudStorage();
 
 		// Welcome the user back if they've been gone
-        _.delay(_.bind(this.testStepUpdate, this), 500);
+        //_.delay(_.bind(this.testStepUpdate, this), 500);
 		
 		// Add events
 		this.model.on('change', this.tryUnlocks, this);
 		setInterval(_.bind(this.idleUpdate, this), 1000);
-		setInterval(_.bind(this.testStepUpdate, this), 1000*60);
+		//setInterval(_.bind(this.testStepUpdate, this), 1000*60);
 	},
 	
 	step: function(nSteps) {

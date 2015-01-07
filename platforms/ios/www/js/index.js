@@ -9,9 +9,9 @@ var app = {
 
 	initializeGame: function() {
 		app.game = new GameView({ model: app.loadGame(), el: $('#home'), gameEvents: app });
-		if (!app.game.model.get('sonaId')) {
+		/*if (!app.game.model.get('sonaId')) {
 			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
-		}
+		}*/
 		app.begin();
 	},
 
@@ -55,7 +55,7 @@ var app = {
 
 	onStep: function(pedometerData) {
 		console.log(pedometerData);
-		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
+		//app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
 	},
 

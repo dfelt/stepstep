@@ -21,6 +21,7 @@
 
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script src="js/jquery.textfill.min.js"></script>
         <script src="js/underscore.min.js"></script>
         <script src="js/backbone.min.js"></script>
         <script src="js/Chart.min.js"></script>
@@ -32,7 +33,7 @@
             <div id="content">
 
                 <div id="counter">
-                    <h2 id="stepstep-count">0</h2>
+                    <div id="stepstep-count"><span>10</span></div>
                     <p id="stepstep-label">STEPSTEPS</p>
 
                     <img id="step-button" src="css/images/footprint.png" alt="footprint">
@@ -42,10 +43,11 @@
                 </div>
                
                 <div id="powerwalk-panel">
+                    
                     <ul id="upgrades-list" data-role="listview" data-inset="true">
                         <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
                     </ul>
-
+                    
                     <div id="upgrade-tpl" class="tpl">
                         <a href="#">
                             <img>
@@ -89,6 +91,9 @@
                 <div id="stats-panel">
                     <h2 id="stats-header">Steps walked in last week</h2>
                     <canvas id="canvas"></canvas>
+                    <p class="stats-panel-p">Cumulative StepSteps:<span></span></p>
+                    <p class="stats-panel-p">Cumulative Bonus effect:</p>
+                    
                 </div>
 
 
