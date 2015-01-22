@@ -1,58 +1,147 @@
 <html>
     <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>StepStep</title>
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <script type="text/javascript" charset="utf-8">
+
+            // Wait for device API libraries to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                navigator.splashscreen.hide();
+            }
+
+        </script>
 
         <script src="cordova.js"></script>
 
-        <script src="js/jquery-2.1.1.js"></script>
-        <script src="js/jquery.mobile-1.4.4.min.js"></script>
-        <script src="js/underscore.js"></script>
-        <script src="js/ui.js"></script>
-        <script src="js/backbone.js"></script>
+        <script src="js/jquery-2.1.0.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/jquery.textfill.min.js"></script>
+        <script src="js/underscore.min.js"></script>
+        <script src="js/backbone.min.js"></script>
+        <script src="js/Chart.min.js"></script>
+        <script src="js/parse.min.js"></script>
     </head>
     <body>
+
         <div data-role="page" id="home">
             <div id="content">
+
                 <div id="counter">
-                    <h2 id="stepstep-count">0</h2>
+                    <div id="stepstep-count"><span>10</span></div>
                     <p id="stepstep-label">STEPSTEPS</p>
-                    <p id="stepstepstep"><span id="ssps">0</span> StepSteps / Step</p>
-                    <p id="stepstepsecond"><span id="sspt">0</span> StepSteps / Second</p>
+
                     <img id="step-button" src="css/images/footprint.png" alt="footprint">
+                    <p id="stepstepstep"><img id="powerwalk-main" src="css/images/PowerWalk-main.png"><span class="ssps">0</span> StepSteps / Step</p>
+                    <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span class="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
-                <ul id="upgrades-list" data-role="listview" data-inset="true">
-                    <li data-role="list-divider"><p id="upgrades-text">Upgrades</p></li>
-                </ul>
-                <ul id="achievements-list" data-role="listview" data-inset="true">
-                    <li data-role="list-divider">Achievements</li>
-                </ul>
+               
+                <div id="powerwalk-panel">
+                    
+                    <ul id="upgrades-list" data-role="listview" data-inset="false">
+                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
+                    </ul>
+                    
+                    <div id="upgrade-tpl" class="tpl">
+                        <a href="#">
+                            <img>
+                            <span class="name"></span>
+                            <p class="description"></p>
+                            Cost: <span class="cost"></span>
+                            <span class="count ui-li-count"></span>
+                        </a>
+                    </div>
+                </div>
 
-                <div id="upgrade-tpl" class="tpl">
-                    <a href="#">
-                        <img>
+                <div id="autowalk-panel">
+                    <ul id="passives-list" data-role="listview" data-inset="true">
+                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
+                    </ul>
+
+                    <div id="upgrade-tpl" class="tpl">
+                        <a href="#">
+                            <img>
+                            <span class="name"></span>
+                            <p class="description"></p>
+                            Cost: <span class="cost"></span>
+                            <span class="count ui-li-count"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="achievements-panel">
+                    <ul id="achievements-list" data-role="listview" data-inset="true">
+                        <li id="achievements-header" data-position="fixed" data-role="list-divider"><p id="achievements-text">Achievements</p></li>
+                    </ul>
+
+                    <div id="achievement-tpl" class="tpl">
                         <span class="name"></span>
                         <p class="description"></p>
-                        Cost: <span class="cost"></span>
-                        <span class="count ui-li-count"></span>
-                    </a>
+                        Effect: +<span class="mult"></span>% StepSteps per Step
+                    </div>
                 </div>
 
-                <div id="achievement-tpl" class="tpl">
-                    <span class="name"></span>
-                    <p class="description"></p>
-                    Effect: +<span class="mult"></span>% StepSteps per Step
+
+                <div id="stats-panel">
+                    <h2 id="stats-header">Steps walked in last week</h2>
+                    <canvas id="canvas"></canvas>
+                    <p class="stats-panel-p">Cumulative StepSteps:<span></span></p>
+                    <p class="stats-panel-p">Cumulative Bonus effect:</p>
+                    
+                </div>
+
+
+
+                <div class="congratulations">
+                    <!--<div id="congratulations-blur"></div>-->
+
+                    <h2 id="congratulations-header">Congratulations! You got</h2>
+
+                    <span class="name" id="congrats-name"></span>
+                    <p class="description" id="congrats-description"></p>
+                    Effect: +<span class="mult" id="congrats-mult"></span>% StepSteps per Step
+                    <img id="trophy-image" src="css/images/Trophy.png" alt="trophy">
+                    <p class="close">Close</p>
+                </div>
+
+
+                <div>
+                    <ul id="tab-bar">
+                        <li id="power-walk-tab"><img class="tab-icon" id="power-walk"  src="css/images/PowerWalk.png" alt="footprint"></li>
+                        <li id="auto-walk-tab"><img class="tab-icon" id="auto-walk" src="css/images/AutoWalk.png" alt="footprint"></li>
+                        <li id="achievements-tab"><img class="tab-icon" id="achievements" src="css/images/Achievements.png" alt="footprint"></li>
+                        <li id="stats-tab"><img class="tab-icon" id="stats" src="css/images/Stats.png" alt="footprint"></li>
+                    </ul>
                 </div>
             </div>
+
+        
+
+            <div data-role="popup" id="welcome-back" data-theme="b" class="ui-corner-all" data-transition="fade">
+                <div style="padding:10px 20px;">
+                    <h3 id="welcome-back-header">Welcome back!</h3>
+                    <p id="welcome-back-text">You took <span class="nSteps">0</span> steps while you were gone, giving you a total of <span class="ss">0</span> StepSteps</p>
+                </div>
+            </div>
+
         </div>
 
+        <script src="js/ui.js"></script>
         <script src="js/util.js"></script>
         <script src="js/counter.js"></script>
         <script src="js/upgrade.js"></script>
         <script src="js/achievement.js"></script>
         <script src="js/game.js"></script>
+        <script src="js/stepchart.js"></script>
         <script src="js/index.js"></script>
     </body>
 </html>

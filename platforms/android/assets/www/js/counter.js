@@ -4,8 +4,8 @@ CounterView = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.$count = this.$('#stepstep-count');
-		this.$ssps = this.$('#ssps');
-		this.$sspt = this.$('#sspt');
+		this.$ssps = $('.ssps');
+		this.$sspt = $('.sspt');
 		
 		this.model.on('change', this.render, this);
 		
@@ -19,7 +19,5 @@ CounterView = Backbone.View.extend({
 		return this;
 	},
 	
-	formatNumber: function(n) {
-		return Math.floor(n).toString();
-	},
+	formatNumber: Util.numberToStringWithCommas,
 });

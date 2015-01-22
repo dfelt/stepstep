@@ -9,9 +9,9 @@ $(document).ready(function() {
 
     //Tap outside of modals to slide them back down.
     jQuery("#content").on("tap", function(e) {
-        var achievementsList = jQuery("#achievements-list");
-        var autowalkList = jQuery("#passives-list");
-        var powerwalkList = jQuery("#upgrades-list");
+        var achievementsList = jQuery("#achievements-panel");
+        var autowalkList = jQuery("#autowalk-panel");
+        var powerwalkList = jQuery("#powerwalk-panel");
         var stats = jQuery("#stats-panel");
 
         if (tabActive) {
@@ -25,9 +25,9 @@ $(document).ready(function() {
                  && stats.has(e.target).length === 0))
             {
                 heroAnimateIn();
-                jQuery("#passives-list").addClass("movedown");
-                jQuery("#achievements-list").addClass("movedown");
-                jQuery("#upgrades-list").addClass("movedown");
+                jQuery("#autowalk-panel").addClass("movedown");
+                jQuery("#achievements-panel").addClass("movedown");
+                jQuery("#powerwalk-panel").addClass("movedown");
                 jQuery("#stats-panel").addClass("movedown");
 
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
         if (tabActive === true && powerwalkActive === true) {
 
             heroAnimateIn();
-            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#powerwalk-panel").addClass("movedown");
 
             //reset image
 
@@ -112,11 +112,11 @@ $(document).ready(function() {
             powerwalkActive= false;
 
         } else if (tabActive === true && powerwalkActive === false) {
-            jQuery("#achievements-list").addClass("movedown");
-            jQuery("#passives-list").addClass("movedown");
+            jQuery("#achievements-panel").addClass("movedown");
+            jQuery("#autowalk-panel").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
-            jQuery("#upgrades-list").removeClass("movedown");
-            jQuery("#upgrades-list").addClass("moveup");
+            jQuery("#powerwalk-panel").removeClass("movedown");
+            jQuery("#powerwalk-panel").addClass("moveup");
 
             tabActive = true;
             powerwalkActive = true;
@@ -128,8 +128,8 @@ $(document).ready(function() {
         else {
 
             heroAnimateOut();
-            jQuery("#upgrades-list").removeClass("movedown");
-            jQuery("#upgrades-list").addClass("moveup");
+            jQuery("#powerwalk-panel").removeClass("movedown");
+            jQuery("#powerwalk-panel").addClass("moveup");
 
             tabActive = true;
             powerwalkActive = true;
@@ -148,17 +148,17 @@ $(document).ready(function() {
         if (tabActive === true && autowalkActive === true) {
 
             heroAnimateIn();
-            jQuery("#passives-list").addClass("movedown");
+            jQuery("#autowalk-panel").addClass("movedown");
 
             tabActive = false;
             autowalkActive = false;
 
         } else if (tabActive === true && autowalkActive === false) {
-            jQuery("#achievements-list").addClass("movedown");
-            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#achievements-panel").addClass("movedown");
+            jQuery("#powerwalk-panel").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
-            jQuery("#passives-list").removeClass("movedown");
-            jQuery("#passives-list").addClass("moveup");
+            jQuery("#autowalk-panel").removeClass("movedown");
+            jQuery("#autowalk-panel").addClass("moveup");
 
             tabActive = true;
             autowalkActive = true;
@@ -170,8 +170,8 @@ $(document).ready(function() {
         else {
 
             heroAnimateOut();
-            jQuery("#passives-list").removeClass("movedown");
-            jQuery("#passives-list").addClass("moveup");
+            jQuery("#autowalk-panel").removeClass("movedown");
+            jQuery("#autowalk-panel").addClass("moveup");
 
             tabActive = true;
             autowalkActive = true;
@@ -188,17 +188,17 @@ $(document).ready(function() {
         if (tabActive === true && achievementsActive === true) {
 
             heroAnimateIn();
-            jQuery("#achievements-list").addClass("movedown");
+            jQuery("#achievements-panel").addClass("movedown");
 
             tabActive = false;
             achievementsActive = false;
 
         } else if (tabActive === true && achievementsActive === false) {
-            jQuery("#passives-list").addClass("movedown");
-            jQuery("#upgrades-list").addClass("movedown");
+            jQuery("#autowalk-panel").addClass("movedown");
+            jQuery("#powerwalk-panel").addClass("movedown");
             jQuery("#stats-panel").addClass("movedown");
-            jQuery("#achievements-list").removeClass("movedown");
-            jQuery("#achievements-list").addClass("moveup");
+            jQuery("#achievements-panel").removeClass("movedown");
+            jQuery("#achievements-panel").addClass("moveup");
 
             tabActive = true;
             achievementsActive = true;
@@ -208,8 +208,8 @@ $(document).ready(function() {
         } else {
 
             heroAnimateOut();
-            jQuery("#achievements-list").removeClass("movedown");
-            jQuery("#achievements-list").addClass("moveup");
+            jQuery("#achievements-panel").removeClass("movedown");
+            jQuery("#achievements-panel").addClass("moveup");
 
             tabActive = true;
             achievementsActive = true;
@@ -233,9 +233,9 @@ $(document).ready(function() {
             statsActive = false;
 
         } else if (tabActive === true && statsActive === false) {
-            jQuery("#passives-list").addClass("movedown");
-            jQuery("#upgrades-list").addClass("movedown");
-            jQuery("#achievements-list").addClass("movedown");
+            jQuery("#autowalk-panel").addClass("movedown");
+            jQuery("#powerwalk-panel").addClass("movedown");
+            jQuery("#achievements-panel").addClass("movedown");
             jQuery("#stats-panel").removeClass("movedown");
             jQuery("#stats-panel").addClass("moveup");
 
@@ -379,22 +379,33 @@ $(document).ready(function() {
     jQuery("#power-walk-filled").hide();
     jQuery("#auto-walk-filled").hide();
 
-
-    /*jQuery("#upgrades-list").scroll(function() {
-        var header = jQuery("#power-upgrade-header");
-        var width = jQuery(this).width();
-        if (header.position().top < 0) {
-            console.log("true");
-            header.css({'top': jQuery(this).scrollTop(), 'width':width});
-        } else {
-            header.css({'top': jQuery(this).scrollTop()});
-        }
-    });*/
-
-    $('#stepstep-count').textfill({
-        maxFontPixels: 104
-    });
+    //**DEFINING HEIGHT OF ACHIEVEMENT LIST PANELS IN ORDER TO
+    //ALLOW FOR SCROLLING.
+    var achievementHeaderHeight = jQuery("#achievements-header").height();
+    var achievementPanelHeight = jQuery("#achievements-panel").height();
+    var achievementListHeight = achievementPanelHeight - achievementHeaderHeight;
     
+    jQuery("#achievements-list").css("height", achievementListHeight);
+    
+    //**DEFINING HEIGHT OF AUTOWALK LIST PANELS IN ORDER TO
+    //ALLOW FOR SCROLLING.
+    var autowalkHeaderHeight = jQuery("#upgrade-header").height();
+    var autowalkPanelHeight = jQuery("#autowalk-panel").height();
+    var autowalkListHeight = autowalkPanelHeight - autowalkHeaderHeight;
+    
+    jQuery("#passives-list").css("height", autowalkListHeight);
+    
+    //**DEFINING HEIGHT OF POWERWALK LIST PANELS IN ORDER TO
+    //ALLOW FOR SCROLLING.
+    var powerwalkHeaderHeight = jQuery("#power-upgrade-header").height();
+    var powerwalkPanelHeight = jQuery("#powerwalk-panel").height();
+    var powerwalkListHeight = powerwalkPanelHeight - powerwalkHeaderHeight;
+    
+    jQuery("#upgrades-list").css("height", powerwalkListHeight);
+    
+    
+    
+
     app.on("upgrade-unlocked", function() {
         jQuery("#power-walk-filled").show();
 
@@ -405,8 +416,6 @@ $(document).ready(function() {
 
     });
 
-
-
-
+    $('#powerwalk-panel').on('touchstart', function(event){});
 
 });

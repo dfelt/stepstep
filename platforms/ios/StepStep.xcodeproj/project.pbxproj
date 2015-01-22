@@ -509,6 +509,10 @@
 				PRODUCT_NAME = StepStep;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"StepStep/Plugins/com.telerik.plugins.wkwebview\"",
+				);
 			};
 			name = Debug;
 		};
@@ -545,6 +549,10 @@
 				PRODUCT_NAME = StepStep;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"StepStep/Plugins/com.telerik.plugins.wkwebview\"",
+				);
 			};
 			name = Release;
 		};

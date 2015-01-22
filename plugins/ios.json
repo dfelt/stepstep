@@ -18,7 +18,9 @@
                             "xml": "false",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "WebKit.framework": [],
+                    "libz.dylib": []
                 }
             },
             "config.xml": {

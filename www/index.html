@@ -1,8 +1,11 @@
 <html>
     <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <title>StepStep</title>
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.4.min.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
         <script type="text/javascript" charset="utf-8">
 
             // Wait for device API libraries to load
@@ -20,7 +23,7 @@
         <script src="cordova.js"></script>
 
         <script src="js/jquery-2.1.0.min.js"></script>
-        <script src="js/jquery.mobile-1.4.4.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/jquery.textfill.min.js"></script>
         <script src="js/underscore.min.js"></script>
         <script src="js/backbone.min.js"></script>
@@ -41,13 +44,13 @@
                     <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span class="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
-               
+
                 <div id="powerwalk-panel">
-                    
-                    <ul id="upgrades-list" data-role="listview" data-inset="true">
-                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
+                    <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Increase StepSteps per Step.</b> <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
+
+                    <ul id="upgrades-list" data-role="listview" data-inset="false">
                     </ul>
-                    
+
                     <div id="upgrade-tpl" class="tpl">
                         <a href="#">
                             <img>
@@ -60,8 +63,9 @@
                 </div>
 
                 <div id="autowalk-panel">
+                    <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Increase StepSteps per Second.</b> <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
+                    
                     <ul id="passives-list" data-role="listview" data-inset="true">
-                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
@@ -76,8 +80,8 @@
                 </div>
 
                 <div id="achievements-panel">
-                    <ul id="achievements-list" data-role="listview" data-inset="true">
-                        <li id="achievements-header" data-position="fixed" data-role="list-divider"><p id="achievements-text">Achievements</p></li>
+                    <li id="achievements-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Achievements</b></p></li>
+                    <ul id="achievements-list" data-role="listview" data-inset="true">    
                     </ul>
 
                     <div id="achievement-tpl" class="tpl">
@@ -93,7 +97,7 @@
                     <canvas id="canvas"></canvas>
                     <p class="stats-panel-p">Cumulative StepSteps:<span></span></p>
                     <p class="stats-panel-p">Cumulative Bonus effect:</p>
-                    
+
                 </div>
 
 
@@ -121,14 +125,7 @@
                 </div>
             </div>
 
-            <div data-role="popup" id="sona-login" data-theme="a" data-overlay-theme="a" data-dismissible="false" class="ui-corner-all">
-                <div style="padding:10px 60px;">
-                    <h3 id="sona-header">Enter your SONA ID</h3>
-                    <p id="sona-login-error">Invalid SONA ID</p>
-                    <input type="text" id="sona-login-id" placeholder="SONA ID" data-theme="a">
-                    <button id="sona-login-btn" class="ui-btn ui-corner-all ui-btn-b ">Sign in</button>
-                </div>
-            </div>
+
 
             <div data-role="popup" id="welcome-back" data-theme="b" class="ui-corner-all" data-transition="fade">
                 <div style="padding:10px 20px;">
