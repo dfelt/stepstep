@@ -21,5 +21,5 @@ CounterView = Backbone.View.extend({
 		return this;
 	},
 	
-	formatNumber: Util.numberToStringWithCommas,
+	formatNumber: Util.numberToAbbreviatedString,
 });
