@@ -759,11 +759,7 @@ li.upgrade {
 
 .stats-panel-p {
     padding: 5px;
-<<<<<<< HEAD
     margin: 0.6rem 0;
-=======
-    margin: 0.8rem 0;
->>>>>>> 5f865217cfa74695aa3623a582db11327dd76e36
     font-weight: 500;
     font-size: 15pt;
     text-align: center;
@@ -1251,4 +1247,26 @@ b {
 #effect-bonus {
     font-size: 14pt;
     font-weight: 300;
+}
+
+#error-message {
+    display: block;
+    text-shadow: none;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    position: relative !important;
+    top: 50vh;
+    -webkit-transform: translateY(-30vh);
+}
+
+#error-header {
+    font-weight: 200;
+    font-size: 28pt !important;
+}
+
+#error-body {
+    font-size: 14pt;
 }

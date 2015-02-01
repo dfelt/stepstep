@@ -217,10 +217,7 @@ Game = Backbone.Model.extend({
 		ss: 0,
 		ssps: 1,
 		sspt: 0,
-<<<<<<< HEAD
-=======
 		multiplier: 1,
->>>>>>> 5f865217cfa74695aa3623a582db11327dd76e36
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),

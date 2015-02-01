@@ -49,7 +49,7 @@ var app = {
                 floorsDescended: 0
             };
         } else {
-            Util.render($(".counter").html("In order to use this app, you will need an iPhone that has the M7 or M8 coprocessor, such as the iPhone 5s, iPhone 6, and iPhone 6 Plus"));
+            app.game.render($("#counter").html("<div id='error-message'><h2 id='error-header'>Sorry.</h2><p id='error-body'>This app requires an iPhone with a motion coprocessor, such as the iPhone 5s, iPhone 6, and iPhone 6 Plus.</p></div>"));
             
         }
     },
