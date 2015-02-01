@@ -1193,3 +1193,36 @@ b {
     text-shadow: none;
     font-weight: 400;
 }
+
+.confirm-reset {
+    float: left;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    text-align: center;
+    background-color: rgba(54, 54, 54, 0.9);
+    font-weight: 400 !important;
+    z-index: 100000000000000000;
+}
+
+#confirm-header {
+    font-weight: 400;
+    font-size: 18pt;
+    margin: 40vh 1rem 0 1rem;
+}
+
+#confirm-no {
+    margin-left: 2rem;
+}
+
+#confirmation {
+    font-size: 18pt;
+}
+
+#confirm-yes {
+    color: #fd3100
+}
