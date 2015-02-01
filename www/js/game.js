@@ -248,7 +248,7 @@ Game = Backbone.Model.extend({
 		this.set({
 			ssps: (1 + ssps) * mult,
 			sspt: sspt * mult,
-			multiplier: mult,
+			multiplier: Math.floor(100 * (mult - 1)),
 		});
 	},
 	
@@ -438,8 +438,6 @@ GameView = Backbone.View.extend({
 		if (!this.chart) {
 			this.chart = new StepChart($('#canvas')[0]);
 		}
-
-		Util.render($('#stats-panel'), this.model.attributes);
 		
 		Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), this.onError);
 	},
