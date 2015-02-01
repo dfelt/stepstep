@@ -460,7 +460,7 @@ $(document).ready(function() {
         e.preventDefault();
         numTimesActiveUpgradeInteraction++;
         if (jQuery(this).hasClass("affordable") && numTimesActiveUpgradeInteraction <= 3) {
-            jQuery("#upgrade-success-header").html("<img src='css/images/PowerWalk-main.png' id='upgrade-success-img'><br>Increased StepSteps per Step by <span>941</span>!")
+            jQuery("#upgrade-success-header").html("<img src='css/images/PowerWalk-main.png' id='upgrade-success-img'><br>Increased number of StepSteps per Step!")
 
             jQuery(".upgrade-success").show().addClass("upgradefadein");
             jQuery("#upgrade-success-header").addClass("textinout");
@@ -487,7 +487,7 @@ $(document).ready(function() {
         numTimesPassiveUpgradeInteraction++;
         if (jQuery(this).hasClass("affordable") && numTimesPassiveUpgradeInteraction <= 3) {
 
-            jQuery("#upgrade-success-header").html("<img src='css/images/AutoWalk-main.png' id='upgrade-success-img'><br>Increased StepSteps per Second by <span>941</span>!")
+            jQuery("#upgrade-success-header").html("<img src='css/images/AutoWalk-main.png' id='upgrade-success-img'><br>Increased number of StepSteps per Second!")
             jQuery(".upgrade-success").show().addClass("upgradefadein");
             jQuery("#upgrade-success-header").addClass("textinout");
             setTimeout(function() {
