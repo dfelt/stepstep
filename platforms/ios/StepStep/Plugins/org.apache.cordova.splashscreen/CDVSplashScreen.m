@@ -164,6 +164,8 @@
     
     if (device.iPhone5) { // does not support landscape
         imageName = [imageName stringByAppendingString:@"-568h"];
+    } else if (device.iPhone){
+        imageName = [imageName stringByAppendingPathComponent:@"-400h"];
     } else if (device.iPhone6) { // does not support landscape
         imageName = [imageName stringByAppendingString:@"-667h"];
     } else if (device.iPhone6Plus) { // supports landscape

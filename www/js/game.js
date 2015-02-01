@@ -244,7 +244,6 @@ Game = Backbone.Model.extend({
 		var mult = this.achievements.reduce(function(acc, a) {
 			return a.get('locked') ? acc : acc * a.get('multiplier');
 		}, 1);
-		
 		this.set({
 			ssps: (1 + ssps) * mult,
 			sspt: sspt * mult
@@ -272,6 +271,7 @@ Game = Backbone.Model.extend({
 		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]); });
 		game.passives.each(function(u, i) { u.set(data.passives[i]); });
 		game.achievements.each(function(a, i) { a.set(data.achievements[i]); });
+		game.recalculate();
 		return game;
 	}
 });

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -31,6 +32,7 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		8F064BDEAF2C431B99AD6568 /* Pedometer.m in Sources */ = {isa = PBXBuildFile; fileRef = E14A270EB5924B399F8F540B /* Pedometer.m */; };
 		B8C90218D3CF4B4A929E93B2 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 193BE18E5ABD49E38768564C /* CDVLogger.m */; };
+		F841FDB51A7DDADB00C65C0D /* Default-400h.png in Resources */ = {isa = PBXBuildFile; fileRef = F841FDB41A7DDADB00C65C0D /* Default-400h.png */; };
 		F8A501281A13D31100118294 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A501271A13D31100118294 /* Launch.storyboard */; };
 		F8A501491A14104B00118294 /* Default-736h.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A501481A14104B00118294 /* Default-736h.png */; };
 		F8A501531A1413B000118294 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */; };
@@ -99,6 +101,7 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = StepStep/config.xml; sourceTree = "<group>"; };
+		F841FDB41A7DDADB00C65C0D /* Default-400h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-400h.png"; sourceTree = "<group>"; };
 		F8A501271A13D31100118294 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Launch.storyboard; path = StepStep/Classes/Launch.storyboard; sourceTree = "<group>"; };
 		F8A501481A14104B00118294 /* Default-736h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h.png"; sourceTree = "<group>"; };
 		F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				F8A501511A1413B000118294 /* Default-568h@2x~iphone.png */,
 				F8A501521A1413B000118294 /* Default-667h@2x~iphone.png */,
 				F8A501481A14104B00118294 /* Default-736h.png */,
+				F841FDB41A7DDADB00C65C0D /* Default-400h.png */,
 			);
 			path = splash;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
 				F8A501531A1413B000118294 /* Default-568h@2x~iphone.png in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
+				F841FDB51A7DDADB00C65C0D /* Default-400h.png in Resources */,
 				F8A501541A1413B000118294 /* Default-667h@2x~iphone.png in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
