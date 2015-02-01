@@ -574,6 +574,16 @@ $(document).ready(function() {
             reset();
         } 
     });
+    
+    //LOCAL STORAGE FOR HELP
+    
+    
+    if (!localStorage.getItem("openedFirstTime")) {
+        jQuery(".help").show().addClass("upgradefadein");
+        jQuery("#content").css("-webkit-filter", "blur(20px)");
+    }
+    
+    localStorage.setItem("openedFirstTime", "true");
 
     
     app.on("upgrade-unlocked", function() {
