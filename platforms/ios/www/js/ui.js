@@ -16,7 +16,8 @@ $(document).ready(function() {
         var powerwalkList = jQuery("#powerwalk-panel");
         var stats = jQuery("#stats-panel");
         var upgradePrompt = jQuery(".upgrade-success");
-        var congratsPrompt = jQuery(".congratulations")
+        var congratsPrompt = jQuery(".congratulations");
+        //var confirmPrompt = jQuery(".confirm-reset");
 
         if (tabActive) {
             if ((!powerwalkList.is(e.target) 
@@ -30,7 +31,7 @@ $(document).ready(function() {
                 (!upgradePrompt.is(e.target) 
                  && upgradePrompt.has(e.target).length === 0) && 
                 (!congratsPrompt.is(e.target) 
-                 && congratsPrompt.has(e.target).length === 0)
+                 && congratsPrompt.has(e.target).length === 0) 
                )
             {
                 heroAnimateIn();
@@ -567,14 +568,6 @@ $(document).ready(function() {
     });
 
     
-    //VERIFY RESET
-    jQuery("#reset-button").on("click", function() {
-        var response = confirm("Are you sure you want to reset?");
-        if (response == true) {
-            reset();
-        } 
-    });
-    
     //LOCAL STORAGE FOR HELP
     
     
@@ -582,6 +575,22 @@ $(document).ready(function() {
         jQuery(".help").show().addClass("upgradefadein");
         jQuery("#content").css("-webkit-filter", "blur(20px)");
     }
+    
+    
+    
+    //CONFIRM RESET DIALOG
+    jQuery(".confirm-reset").hide();
+    jQuery("#reset-button").on("tap", function() {
+        jQuery(".confirm-reset").show().addClass("upgradefadein");
+    });
+    jQuery(".confirm").on("tap", function(e) {
+        e.preventDefault();
+        jQuery(".confirm-reset").addClass("upgradefadeout").removeClass("upgradefadein");
+        setTimeout(function() {
+            jQuery(".confirm-reset").removeClass("upgradefadeout").hide();
+        }, 100);
+    });
+    
     
     localStorage.setItem("openedFirstTime", "true");
 
