@@ -18,6 +18,8 @@ CounterView = Backbone.View.extend({
 		this.$ssps.html(this.formatNumber(this.model.get('ssps')));
 		this.$sspt.html(this.formatNumber(this.model.get('sspt')));
         this.$totalSs.html(this.formatNumber(this.model.get('totalSs')));
+
+        Util.render($("#stats-panel"), this.model.attributes);
 		return this;
 	},
 	

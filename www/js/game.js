@@ -217,6 +217,7 @@ Game = Backbone.Model.extend({
 		ss: 0,
 		ssps: 10000000,
 		sspt: 0,
+		multiplier: 1,
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),
@@ -246,7 +247,8 @@ Game = Backbone.Model.extend({
 		}, 1);
 		this.set({
 			ssps: (1 + ssps) * mult,
-			sspt: sspt * mult
+			sspt: sspt * mult,
+			multiplier: mult,
 		});
 	},
 	
@@ -439,11 +441,6 @@ GameView = Backbone.View.extend({
 			this.chart = new StepChart($('#canvas')[0]);
 		}
 
-		var mult = this.model.achievements.reduce(function(acc, a) {
-			return a.get('locked') ? acc : acc * a.get('multiplier');
-		}, 1);
-		var multStr = Math.floor(100 * (mult - 1)).toString();
-		Util.render($('#stats-panel'), { multiplier: multStr });
 		Util.render($('#stats-panel'), this.model.attributes);
 		
 		Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), this.onError);
