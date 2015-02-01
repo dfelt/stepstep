@@ -4,15 +4,20 @@ var achievementsActive = false;
 var autowalkActive = false;
 var powerwalkActive = false;
 var statsActive = false;
-
+var seenDialogThreeTimes = false;
 $(document).ready(function() {
 
     //Tap outside of modals to slide them back down.
     jQuery("#content").on("tap", function(e) {
+        e.preventDefault();
+        
         var achievementsList = jQuery("#achievements-panel");
         var autowalkList = jQuery("#autowalk-panel");
         var powerwalkList = jQuery("#powerwalk-panel");
         var stats = jQuery("#stats-panel");
+        var upgradePrompt = jQuery(".upgrade-success");
+        var congratsPrompt = jQuery(".congratulations");
+        //var confirmPrompt = jQuery(".confirm-reset");
 
         if (tabActive) {
             if ((!powerwalkList.is(e.target) 
@@ -22,7 +27,12 @@ $(document).ready(function() {
                 (!achievementsList.is(e.target) 
                  && achievementsList.has(e.target).length === 0) && 
                 (!stats.is(e.target) 
-                 && stats.has(e.target).length === 0))
+                 && stats.has(e.target).length === 0) && 
+                (!upgradePrompt.is(e.target) 
+                 && upgradePrompt.has(e.target).length === 0) && 
+                (!congratsPrompt.is(e.target) 
+                 && congratsPrompt.has(e.target).length === 0) 
+               )
             {
                 heroAnimateIn();
                 jQuery("#autowalk-panel").addClass("movedown");
@@ -87,6 +97,7 @@ $(document).ready(function() {
 
     //Pulsate step button
     jQuery("#step-button").on("tap", function(e){
+        e.preventDefault();
         jQuery(this).addClass("tapped");
         jQuery(this).bind('webkitAnimationEnd', function() {
             jQuery(this).removeClass("tapped");
@@ -98,6 +109,7 @@ $(document).ready(function() {
     //Bring Up the PowerWalk Upgrade List
     jQuery("#power-walk-tab").on("tap", function(e){
         e.stopPropagation();
+        e.preventDefault();
         //jQuery("#step-button").hasClass("fadeOut")
 
         if (tabActive === true && powerwalkActive === true) {
@@ -143,6 +155,7 @@ $(document).ready(function() {
     //Bring Up the AutoWalk Upgrade List
     jQuery("#auto-walk-tab").on("tap", function(e){
         e.stopPropagation();
+        e.preventDefault();
         //jQuery("#step-button").hasClass("fadeOut")
 
         if (tabActive === true && autowalkActive === true) {
@@ -221,7 +234,7 @@ $(document).ready(function() {
 
     jQuery("#stats-tab").on("tap", function(e){
         e.stopPropagation();
-
+        e.preventDefault();
         app.trigger('update-stats');
 
         if (tabActive === true && statsActive === true) {
@@ -282,6 +295,7 @@ $(document).ready(function() {
 
     jQuery("#power-walk-tab").on("tap", function(e) {
         //remove blinking if there is any
+        e.preventDefault();
         jQuery("#power-walk-filled").hide();
 
         if (jQuery("#power-walk").attr("src") === "css/images/PowerWalk.png") {
@@ -295,8 +309,8 @@ $(document).ready(function() {
         }
     });
 
-    jQuery("#achievements-tab").on("tap", function() {
-
+    jQuery("#achievements-tab").on("tap", function(e) {
+        e.preventDefault();
         if (jQuery("#achievements").attr("src") === "css/images/Achievements.png") {
             jQuery("#auto-walk").attr("src", "css/images/AutoWalk.png");
             jQuery("#power-walk").attr("src","css/images/PowerWalk.png");
@@ -326,7 +340,8 @@ $(document).ready(function() {
     //ACHIEVEMENT CONGRATS PANEL INTERACTION
     jQuery(".congratulations").hide();
 
-    jQuery(".close").on("tap", function() {
+    jQuery(".close").on("tap", function(e) {
+        e.preventDefault();
         jQuery(".congratulations").removeClass("fadein2");
         jQuery(".congratulations").addClass("fadeout2");
         /*jQuery(".congratulations").bind('webkitAnimationEnd', function() {
@@ -408,6 +423,7 @@ $(document).ready(function() {
 
     //SHAKE UPGRADE IF NOT ENOUGH SS
     jQuery(".upgrade").on("tap", function(e){
+        e.preventDefault();
         if (!jQuery(this).hasClass("affordable")) {
             jQuery(this).children().children().addClass("shake");
             jQuery(this).children().find('.cost-moniker').css('color', 'red');
@@ -437,12 +453,15 @@ $(document).ready(function() {
     });*/
 
 
-    //UPGRADE INTERACTION
+    var numTimesActiveUpgradeInteraction = 0;
+    //ACTIVE UPGRADE INTERACTION
     jQuery(".upgrade-success").hide();
 
-    jQuery(".upgrade").on("tap", function() {
-        
-        if (jQuery(this).hasClass("affordable")) {
+    jQuery("#upgrades-list .upgrade").on("tap", function(e) {
+        e.preventDefault();
+        numTimesActiveUpgradeInteraction++;
+        if (jQuery(this).hasClass("affordable") && numTimesActiveUpgradeInteraction <= 3) {
+            jQuery("#upgrade-success-header").html("<img src='css/images/PowerWalk-main.png' id='upgrade-success-img'><br>Increased number of StepSteps per Step!")
 
             jQuery(".upgrade-success").show().addClass("upgradefadein");
             jQuery("#upgrade-success-header").addClass("textinout");
@@ -454,7 +473,7 @@ $(document).ready(function() {
                     jQuery(".upgrade-success").removeClass("upgradefadeout").hide();
                 }, 100);
 
-            }, 1700);
+            }, 1000);
 
         }
 
@@ -462,7 +481,120 @@ $(document).ready(function() {
     });
 
 
+    var numTimesPassiveUpgradeInteraction = 0;
+    //PASSIVE UPGRADE INTERACTION
+    jQuery("#passives-list .upgrade").on("tap", function(e) {
+        e.preventDefault();
+        numTimesPassiveUpgradeInteraction++;
+        if (jQuery(this).hasClass("affordable") && numTimesPassiveUpgradeInteraction <= 3) {
 
+            jQuery("#upgrade-success-header").html("<img src='css/images/AutoWalk-main.png' id='upgrade-success-img'><br>Increased number of StepSteps per Second!")
+            jQuery(".upgrade-success").show().addClass("upgradefadein");
+            jQuery("#upgrade-success-header").addClass("textinout");
+            setTimeout(function() {
+                jQuery(".upgrade-success").addClass("upgradefadeout").removeClass("upgradefadein");
+
+                setTimeout(function() {
+                    jQuery(".upgrade-success").removeClass("upgradefadeout").hide();
+                }, 100);
+
+            }, 1000);
+
+        }
+
+
+    });
+
+    //TOUCHING HELP BUTTON ANIMATION
+    jQuery("#help-button").on("touchstart", function() {
+        jQuery("#help-button").css({
+            "opacity":0.3,
+            "-webkit-transition": "none"
+        });
+    });
+
+    jQuery("#help-button").on("touchend", function() {
+        jQuery("#help-button").css({
+            "opacity":1,
+            "-webkit-transition": "opacity 0.3s"
+        });
+    });
+
+
+    //MAKE HELP PANEL APPEAR
+    jQuery(".help").hide();
+
+    jQuery("#help-button").on("tap", function() {
+        jQuery(".help").show().addClass("upgradefadein");
+        jQuery("#content").css("-webkit-filter", "blur(20px)");
+        //jQuery("#counter").css("-webkit-filter", "blur(20px)");
+        //jQuery("#tab-bar").css("-webkit-filter", "blur(20px)");
+    });
+
+    jQuery("#help-done-button").on("tap", function(e) {
+        e.preventDefault();
+        jQuery(".help").addClass("upgradefadeout").removeClass("upgradefadein");
+        setTimeout(function() {
+            jQuery(".help").removeClass("upgradefadeout").hide();
+            jQuery("#content").css("-webkit-filter", "blur(0px)");
+            //jQuery("#counter").css("-webkit-filter", "blur(0px)");
+            //jQuery("#tab-bar").css("-webkit-filter", "blur(0px)");
+        }, 100);
+    });
+    
+    jQuery(".help-descriptions").bind("scroll", function() {
+        if(jQuery(this).scrollTop() + jQuery(this).innerHeight() >= this.scrollHeight) {
+            jQuery(this).css("background", "rgba(0,0,0,0)");
+        } else {
+            jQuery(this).css("background", "-webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1)");
+        }
+    })
+    
+    
+    
+    //TOUCHING DONE BUTTON ANIMATION FOR HELP
+    jQuery("#help-done-button").on("touchstart", function() {
+        jQuery("#help-done-button").css({
+            "opacity":0.3,
+            "-webkit-transition": "none"
+        });
+    });
+
+    jQuery("#help-done-button").on("touchend", function() {
+        jQuery("#help-done-button").css({
+            "opacity":1,
+            "-webkit-transition": "opacity 0.3s"
+        });
+    });
+
+    
+    //LOCAL STORAGE FOR HELP
+    
+    
+    if (!localStorage.getItem("openedFirstTime")) {
+        jQuery(".help").show().addClass("upgradefadein");
+        jQuery("#content").css("-webkit-filter", "blur(20px)");
+    }
+    
+    
+    
+    //CONFIRM RESET DIALOG
+    jQuery(".confirm-reset").hide();
+    jQuery("#reset-button").on("tap", function() {
+        jQuery(".confirm-reset").show().addClass("upgradefadein");
+    });
+    jQuery(".confirm").on("tap", function(e) {
+        e.preventDefault();
+        jQuery(".confirm-reset").addClass("upgradefadeout").removeClass("upgradefadein");
+        setTimeout(function() {
+            jQuery(".confirm-reset").removeClass("upgradefadeout").hide();
+        }, 100);
+    });
+    
+    
+    localStorage.setItem("openedFirstTime", "true");
+
+    
     app.on("upgrade-unlocked", function() {
         jQuery("#power-walk-filled").show();
 

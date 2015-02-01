@@ -42,49 +42,49 @@ ACTIVE_UPGRADES = [
 	}, {
 		name:"Marathoner",
 		description:"Add 200 StepSteps per step",
-		image:"css/images/active4_battleofmarathon.png",
+		image:"css/images/active_marathoner.png",
 		baseCost:200000,
 		effect:200,
 		unlockAt:100000
 	}, {
 		name:"Walkaholic",
 		description:"Add 400 StepSteps per step",
-		image:"css/images/active5_walkaholic.png",
+		image:"css/images/active_walkaholic.png",
 		baseCost:500000,
 		effect:400,
 		unlockAt:250000
 	}, {
 		name:"Walka Walka",
 		description:"Add 700 StepSteps per step",
-		image:"css/images/active6_walkawalka.png",
+		image:"css/images/active_walkawalka.png",
 		baseCost:1000000,
 		effect:700,
 		unlockAt:500000
 	}, {
 		name:"Unstoppable",
 		description:"Add 3,000 StepSteps per step",
-		image:"css/images/active7_unstoppable.png",
+		image:"css/images/active_unstoppable.png",
 		baseCost:5000000,
 		effect:3000,
 		unlockAt:2500000
 	}, {
 		name:"Road Less Taken",
 		description:"Add 15,000 StepSteps per step",
-		image:"css/images/active8_roadlesstaken.png",
+		image:"css/images/active_roadlesstaken.png",
 		baseCost:30000000,
 		effect:15000,
 		unlockAt:15000000
 	}, {
 		name:"Oregon Trail",
 		description:"Add 30,000 StepSteps per step",
-		image:"css/images/active9_oregontrail.png",
+		image:"css/images/active_oregontrail.png",
 		baseCost:70000000,
 		effect:30000,
 		unlockAt:35000000
 	}, {
 		name:"Where No One...",
 		description:"Add 80,000 StepSteps per step",
-		image:"css/images/active10_wherenobodyhasgone.png",
+		image:"css/images/active_wherenoonehasgone.png",
 		baseCost:200000000,
 		effect:80000,
 		unlockAt:100000000
@@ -95,46 +95,32 @@ PASSIVE_UPGRADES = [
 	{
 		name: 'Extra Steps',
 		description: 'Add 1 StepSteps per second',
-		image: "css/images/passive1_extrasteps.png",
+		image: "css/images/passive_extrasteps.png",
 		baseCost: 150000,
 		idle: 1,
 		unlockAt: 0
 	}, {
 		name: 'Phantom Steps',
 		description: 'Add 3 StepSteps per second',
-		image: "css/images/passive2_phantomsteps.png",
+		image: "css/images/passive_phantomsteps.png",
 		baseCost: 450000,
 		idle: 3,
 		unlockAt: 200000
 	}, {
 		name: 'Flash Steps',
 		description: 'Add 5 StepSteps per second',
-		image: "css/images/passive3_flashsteps.png",
+		image: "css/images/passive_flashsteps.png",
 		baseCost: 1500000,
 		idle: 5,
 		unlockAt: 750000
 	}, {
 		name: 'Doppelganger',
 		description: 'Add 10 StepSteps per second',
-		image: "css/images/passive4_doppelganger.png",
+		image: "css/images/passive_doppelganger.png",
 		baseCost: 8000000,
 		idle: 10,
 		unlockAt: 4000000
-	}, {
-		name: 'Doppelganger',
-		description: 'Add 10 StepSteps per second',
-		image: "css/images/passive4_doppelganger.png",
-		baseCost: 8000000,
-		idle: 10,
-		unlockAt: 4000000
-	}, {
-		name: 'Doppelganger',
-		description: 'Add 10 StepSteps per second',
-		image: "css/images/passive4_doppelganger.png",
-		baseCost: 8000000,
-		idle: 10,
-		unlockAt: 4000000
-	},
+	}, 
 
 ];
 
@@ -228,15 +214,14 @@ ACHIEVEMENTS = [
 		
 Game = Backbone.Model.extend({
 	defaults: {
-		ss: 1000,
-		ssps: 100000000,
-		sspt: 1,
+		ss: 0,
+		ssps: 10000000,
+		sspt: 0,
 		totalSs: 0,
 		steps: 0,
 		lastIdleUpdate: +new Date(),
 		lastStepUpdate: +new Date(),
 		lastCloudSave: 0,
-		sonaId: '',
 	},
 	
 	initialize: function() {
@@ -246,7 +231,7 @@ Game = Backbone.Model.extend({
 		
 		this.upgrades.on('change:count', this.recalculate, this);
 		this.passives.on('change:count', this.recalculate, this);
-		this.achievements.on('change:count', this.recalculate, this);
+		this.achievements.on('change:locked', this.recalculate, this);
 	},
 	
 	recalculate: function() {
@@ -256,13 +241,12 @@ Game = Backbone.Model.extend({
 		var sspt = this.passives.reduce(function(acc, up) {
 			return acc + up.get('count') * up.get('idle');
 		}, 0);
-		var multiplier = this.achievements.reduce(function(acc, a) {
+		var mult = this.achievements.reduce(function(acc, a) {
 			return a.get('locked') ? acc : acc * a.get('multiplier');
 		}, 1);
-		
 		this.set({
-			ssps: (1 + ssps) * multiplier,
-			sspt: sspt * multiplier
+			ssps: (1 + ssps) * mult,
+			sspt: sspt * mult
 		});
 	},
 	
@@ -293,7 +277,7 @@ Game = Backbone.Model.extend({
 
 GameView = Backbone.View.extend({
 	events: {
-        'tap #autowalk-main': 'reset',
+        'tap #confirm-yes': 'reset',
         'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
 		'click #sona-login-btn': 'login',
@@ -454,6 +438,14 @@ GameView = Backbone.View.extend({
 		if (!this.chart) {
 			this.chart = new StepChart($('#canvas')[0]);
 		}
+
+		var mult = this.model.achievements.reduce(function(acc, a) {
+			return a.get('locked') ? acc : acc * a.get('multiplier');
+		}, 1);
+		var multStr = Math.floor(100 * (mult - 1)).toString();
+		Util.render($('#stats-panel'), { multiplier: multStr });
+		Util.render($('#stats-panel'), this.model.attributes);
+		
 		Util.lastWeekStepData(window.pedometer, _.bind(this.chart.update, this.chart), this.onError);
 	},
 

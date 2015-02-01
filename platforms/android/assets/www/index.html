@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <meta name="format-detection" content="telephone=no" />
@@ -35,6 +36,10 @@
         <div data-role="page" id="home">
             <div id="content">
 
+                <div id="help-button">
+                    <img id="help-image" src="css/images/help.png">
+                </div>
+
                 <div id="counter">
                     <div id="stepstep-count"><span>10</span></div>
                     <p id="stepstep-label">STEPSTEPS</p>
@@ -64,7 +69,7 @@
 
                 <div id="autowalk-panel">
                     <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Increase StepSteps per Second.</b> <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
-                    
+
                     <ul id="passives-list" data-role="listview" data-inset="true">
                     </ul>
 
@@ -92,11 +97,14 @@
                 </div>
 
 
+
                 <div id="stats-panel">
-                    <h2 id="stats-header">Steps walked in last week</h2>
+                    <h2 id="stats-header">Steps in past week</h2>
                     <canvas id="canvas"></canvas>
-                    <p class="stats-panel-p">Cumulative StepSteps:<span></span></p>
-                    <p class="stats-panel-p">Cumulative Bonus effect:</p>
+                    <p class="stats-panel-p">Cumulative Steps <br> <span class="steps">0</span></p>
+                    <p class="stats-panel-p">Cumulative StepSteps <br> <span class="totalSs">0</span></p>
+                    <p class="stats-panel-p">Cumulative Bonus effect <br> +<span class="multiplier">0</span>%</p>
+                    <p class="stats-panel-p" id="reset-button">Reset Game <br><span id="reset-description">This will remove all your upgrades and StepSteps you've earned.</span> </p>
 
                 </div>
 
@@ -113,10 +121,22 @@
                     <img id="trophy-image" src="css/images/Trophy.png" alt="trophy">
                     <p class="close">Close</p>
                 </div>
-                
+
+
+
                 <div class="upgrade-success">
-                    <h2 id="upgrade-success-header"><img src="css/images/PowerWalk-main.png" id="upgrade-success-img"><br>Number of StepSteps per Step increased by <span>941</span>!</h2>
+                    <h2 id="upgrade-success-header"><img src="css/images/PowerWalk-main.png" id="upgrade-success-img"><br>Increased number of StepSteps per Step!</h2>
                 </div>
+                
+                <div class="confirm-reset">
+                    <h2 id="confirm-header"><br>Are you sure you want to reset?</h2>
+                    <p id="confirmation"><span class="confirm" id="confirm-yes">Yes</span><span class="confirm" id="confirm-no">No</span></p>
+                </div>
+
+
+
+
+
 
 
                 <div>
@@ -138,6 +158,27 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="help">
+            <h2 id="help-header">Overview</h2>
+
+            <div class="help-descriptions">
+                <img class="help-image" id="help-shoe" src="css/images/stepstep-help-step.png">
+                <h3 class="h3-help">Walk to earn StepSteps.</h3>
+                <p class="p-help">StepSteps still accumulate when the app is closed. Use Stepsteps to purchase upgrades.</p>
+                
+                <img class="help-image" src="css/images/PowerWalk-main.png">
+                <h3 class="h3-help">PowerWalk Upgrades.</h3>
+                <p class="p-help">Earn StepSteps at a faster rate by purchasing PowerWalk Upgrades.</p>
+
+                <img class="help-image" src="css/images/AutoWalk-main.png">
+                <h3 class="h3-help">AutoWalk Upgrades.</h3>
+                <p class="p-help">Earn StepSteps through the simple passage of time by purchasing AutoWalk upgrades.</p>
+            </div>
+
+
+            <p id="help-done-button" class="button">Done</p>
         </div>
 
         <script src="js/ui.js"></script>
