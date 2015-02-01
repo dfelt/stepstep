@@ -567,14 +567,6 @@ $(document).ready(function() {
     });
 
     
-    //VERIFY RESET
-    jQuery("#reset-button").on("click", function() {
-        var response = confirm("Are you sure you want to reset?");
-        if (response == true) {
-            reset();
-        } 
-    });
-    
     //LOCAL STORAGE FOR HELP
     
     
@@ -582,6 +574,14 @@ $(document).ready(function() {
         jQuery(".help").show().addClass("upgradefadein");
         jQuery("#content").css("-webkit-filter", "blur(20px)");
     }
+    
+    
+    
+    //CONFIRM RESET DIALOG
+    jQuery(".confirm-reset").hide();
+    jQuery("#reset-button").on("click", function() {
+        jQuery(".confirm-reset").show().addClass("upgradefadein");
+    });
     
     localStorage.setItem("openedFirstTime", "true");
 
