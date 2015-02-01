@@ -214,8 +214,8 @@ ACHIEVEMENTS = [
 		
 Game = Backbone.Model.extend({
 	defaults: {
-		ss: 0,
-		ssps: 10000000,
+		ss: 892761,
+		ssps: 240,
 		sspt: 0,
 		multiplier: 1,
 		totalSs: 0,
@@ -280,9 +280,7 @@ Game = Backbone.Model.extend({
 GameView = Backbone.View.extend({
 	events: {
         'tap #confirm-yes': 'reset',
-        'tap #step-button': 'step',
 		'tap .upgrade': 'buyUpgrade',
-		'click #sona-login-btn': 'login',
 	},
 	
 	initialize: function(options) {
