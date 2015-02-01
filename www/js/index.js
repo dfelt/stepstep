@@ -1,66 +1,69 @@
 
 var app = {
-	initialize: function() {
-		$('#home').on('pagebeforecreate', app.initializeGame);
-		$(document).on('deviceready', app.onDeviceReady);
-		_.extend(app, Backbone.Events);
-		Parse.initialize("CTA88xkiQrusIuEpIgmzcktxeI7d02OmZjK3iUay", "TEnNf0PDARVZC3e5tk1wiEMF7CC3dcb6YFdVPbo4");
-	},
+    initialize: function() {
+        $('#home').on('pagebeforecreate', app.initializeGame);
+        $(document).on('deviceready', app.onDeviceReady);
+        _.extend(app, Backbone.Events);
+        Parse.initialize("CTA88xkiQrusIuEpIgmzcktxeI7d02OmZjK3iUay", "TEnNf0PDARVZC3e5tk1wiEMF7CC3dcb6YFdVPbo4");
+    },
 
-	initializeGame: function() {
-		app.game = new GameView({ model: app.loadGame(), el: $('#home'), gameEvents: app });
-		/*if (!app.game.model.get('sonaId')) {
+    initializeGame: function() {
+        app.game = new GameView({ model: app.loadGame(), el: $('#home'), gameEvents: app });
+        /*if (!app.game.model.get('sonaId')) {
 			_.delay(function() { $('#sona-login').popup('open'); }, 1000);
 		}*/
-		app.begin();
-	},
+        app.begin();
+    },
 
-	loadGame: function() {
-		try {
-			var data = JSON.parse(localStorage.game);
-			if (data) { return Game.fromSaveJSON(data); }
-		} catch (e) { }
-		return new Game();
-	},
+    loadGame: function() {
+        try {
+            var data = JSON.parse(localStorage.game);
+            if (data) { return Game.fromSaveJSON(data); }
+        } catch (e) { }
+        return new Game();
+    },
 
-	onDeviceReady: function() {
-		//app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
-		app.pedometer = pedometer;
-		app.begin();
-	},
+    onDeviceReady: function() {
+        //app.stepometer = cordova.require('edu.cornell.stepometer.Stepometer');
+        app.pedometer = pedometer;
+        app.begin();
+    },
 
-	begin: function() {
-		if (app.game && app.pedometer) {
-			app.game.begin();
-			app.pedometer.isStepCountingAvailable(app.onStepCountingAvailable, app.onError);
-		}
-		// For use when testing with browswer
-		if (navigator.userAgent.indexOf('Chrome') != -1) app.game.begin();
-	},
+    begin: function() {
+        if (app.game && app.pedometer) {
+            app.game.begin();
+            app.pedometer.isStepCountingAvailable(app.onStepCountingAvailable, app.onError);
+        }
+        // For use when testing with browswer
+        if (navigator.userAgent.indexOf('Chrome') != -1) app.game.begin();
+    },
 
-	onStepCountingAvailable: function(available) {
-		if (available) {
+    onStepCountingAvailable: function(available) {
+        if (available) {
             var lastOpened = app.game.model.get('lastOpened');
             app.pedometer.startPedometerUpdates(app.onStep, app.onError);
-			app.prevPedometerData = {
-				numberOfSteps: 0,
-				distance: 0,
-				floorsAscended: 0,
-				floorsDescended: 0
-			};
-		}
-	},
+            app.prevPedometerData = {
+                numberOfSteps: 0,
+                distance: 0,
+                floorsAscended: 0,
+                floorsDescended: 0
+            };
+        } else {
+            $(".counter").html("In order to use this app, you will need an iPhone that has the M7 or M8 coprocessor, such as the iPhone 5s, iPhone 6, and iPhone 6 Plus");
+            
+        }
+    },
 
-	onStep: function(pedometerData) {
-		console.log(pedometerData);
-		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
-		app.prevPedometerData = pedometerData;
-	},
+    onStep: function(pedometerData) {
+        console.log(pedometerData);
+        app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
+        app.prevPedometerData = pedometerData;
+    },
 
-	onError: function() {
-		console.log('Error occurred');
-		console.log(new Error().stack);
-	},
+    onError: function() {
+        console.log('Error occurred');
+        console.log(new Error().stack);
+    },
 };
 
 app.initialize();

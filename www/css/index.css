@@ -23,7 +23,7 @@ body {
 
 .tpl { display: none }
 li.upgrade.locked { display: none;  }
-li.upgrade.affordable { background-color: rgba(255,255,255,0.9); -webkit-transition: background-color 0.4s, color 0.4s; }
+li.upgrade.affordable { background-color: rgba(255,255,255,0.9); -webkit-transition: background-color 0.2s, color 0.2; }
 li.upgrade.affordable:active { background-color: rgb(27, 129, 216); -webkit-transition: none}
 li.upgrade.affordable:active > * > * { color: white !important; -webkit-transition: none}
 
@@ -759,7 +759,7 @@ li.upgrade {
 
 .stats-panel-p {
     padding: 5px;
-    margin: 0.8rem 0;
+    margin: 0.6rem 0;
     font-weight: 500;
     font-size: 15pt;
     text-align: center;
@@ -1227,4 +1227,24 @@ b {
 
 #confirm-yes {
     color: #fd3100
+}
+
+.steps {
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+.totalSs {
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+.multiplier {
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+#effect-bonus {
+    font-size: 14pt;
+    font-weight: 300;
 }

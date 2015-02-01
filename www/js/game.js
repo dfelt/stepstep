@@ -177,14 +177,14 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Locomotor',
-		description: 'Get 1,000,000 total StepSteps.',
+		description: 'Get 1M total StepSteps.',
 		multiplier: 1.05,
 		unlockType: 'totalSs',
 		unlockValue: 1000000,
 	},
 	{
 		name: 'The Step Mason',
-		description: 'Get 50,000,000 total StepSteps.',
+		description: 'Get 50M total StepSteps.',
 		multiplier: 1.05,
 		unlockType: 'totalSs',
 		unlockValue: 50000000,
@@ -198,14 +198,14 @@ ACHIEVEMENTS = [
 	},
 	{
 		name: 'The Ascended',
-		description: 'Walk 1,000,000 steps.',
+		description: 'Walk 1M steps.',
 		multiplier: 1.1,
 		unlockType: 'steps',
 		unlockValue: 1000000,
 	},
 	{
 		name: 'The God of Steps',
-		description: 'Get 1,000,000,000 total StepSteps.',
+		description: 'Get 1B total StepSteps.',
 		multiplier: 1.2,
 		unlockType: 'totalSs',
 		unlockValue: 1000000000,
@@ -214,11 +214,11 @@ ACHIEVEMENTS = [
 		
 Game = Backbone.Model.extend({
 	defaults: {
-		ss: 892761,
-		ssps: 240,
+		ss: 0,
+		ssps: 1,
 		sspt: 0,
-		totalSs: 89761,
-		steps: 10000,
+		totalSs: 0,
+		steps: 0,
 		lastIdleUpdate: +new Date(),
 		lastStepUpdate: +new Date(),
 		lastCloudSave: 0,
