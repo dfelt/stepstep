@@ -231,7 +231,7 @@ Game = Backbone.Model.extend({
 		
 		this.upgrades.on('change:count', this.recalculate, this);
 		this.passives.on('change:count', this.recalculate, this);
-		this.achievements.on('change:count', this.recalculate, this);
+		this.achievements.on('change:locked', this.recalculate, this);
 	},
 	
 	recalculate: function() {
@@ -271,7 +271,6 @@ Game = Backbone.Model.extend({
 		game.upgrades.each(function(u, i) { u.set(data.upgrades[i]); });
 		game.passives.each(function(u, i) { u.set(data.passives[i]); });
 		game.achievements.each(function(a, i) { a.set(data.achievements[i]); });
-		game.recalculate();
 		return game;
 	}
 });
