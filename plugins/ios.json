@@ -20,7 +20,18 @@
                         }
                     ],
                     "WebKit.framework": [],
-                    "libz.dylib": []
+                    "libz.dylib": [],
+                    "QuartzCore.framework": [],
+                    "CoreText.framework": [],
+                    "OpenGLES.framework": [],
+                    "MobileCoreServices.framework": [],
+                    "AssetsLibrary.framework": [],
+                    "MapKit.framework": [],
+                    "ImageIO.framework": [],
+                    "CoreLocation.framework": [],
+                    "SystemConfiguration.framework": [],
+                    "AudioToolbox.framework": [],
+                    "OpenAL.framework": []
                 }
             },
             "config.xml": {

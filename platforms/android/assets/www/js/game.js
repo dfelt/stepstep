@@ -7,40 +7,40 @@ ACTIVE_UPGRADES = [
 	{
 		name:"Trailblazer",
 		description: 'Add 1 StepStep per step',
-		image:"css/images/trail.png",
+		image:"css/images/active_trailblazer.png",
 		baseCost: 10,
 		effect:1,
 		unlockAt:0
 	}, {
 		name:"Steamroller",
 		description:"Add 3 StepSteps per step",
-		image:"css/images/steamroller.png",
+		image:"css/images/active_steamroller.png",
 		baseCost:100,
 		effect:3,
 		unlockAt:50
 	}, {
 		name:"Happy Feet",
 		description:"Add 10 StepSteps per step",
-		image:"css/images/active1_happyfeet.png",
+		image:"css/images/active_happyfeet.png",
 		baseCost:1000,
 		effect:10,
 		unlockAt:500
 	}, {
 		name:"Power Walker",
 		description:"Add 30 StepSteps per step",
-		image:"css/images/walkawalka.png",
+		image:"css/images/active_powerwalk.png",
 		baseCost:10000,
 		effect:30,
 		unlockAt:5000
 	}, {
 		name:"Robowalker",
 		description:"Add 60 StepSteps per step",
-		image:"css/images/active3_robowalker.png",
+		image:"css/images/active_robowalker.png",
 		baseCost:50000,
 		effect:60,
 		unlockAt:25000
 	}, {
-		name:"Battle of Marathon",
+		name:"Marathoner",
 		description:"Add 200 StepSteps per step",
 		image:"css/images/active4_battleofmarathon.png",
 		baseCost:200000,
@@ -68,7 +68,7 @@ ACTIVE_UPGRADES = [
 		effect:3000,
 		unlockAt:2500000
 	}, {
-		name:"The Road Less Taken",
+		name:"Road Less Taken",
 		description:"Add 15,000 StepSteps per step",
 		image:"css/images/active8_roadlesstaken.png",
 		baseCost:30000000,
@@ -82,7 +82,7 @@ ACTIVE_UPGRADES = [
 		effect:30000,
 		unlockAt:35000000
 	}, {
-		name:"Where Nobody Has Gone...",
+		name:"Where No One...",
 		description:"Add 80,000 StepSteps per step",
 		image:"css/images/active10_wherenobodyhasgone.png",
 		baseCost:200000000,
@@ -113,6 +113,20 @@ PASSIVE_UPGRADES = [
 		baseCost: 1500000,
 		idle: 5,
 		unlockAt: 750000
+	}, {
+		name: 'Doppelganger',
+		description: 'Add 10 StepSteps per second',
+		image: "css/images/passive4_doppelganger.png",
+		baseCost: 8000000,
+		idle: 10,
+		unlockAt: 4000000
+	}, {
+		name: 'Doppelganger',
+		description: 'Add 10 StepSteps per second',
+		image: "css/images/passive4_doppelganger.png",
+		baseCost: 8000000,
+		idle: 10,
+		unlockAt: 4000000
 	}, {
 		name: 'Doppelganger',
 		description: 'Add 10 StepSteps per second',

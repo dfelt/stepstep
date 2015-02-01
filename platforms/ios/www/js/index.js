@@ -55,7 +55,7 @@ var app = {
 
 	onStep: function(pedometerData) {
 		console.log(pedometerData);
-		//app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
+		app.game.step(pedometerData.numberOfSteps - app.prevPedometerData.numberOfSteps);
 		app.prevPedometerData = pedometerData;
 	},
 

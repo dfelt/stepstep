@@ -44,27 +44,28 @@
                     <p id="stepstepsecond"><img id="autowalk-main" src="css/images/AutoWalk-main.png"><span class="sspt">0</span> StepSteps / Second</p>
                     <br/>
                 </div>
-               
+
                 <div id="powerwalk-panel">
-                    
+                    <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Increase StepSteps per Step.</b> <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
+
                     <ul id="upgrades-list" data-role="listview" data-inset="false">
-                        <li id="power-upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Step. <br> Currently <span class="ssps">0</span> SS/Step.</p></li>
                     </ul>
-                    
+
                     <div id="upgrade-tpl" class="tpl">
                         <a href="#">
                             <img>
-                            <span class="name"></span>
+                            <p class="name"></p>
                             <p class="description"></p>
-                            Cost: <span class="cost"></span>
+                            <p class="cost-moniker">Cost: <span class="cost"></span> SS</p>
                             <span class="count ui-li-count"></span>
                         </a>
                     </div>
                 </div>
 
                 <div id="autowalk-panel">
+                    <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Increase StepSteps per Second.</b> <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
+                    
                     <ul id="passives-list" data-role="listview" data-inset="true">
-                        <li id="upgrade-header" data-position="fixed" data-role="list-divider"><p id="upgrades-text">Increase StepSteps per Second. <br> Currently <span class="sspt">0</span> SS/Second.</p></li>
                     </ul>
 
                     <div id="upgrade-tpl" class="tpl">
@@ -79,8 +80,8 @@
                 </div>
 
                 <div id="achievements-panel">
-                    <ul id="achievements-list" data-role="listview" data-inset="true">
-                        <li id="achievements-header" data-position="fixed" data-role="list-divider"><p id="achievements-text">Achievements</p></li>
+                    <li id="achievements-header" data-position="fixed" data-role="list-divider"><p class="upgrades-text"><b>Achievements</b></p></li>
+                    <ul id="achievements-list" data-role="listview" data-inset="true">    
                     </ul>
 
                     <div id="achievement-tpl" class="tpl">
@@ -96,7 +97,7 @@
                     <canvas id="canvas"></canvas>
                     <p class="stats-panel-p">Cumulative StepSteps:<span></span></p>
                     <p class="stats-panel-p">Cumulative Bonus effect:</p>
-                    
+
                 </div>
 
 
@@ -112,6 +113,10 @@
                     <img id="trophy-image" src="css/images/Trophy.png" alt="trophy">
                     <p class="close">Close</p>
                 </div>
+                
+                <div class="upgrade-success">
+                    <h2 id="upgrade-success-header"><img src="css/images/PowerWalk-main.png" id="upgrade-success-img"><br>Number of StepSteps per Step increased by <span>941</span>!</h2>
+                </div>
 
 
                 <div>
@@ -124,7 +129,7 @@
                 </div>
             </div>
 
-        
+
 
             <div data-role="popup" id="welcome-back" data-theme="b" class="ui-corner-all" data-transition="fade">
                 <div style="padding:10px 20px;">
