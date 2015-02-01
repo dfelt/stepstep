@@ -21,6 +21,8 @@ Util = {
 			return Util.sigFigs(n / 1e9, 4).toString() + 'B';
 		} else if (len >= 6) {
 			return Util.sigFigs(n / 1e6, 4).toString() + 'M';
+		} else if (len >= 3) {
+			return Util.numberToStringWithCommas(n);
 		} else {
 			return Math.floor(n).toString();
 		}
