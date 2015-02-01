@@ -4,7 +4,7 @@ var achievementsActive = false;
 var autowalkActive = false;
 var powerwalkActive = false;
 var statsActive = false;
-
+var seenDialogThreeTimes = false;
 $(document).ready(function() {
 
     //Tap outside of modals to slide them back down.
@@ -452,12 +452,14 @@ $(document).ready(function() {
     });*/
 
 
+    var numTimesActiveUpgradeInteraction = 0;
     //ACTIVE UPGRADE INTERACTION
     jQuery(".upgrade-success").hide();
 
     jQuery("#upgrades-list .upgrade").on("tap", function(e) {
         e.preventDefault();
-        if (jQuery(this).hasClass("affordable")) {
+        numTimesActiveUpgradeInteraction++;
+        if (jQuery(this).hasClass("affordable") && numTimesActiveUpgradeInteraction <= 3) {
             jQuery("#upgrade-success-header").html("<img src='css/images/PowerWalk-main.png' id='upgrade-success-img'><br>Increased StepSteps per Step by <span>941</span>!")
 
             jQuery(".upgrade-success").show().addClass("upgradefadein");
@@ -478,10 +480,12 @@ $(document).ready(function() {
     });
 
 
+    var numTimesPassiveUpgradeInteraction = 0;
     //PASSIVE UPGRADE INTERACTION
     jQuery("#passives-list .upgrade").on("tap", function(e) {
         e.preventDefault();
-        if (jQuery(this).hasClass("affordable")) {
+        numTimesPassiveUpgradeInteraction++;
+        if (jQuery(this).hasClass("affordable") && numTimesPassiveUpgradeInteraction <= 3) {
 
             jQuery("#upgrade-success-header").html("<img src='css/images/AutoWalk-main.png' id='upgrade-success-img'><br>Increased StepSteps per Second by <span>941</span>!")
             jQuery(".upgrade-success").show().addClass("upgradefadein");

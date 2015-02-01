@@ -23,7 +23,7 @@ body {
 
 .tpl { display: none }
 li.upgrade.locked { display: none;  }
-li.upgrade.affordable { background-color: rgba(255,255,255,0.9); -webkit-transition: background-color 0.4s; -webkit-transition: color 0.4s; }
+li.upgrade.affordable { background-color: rgba(255,255,255,0.9); -webkit-transition: background-color 0.4s, color 0.4s; }
 li.upgrade.affordable:active { background-color: rgb(27, 129, 216); -webkit-transition: none}
 li.upgrade.affordable:active > * > * { color: white !important; -webkit-transition: none}
 

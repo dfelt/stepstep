@@ -215,7 +215,7 @@ ACHIEVEMENTS = [
 Game = Backbone.Model.extend({
 	defaults: {
 		ss: 1000,
-		ssps: 1,
+		ssps: 100000000,
 		sspt: 0,
 		totalSs: 1000,
 		steps: 0,
