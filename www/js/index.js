@@ -48,8 +48,6 @@ var app = {
 				floorsAscended: 0,
 				floorsDescended: 0
 			};
-		} else {
-            alert('You must have an iPhone 5s or iPhone 6 running iOS 8 in order to use this app.');
 		}
 	},
 

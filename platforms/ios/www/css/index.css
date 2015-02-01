@@ -873,7 +873,7 @@ b {
     text-align: center;
     background-color: rgba(54, 54, 54, 0.90);
     font-weight: 400 !important;
-    z-index: 100000000000000000;
+    z-index: 10000000000000000000000;
 }
 
 #help-header {
@@ -927,6 +927,7 @@ b {
 #help-done-button {
     color: #50bcff;
     margin: 1.5rem 0;
+    z-score: 10000000000;
 }
 
 #help-shoe {
@@ -981,6 +982,7 @@ b {
     #help-done-button {
         color: #50bcff;
         margin: 1rem 0;
+        z-score: 10000000000;
     }
 
 }

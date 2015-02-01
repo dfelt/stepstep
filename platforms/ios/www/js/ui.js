@@ -96,13 +96,13 @@ $(document).ready(function() {
     });
 
     //Pulsate step button
-    jQuery("#step-button").on("tap", function(e){
+    /*jQuery("#step-button").on("tap", function(e){
         e.preventDefault();
         jQuery(this).addClass("tapped");
         jQuery(this).bind('webkitAnimationEnd', function() {
             jQuery(this).removeClass("tapped");
         });
-    });
+    });*/
 
 
 
@@ -531,7 +531,7 @@ $(document).ready(function() {
         //jQuery("#tab-bar").css("-webkit-filter", "blur(20px)");
     });
 
-    jQuery("#help-done-button").on("tap", function(e) {
+    jQuery("#help-done-button").on("click", function(e) {
         e.preventDefault();
         jQuery(".help").addClass("upgradefadeout").removeClass("upgradefadein");
         setTimeout(function() {
@@ -568,9 +568,7 @@ $(document).ready(function() {
     });
 
     
-    //LOCAL STORAGE FOR HELP
-    
-    
+    //SHOW HELP SCREEN WHEN APP IS OPENED FIRST TIME
     if (!localStorage.getItem("openedFirstTime")) {
         jQuery(".help").show().addClass("upgradefadein");
         jQuery("#content").css("-webkit-filter", "blur(20px)");
