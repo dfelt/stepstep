@@ -2,7 +2,7 @@
 Util = {
 	render: function(el, attributes) {
 		_.each(attributes, function(val, key) {
-			var valStr = _.isNumber(val) ? Util.numberToStringWithCommas(val) : val.toString();
+			var valStr = _.isNumber(val) ? Util.numberToAbbreviatedString(val) : val.toString();
 			el.find('.' + key).html(valStr);
 		});
 	},
@@ -13,6 +13,24 @@ Util = {
 
 	numberToStringWithCommas: function(n) {
     	return Math.floor(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	},
+
+	numberToAbbreviatedString: function(n) {
+		var len = Math.log10(n);
+		if (len >= 9) {
+			return Util.sigFigs(n / 1e9, 4).toString() + 'B';
+		} else if (len >= 6) {
+			return Util.sigFigs(n / 1e6, 4).toString() + 'M';
+		} else if (len >= 3) {
+			return Util.numberToStringWithCommas(n);
+		} else {
+			return Math.floor(n).toString();
+		}
+	},
+
+	sigFigs: function(n, sig) {
+	    var mult = Math.pow(10, sig - Math.floor(Math.log(n) / Math.LN10) - 1);
+	    return Math.round(n * mult) / mult;
 	},
 
 	lastWeekStepData: function(pedometer, ok, fail) {
