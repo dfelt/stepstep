@@ -759,7 +759,11 @@ li.upgrade {
 
 .stats-panel-p {
     padding: 5px;
+<<<<<<< HEAD
     margin: 0.6rem 0;
+=======
+    margin: 0.8rem 0;
+>>>>>>> 5f865217cfa74695aa3623a582db11327dd76e36
     font-weight: 500;
     font-size: 15pt;
     text-align: center;
