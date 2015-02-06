@@ -444,7 +444,7 @@ GameView = Backbone.View.extend({
 
     testStepUpdate: function() {
         var minutesSinceLastStep = Util.minutesSince(this.model.get('lastStepUpdate'));
-        if (minutesSinceLastStep >= 1 && window.pedometer) {
+        if (minutesSinceLastStep >= 0.01 && window.pedometer) {
         	console.log('minutesSinceLastStep: ' + minutesSinceLastStep);
         	var cb = _.bind(this.onQueryPedometerDataFromDate, this);
             window.pedometer.queryPedometerDataFromDate(this.model.get('lastStepUpdate'), +new Date(), cb, this.onError);
