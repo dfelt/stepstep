@@ -312,7 +312,7 @@ GameView = Backbone.View.extend({
 		this.cloudStorage = this.makeCloudStorage();
 
 		// Welcome the user back if they've been gone
-        //_.delay(_.bind(this.testStepUpdate, this), 500);
+        _.delay(_.bind(this.testStepUpdate, this), 500);
 		
 		// Add events
 		this.model.on('change', this.tryUnlocks, this);
