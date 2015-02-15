@@ -182,6 +182,13 @@ ACHIEVEMENTS = [
 		unlockType: 'totalSs',
 		unlockValue: 1000000,
 	},
+    {
+		name: 'The Step-meister',
+		description: 'Get 1M StepSteps per step.',
+		multiplier: 1.05,
+		unlockType: 'ss',
+		unlockValue: 1000000,
+	},
 	{
 		name: 'The Step Mason',
 		description: 'Get 50M total StepSteps.',
@@ -197,18 +204,32 @@ ACHIEVEMENTS = [
 		unlockValue: 60,
 	},
 	{
-		name: 'The Ascended',
-		description: 'Walk 1M steps.',
-		multiplier: 1.1,
-		unlockType: 'steps',
-		unlockValue: 1000000,
-	},
-	{
 		name: 'The God of Steps',
 		description: 'Get 1B total StepSteps.',
 		multiplier: 1.2,
 		unlockType: 'totalSs',
 		unlockValue: 1000000000,
+	},
+    {
+		name: 'The Grand Step-meister',
+		description: 'Get 1B StepSteps per step.',
+		multiplier: 1.05,
+		unlockType: 'ss',
+		unlockValue: 1000000000,
+	},
+    {
+		name: 'The StepMaster of the Universe',
+		description: 'Get 100B StepSteps per step.',
+		multiplier: 1.05,
+		unlockType: 'ss',
+		unlockValue: 100000000000,
+	},
+	{
+		name: 'The Ascended',
+		description: 'Walk 1M steps.',
+		multiplier: 1.1,
+		unlockType: 'steps',
+		unlockValue: 1000000,
 	},
 ];
 		
