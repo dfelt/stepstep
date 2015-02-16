@@ -186,7 +186,7 @@ ACHIEVEMENTS = [
 		name: 'The Stepmaster',
 		description: 'Get 1M StepSteps per step.',
 		multiplier: 1.05,
-		unlockType: 'ss',
+		unlockType: 'ssps',
 		unlockValue: 1000000,
 	},
 	{
@@ -214,14 +214,14 @@ ACHIEVEMENTS = [
 		name: 'The Grand Stepmaster',
 		description: 'Get 1B StepSteps per step.',
 		multiplier: 1.2,
-		unlockType: 'ss',
+		unlockType: 'ssps',
 		unlockValue: 1000000000,
 	},
     {
 		name: 'The StepMaster of the Universe',
 		description: 'Get 100B StepSteps per step.',
 		multiplier: 1.2,
-		unlockType: 'ss',
+		unlockType: 'ssps',
 		unlockValue: 100000000000,
 	},
 	{
@@ -230,6 +230,13 @@ ACHIEVEMENTS = [
 		multiplier: 1.25,
 		unlockType: 'steps',
 		unlockValue: 1000000,
+	},
+    {
+		name: 'TEST TEST TEST TEST',
+		description: 'Test test.',
+		multiplier: 1.2,
+		unlockType: 'ssps',
+		unlockValue: 300000,
 	},
 ];
 		
