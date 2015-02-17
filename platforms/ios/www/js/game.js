@@ -231,13 +231,6 @@ ACHIEVEMENTS = [
 		unlockType: 'steps',
 		unlockValue: 1000000,
 	},
-    {
-		name: 'TEST TEST TEST TEST',
-		description: 'Test test.',
-		multiplier: 1.2,
-		unlockType: 'ssps',
-		unlockValue: 300000,
-	},
 ];
 		
 Game = Backbone.Model.extend({
